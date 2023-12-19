@@ -6,10 +6,6 @@ import SignUp from './components/SignUp'
 import DoctorDashboard from './dashboard/DoctorDashboard'
 import NurseDashboard from './dashboard/NurseDashboard'
 import PatientDashboard from './dashboard/PatientDashboard'
-<<<<<<< Updated upstream
-=======
-import DoctorProfile from './pages/Doctor/DoctorProfile'
->>>>>>> Stashed changes
 
 const App = () => {
   return (
@@ -20,10 +16,6 @@ const App = () => {
           <Route path='/signup' exact element={<SignUp />} />
           <Route path='/doctor' exact element={<DoctorDashboard />} />
           <Route path='/nurse' exact element={<NurseDashboard />} />
-<<<<<<< Updated upstream
-=======
-          <Route path='/doctor/:activepage' exact element={<DoctorProfile/>} />
->>>>>>> Stashed changes
           <Route path='/patient' exact element={<PatientDashboard />} />
         </Routes>
     </BrowserRouter>
