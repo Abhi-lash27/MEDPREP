@@ -7,6 +7,7 @@ import DoctorDashboard from './dashboard/DoctorDashboard'
 import NurseDashboard from './dashboard/NurseDashboard'
 import PatientDashboard from './dashboard/PatientDashboard'
 import DoctorProfile from './pages/Doctor/DoctorProfile'
+import NurseProfile from './components/Navbar/Nurse/NurseProfile'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='/signup' exact element={<SignUp />} />
           <Route path='/doctor' exact element={<DoctorDashboard />} />
           <Route path='/nurse' exact element={<NurseDashboard />} />
+          <Route path='/nurse/profile' exact element={<NurseProfile />} />
           <Route path='/patient' exact element={<PatientDashboard />} />
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
         </Routes>

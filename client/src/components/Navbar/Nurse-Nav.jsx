@@ -185,7 +185,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
             ))}
           </Box>
 
-          <FormControl sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex',color: 'inherit',border:'InactiveBorder',mx: 2,} }}>
+          <FormControl sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex',color: 'inherit',border:'InactiveBorder',mx: 2} }}>
              <InputLabel id="demo-simple-select-label" sx={{color:'inherit'}}>Language</InputLabel>
           <Select
                 labelId="demo-simple-select-label"
@@ -247,7 +247,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
                 </MenuItem>
                 <MenuItem key='About' onClick={handleCloseUserMenu}>
                 <InfoRoundedIcon sx={{ display: { xs: 'none', md: 'flex' ,fontSize:25}, mr: 1 }} />
-                  <Typography textAlign="center">About</Typography>
+                <Link to='/nurse/profile' ><Typography textAlign="center">Profile</Typography></Link>
                 </MenuItem>
                 <MenuItem key='change-password' onClick={handleCloseUserMenu}>
                 <LockOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' ,fontSize:25}, mr: 1 }} />
