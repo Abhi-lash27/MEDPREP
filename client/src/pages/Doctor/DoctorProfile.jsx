@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import DoctorNav from '../../components/Navbar/Doctor-Nav'
 import HeadBanner from '../../components/Banner/HeadBanner'
 import UserSidebar from '../../components/UserProfile/UserSidebar'
-import AccountSettings from '../../components/UserProfile/AccountSettings'
+import AccountSetting from '../../components/UserProfile/AccountSettings'
 import './DoctorProfile.css'
 import ChangePassword from '../../components/UserProfile/ChangePassword'
 import Notifications from '../../components/UserProfile/Notifications'
@@ -27,7 +27,7 @@ const DoctorProfile = () => {
           <UserSidebar activepage={activepage}/>
         </div>
         <div className='right'>
-          {activepage === 'accountsettings' && <AccountSettings/>}
+          {activepage === 'accountsettings' && <AccountSetting/>}
           {activepage === 'changepassword' && <ChangePassword/> }
           {activepage === 'notify' && <Notifications/> }
         </div>
