@@ -6,6 +6,9 @@ import SignUp from './components/SignUp'
 import DoctorDashboard from './dashboard/DoctorDashboard'
 import NurseDashboard from './dashboard/NurseDashboard'
 import PatientDashboard from './dashboard/PatientDashboard'
+import DoctorProfile from './pages/Doctor/DoctorProfile'
+import PatientProfile from './pages/Patient/PatientProfile'
+
 
 const App = () => {
   return (
@@ -17,6 +20,8 @@ const App = () => {
           <Route path='/doctor' exact element={<DoctorDashboard />} />
           <Route path='/nurse' exact element={<NurseDashboard />} />
           <Route path='/patient' exact element={<PatientDashboard />} />
+          <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
+          <Route path='/patient/:activepage' exact element={<PatientProfile/>} />
         </Routes>
     </BrowserRouter>
     </>
