@@ -2,7 +2,7 @@ import React from 'react'
 import './PAccountSettings.css'
 
 const PAccountSetting = () => {
-  return (
+  return ( 
     <div className='accountsettings'>
       <h1 className='acnt-head'>Personal Information</h1>
       <div className='form'>

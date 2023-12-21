@@ -2,11 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import PatientNav from '../../components/Navbar/Patient-Nav'
 import HeadBanner from '../../components/Banner/HeadBanner'
-import UserSidebar from '../../components/UserProfile/UserSidebar'
-import AccountSettings from '../../components/UserProfile/AccountSettings'
+import UserSidebar from '../../components/UserProfile/Patient/PUserSidebar'
+import AccountSettings from '../../components/UserProfile/Patient/PAccountSettings'
 import './PatientProfile.css'
-import ChangePassword from '../../components/UserProfile/ChangePassword'
-import Notifications from '../../components/UserProfile/Notifications'
+import ChangePassword from '../../components/UserProfile/Patient/PChangePassword'
+import Notifications from '../../components/UserProfile/Patient/PNotifications'
 
 const PatientProfile = () => {
 
@@ -16,7 +16,7 @@ const PatientProfile = () => {
     <div className='patientprofile'>
       <PatientNav/>
       <HeadBanner 
-      bannerimage='https://source.unsplash.com/random?wallpapers'
+      bannerimage='https://resources.jamf.com/images/photos/healthcare-cybersecurity.jpg'
       heading='My profile'
       />
       

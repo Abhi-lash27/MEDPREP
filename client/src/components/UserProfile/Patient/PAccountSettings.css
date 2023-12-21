@@ -1,8 +1,10 @@
 .accountsettings{
-    display: flex;
+    display:flex;
     flex-direction: column;
-    width: 100%;
+    width: fit-content;
+    height:fit-content;
     align-items: center;
+    padding:10px;
 }
 .accountsettings h1{
     padding: 10px 20px;
@@ -32,12 +34,20 @@
     border-radius: 5px;
     outline: none;
 }
+
+.accountsettings .form .form-group select{
+    padding: 10px 20px;
+    border: 1px solid rgb(207,207,207);
+    border-radius: 5px;
+    outline: none;
+}
+
 .accountsettings .form .form-group input:focus{
     border: 1px solid #1976d2;
 }
 .save-btn{
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     background-color: #1976d2;
     color: white;
