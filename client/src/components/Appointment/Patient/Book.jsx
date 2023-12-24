@@ -66,7 +66,7 @@ const Book = ({onSave}) => {
       };
 
       return (
-        <div >
+        <div className='assam'>
             <section>
             <h1 className='heading'>Book Appointment</h1>
             <div className='container'>
@@ -77,7 +77,7 @@ const Book = ({onSave}) => {
                     <label>Name<span> *</span></label>
                     <input type='text' name='name' id='name'
                     value={formData.name}
-                    onChange={handleChange}/>
+                    onChange={handleChange} required/>
                            </div>
     
     
@@ -85,7 +85,7 @@ const Book = ({onSave}) => {
                     <label>Phone Number<span> *</span></label>
                     <input type='text' name='phnno' id='phnno'
                     value={formData.phnno}
-                    onChange={handleChange}/>
+                    onChange={handleChange} required/>
                        </div>
     
     

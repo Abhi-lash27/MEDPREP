@@ -5,10 +5,10 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
-  body {
+  .AP {
     
     
-    /* background-image: url("https://img.pikbest.com/backgrounds/20190805/social-medical-insurance-appointment-check-banner-background_1900885.jpg!sw800"); */
+    background-image: url("https://img.pikbest.com/backgrounds/20190805/social-medical-insurance-appointment-check-banner-background_1900885.jpg!sw800");
     background-size: cover;
     width: auto;
     background-repeat: no-repeat;

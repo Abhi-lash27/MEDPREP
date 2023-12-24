@@ -3,6 +3,7 @@ import './PrevApp.css';
 
 const PrevApp = ({ appointments }) => {
   return (
+    <div className='AP'>
     <div className='container'>
       <h2>Previous Appointments</h2>
       <table className='tbl'>
@@ -43,6 +44,7 @@ const PrevApp = ({ appointments }) => {
           </tr>
         </tbody>
       </table>
+    </div>
     </div>
   );
 };
