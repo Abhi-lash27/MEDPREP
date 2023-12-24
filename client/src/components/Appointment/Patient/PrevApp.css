@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    
+    
+    /* background-image: url("https://img.pikbest.com/backgrounds/20190805/social-medical-insurance-appointment-check-banner-background_1900885.jpg!sw800"); */
+    background-size: cover;
+    width: auto;
+    background-repeat: no-repeat;
+    backface-visibility: visible;
+   
+    
+
+   
+  }
+  
+  .container {
+    max-width: 1200px;
+    width: 100%;
+   
+    background: hwb(0 93% 7%);
+    color: #333;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 80px;
+    overflow: hidden;
+    margin: 20px; /* Add some space around the container */
+  }
+  
+  .container h2 {
+    padding: 20px 0;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .tbl {
+    width: 100%;
+    border-collapse: collapse;
+    color: hsl(180, 9%, 2%);
+  }
+  
+  .tbl thead {
+    background: hsl(219, 78%, 61%);
+    color: hwb(0 4% 96%);
+  }
+  
+  .tbl thead tr th {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 0.0rem;
+    vertical-align: middle;
+    border: 2px solid hwb(215 2% 92%);
+  }
+  
+  .tbl tbody tr:nth-child(even) {
+    background: #f6f6f6; /* Background color for even rows */
+    /* transition: background 0.3s ease-in; */
+  }
+  
+  .tbl tbody tr:hover {
+    background: #8ffe57; /* Background color on hover */
+    /* transition: background 0.3s ease-in; */
+  }
+  
+  .tbl tbody tr td {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+    border: 2px solid #0a0505;
+  }
+  
+  .tbl tbody tr:hover td {
+    color: #000;
+  }
+  
+  /* Adding a subtle hover effect to table rows
+  .tbl tbody tr:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  } */
