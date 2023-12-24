@@ -1,7 +1,11 @@
 .headbanner{
     position: relative;
     width: 100%;
+<<<<<<< HEAD
     height: 30vh;
+=======
+    height: 70vh;
+>>>>>>> 8b7b6e9c1c780d343c9444ba23c8047aab61d602
     overflow: hidden;
 } 
 .headbanner img{
