@@ -1,7 +1,12 @@
+
 body {
 
 }
 * {
     margin: 0;
     padding: 0;
+}
+.stylenone{
+    text-decoration: none;
+    color: inherit;
 }
