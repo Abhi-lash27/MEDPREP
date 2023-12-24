@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import Patient from './pages/Nurse/Patient'
 import Home from './pages/Home'
 import SignUp from './components/SignUp'
 import DoctorDashboard from './dashboard/DoctorDashboard'
@@ -19,6 +19,7 @@ const App = () => {
           <Route path='/doctor' exact element={<DoctorDashboard />} />
           <Route path='/nurse' exact element={<NurseDashboard />} />
           <Route path='/nurse/profile' exact element={<NurseProfile />} />
+          <Route path='/nurse/patient' exact element={<Patient />} />
           <Route path='/patient' exact element={<PatientDashboard />} />
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
         </Routes>
