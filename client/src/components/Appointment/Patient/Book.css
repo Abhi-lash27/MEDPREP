@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@300;400;500;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", "sans-serif";
-}
 
 .assam {
     display: flex;
@@ -21,7 +15,7 @@
     color: black;
 }
 
-.container {
+.container_Book {
     display: flex; /* Updated to flex to allow side-by-side layout */
     align-items:normal; /* Updated to stretch to full height */
     max-width: 978px; /* Updated to 978px for better responsiveness */

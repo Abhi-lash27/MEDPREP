@@ -1,7 +1,7 @@
 // SidePanel.js
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './SidePanel.css';
 
 function SidePanel() {
@@ -9,14 +9,14 @@ function SidePanel() {
     <div className='side-panel'>
       <ul className='side-ul'>
         <li className='side-item'>
-          <NavLink to='/book' className='side-link' activeClassName='active'>
+          <Link to='/patient/book'>
             Book Appointment
-          </NavLink>
+          </Link>
         </li>
         <li className='side-item'>
-          <NavLink to='/prevapp' className='side-link' activeClassName='active'>
+          <Link to='/patient/prev' >
             Previous Appointments
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </div>

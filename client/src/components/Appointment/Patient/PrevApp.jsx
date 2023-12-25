@@ -1,50 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './PrevApp.css';
-
-const PrevApp = ({ appointments }) => {
+import '../Patient/Hooks/UseBookContext'
+import { useBookContext } from '../Patient/Hooks/UseBookContext';
+import PatientNav from '../../Navbar/Patient-Nav'
+const PrevApp = () => {
+  const {Appointment,dispatch} = useBookContext()
+  useEffect(async() =>
+  {
+    const response = await fetch('http://localhost:3500/Data')
+    if(response.ok)
+    {
+    const json = await response.json()
+    dispatch({type:'SET_APPOINTMENT',payload:json})
+    }
+  },[]
+  )
+ 
   return (
-    <div className='AP'>
-    <div className='container'>
-      <h2>Previous Appointments</h2>
-      <table className='tbl'>
-        <thead >
-          <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Scheduled Date</th>
-            <th>Scheduled Time</th>
-            <th>Reason</th>
-          </tr>
-        </thead>
-        <tbody>
-          {appointments.map((appointment, index) => (
-            <tr key={index}>
-              <td data-label="Name">{appointment.name}</td>
-              <td data-label="Phone Number">{appointment.phnno}</td>
-              <td data-label="Date">{appointment.selectedDate}</td>
-              <td data-label="Time">{appointment.selectedTimeLabel}</td>
-              <td data-label="response">{appointment.reason}</td>
-            </tr>
-          ))}
-          <tr>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
+    <div>
+      <PatientNav></PatientNav>
+      <br></br>
+    
+<h1>Previous Appointment</h1>
+<br></br>
+{<table id="patient">
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Doctor</th>
+    <th>Reason</th>
 
-          </tr>
-          <tr>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-            <td>Agjfyjkkj</td>
-
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  </tr>
+  {Appointment.map((value) => 
+  <tr>
+   <td> {value.Name}</td>
+   <td> {value.ph}</td>
+   <td> {value.Date}</td>
+   <td> {value.Time}</td>
+   <td> {value.doc}</td>
+   <td> {value.reason}</td>
+  </tr>)}
+</table>}
     </div>
   );
 };

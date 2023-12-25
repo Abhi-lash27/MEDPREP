@@ -24,7 +24,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 
-const pages = ['Appointments', 'Reports', 'Prescription'];
+const pages = [{'value':'Patient','link':'/patient'},{'value':'Appointment','link':'/patient/prev'},{'value':'Reports','link':'/nurse/reports'},{'value':'Book Appointment','link':'/patient/book'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 
@@ -105,9 +105,9 @@ function PatientNav() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" fontSize='small' fontFamily='inherit'>{page}</Typography>
+               {pages.map((page) => (
+                <MenuItem key={page.value} onClick={handleCloseNavMenu}>
+                <Link to = {page.link} style={{textDecoration:'none'}}><Typography textAlign="center" fontSize='small' fontFamily='inherit' style={{color:'black'}}>{page.value}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -134,14 +134,14 @@ function PatientNav() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button className='btn-nav'
-                key={page}
+             <Link to= {page.link} style={{textDecoration:'none'}}> <Button
+                key={page.value}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block',fontFamily:'inherit' }}
               >
-                {page}
-              </Button>
-          ))}
+                {page.value}
+              </Button> </Link>
+            ))}
           </Box>
 
 
