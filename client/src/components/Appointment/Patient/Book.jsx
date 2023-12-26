@@ -58,7 +58,7 @@ const Book = ({onSave}) => {
                     <option value="10:00am - 12:00pm">10:00am - 12:00pm</option>
                     <option value="1:00pm - 4:00pm">1:00pm - 4:00pm</option>
                     <option value="5:00pm - 8:00pm">5:00pm - 8:00pm</option>
-                  </select>
+                    </select>
                  </div>
                 </div>
                     {/* <input type='time' name='schtime' id='schtime'

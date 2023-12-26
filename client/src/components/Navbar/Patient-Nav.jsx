@@ -24,7 +24,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 
-const pages = [{'value':'Patient','link':'/patient'},{'value':'Appointment','link':'/patient/prev'},{'value':'Reports','link':'/nurse/reports'},{'value':'Book Appointment','link':'/patient/book'}];
+const pages = [{'value':'Patient','link':'/patient'},{'value':'Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'Book Appointment','link':'/patient/book'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 

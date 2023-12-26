@@ -14,6 +14,8 @@ import Main from './components/Appointment/Patient/Main'
 import DoctorProfile from './pages/Doctor/DoctorProfile'
 import NurseProfile from './components/Navbar/Nurse/NurseProfile'
 import Book from './components/Appointment/Patient/Book'
+import PatientDetails from './pages/Patient/PatientDetails'
+import Reports from './pages/Patient/Reports'
 const App = () => {
   return (
     <>
@@ -29,9 +31,12 @@ const App = () => {
           <Route path='/patient/main' exact element={<Main />} />
           <Route path='/patient/book' exact element={<Book />} />  
           <Route path='/patient/prev' exact element={<PrevApp />} />  
+          <Route path='/patient/Reports' exact element={<Reports/>} />  
           <Route path='/patient/:activepage' exact element={<PatientProfile/>} />
           <Route path='/patient/:activepage' exact element={<PChangePassword/>}/>
+          <Route path='/patient/Details' exact element={<PatientDetails/>}/>
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
+          
         </Routes>
     </BrowserRouter>
     </>
