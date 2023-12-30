@@ -20,29 +20,42 @@ const PrevApp = () => {
     <div>
       <PatientNav></PatientNav>
       <br></br>
-    
-<h1>Previous Appointment</h1>
+      <div className='container-p' >
+<h1 className='heading'>Previous Appointment</h1>
 <br></br>
-{<table id="patient">
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Doctor</th>
-    <th>Reason</th>
+{
+   <div className='one'>
+  <table className='tb'>
+  <thead >
+  <tr className='row'>
+    <th className='head'>Name</th>
+    <th className='head'>Phone</th>
+    <th className='head'>Date</th>
+    <th className='head'>Time</th>
+    <th className='head'>Doctor</th>
+    <th className='head'>Reason</th>
 
   </tr>
-  {Appointment.map((value) => 
-  <tr>
-   <td> {value.Name}</td>
-   <td> {value.ph}</td>
-   <td> {value.Date}</td>
-   <td> {value.Time}</td>
-   <td> {value.doc}</td>
-   <td> {value.reason}</td>
-  </tr>)}
-</table>}
+  </thead>
+  <tbody>
+  {
+  Appointment.map((value) => 
+  <tr className='row'>
+   <td className='data'> {value.Name}</td>
+   <td className='data'> {value.ph}</td>
+   <td className='data'> {value.Date}</td>
+   <td className='data'> {value.Time}</td>
+   <td className='data'> {value.doc}</td>
+   <td className='data'> {value.reason}</td>
+  </tr>
+ 
+  )}
+   </tbody>
+
+</table>
+</div>}
+
+    </div>
     </div>
   );
 };
