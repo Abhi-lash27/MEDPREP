@@ -12,11 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+import {Link} from 'react-router-dom'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import {Link} from 'react-router-dom'
 import { deepOrange, green,teal } from '@mui/material/colors';
 import { styled, alpha } from '@mui/material/styles';
 import Select from '@mui/material/Select';
@@ -24,7 +24,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 
-const pages = [{'value':'Patient','link':'/patient'},{'value':'Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'Book Appointment','link':'/patient/book'}];
+const pages = [{'value':'Book Appointment','link':'/patient/book'},{'value':'prev Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'prescription','link':'/patient/prescription'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 
@@ -62,7 +62,7 @@ function PatientNav() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href={"http://localhost:5173/patient/Details"}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },

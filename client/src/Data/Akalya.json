@@ -1,0 +1,14 @@
+{
+  "DB": {
+    "Name": "Akalya",
+    "PatientId": "2",
+    "email": "aka@gmail.com",
+    "Age": "20",
+    "Gender": "male",
+    "Dob": "2023-12-30",
+    "blood": "A +ve",
+    "Ad": "2153546517",
+    "disability": "none",
+    "ph": "814847771"
+  }
+}

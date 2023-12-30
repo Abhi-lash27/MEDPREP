@@ -2,9 +2,24 @@ import React from 'react'
 import './PatientDetails.css'
 import img from '../Nurse/Images/img3.jpg'
 import PatientNav from '../../components/Navbar/Patient-Nav'
+import { useState,useEffect } from 'react'
 
 const PatientDetails = () => {
-    const Data = {"Patient_id":"1","Name":"Akalya","Age":"20","Gender":"Female","Email":"akalyasubramaniane16@gmail.com","Blood":"o+ve","ph":"1234567890"}
+    const [Data,setData] = useState('')
+    useEffect( async() => 
+    {
+      const response = await fetch('http://localhost:3600/DB')
+      const json = await response.json()
+      console.log(json)
+      if(response.ok)
+      {
+        setData(json)
+        console.log()
+      }
+     
+    },[])
+
+
   return (
     <div className='main'>
         <PatientNav />
@@ -12,30 +27,34 @@ const PatientDetails = () => {
       <div className="box">
         <img src={img} alt="" />
         <table id ='info'>
+            {Data && Data.DB && ( 
+            <tbody>
             <tr>
              <td>Name</td>
-             <td>: {Data.Name}</td>
+             <td>: {Data.DB.Name}</td>
             </tr>
             <tr>
              <td>Age</td>
-             <td id='right'>: {Data.Age}</td>
+             <td id='right'>: {Data.DB.Age}</td>
             </tr>
             <tr>
              <td>Gender</td>
-             <td>: {Data.Gender}</td>
+             <td>: {Data.DB.Gender}</td>
             </tr>
             <tr>
              <td>Email</td>
-             <td>: {Data.Gender}</td>
+             <td>:{Data.DB.email}</td>
             </tr>
             <tr>
              <td>Blood</td>
-             <td>: {Data.Blood}</td>
+             <td>: {Data.DB.blood}</td>
             </tr>
             <tr>
              <td>ph</td>
-             <td>: {Data.ph}</td>
+             <td>: {Data.DB.ph}</td>
             </tr>
+          </tbody> 
+            )} 
       </table>
       </div>
       <div className="About">  
