@@ -48,7 +48,6 @@ const PrevApp = () => {
    <td className='data'> {value.doc}</td>
    <td className='data'> {value.reason}</td>
   </tr>
- 
   )}
    </tbody>
 
