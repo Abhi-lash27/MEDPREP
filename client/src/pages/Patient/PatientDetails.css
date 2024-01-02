@@ -52,14 +52,16 @@
     height: 100vh;
 }
 
-.About h1{
+/* .About h1{
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 50px;
     font-weight: 500;
     text-align: center;
     padding-top: 200px;
-}
+} */
+
+
 
 .About ul li{
     list-style: none;
@@ -117,3 +119,29 @@
         text-align: center;
     }
 }
+
+
+/* Right side */
+h2{
+    text-align: center;
+    padding-bottom: 30px;
+
+}
+
+/* .container-details{
+    border:2px solid rgba(66, 123, 247, 0.226);
+   
+} */
+
+.table-details , .row-details ,.td-details{
+    border: 1px solid grey;
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+ 
+}
+
+.table-details{
+    padding: 5px;
+}
+

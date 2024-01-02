@@ -63,16 +63,27 @@
 
 .form .column {
     display: flex;
-    column-gap: 15px;
+    column-gap: 56px;
 }
 
-.input-box .select-box select {
-    height: 100%;
+.input-box .select-box  {
+    /* height: 100%;
     width: 100%;
     outline: none;
     border: none;
     color: #707070;
+    font-size: 1rem; */
+
+    position: relative;
+    height: 50px;
+    width: 100%;
     font-size: 1rem;
+    color: #707070;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    margin-top: 8px;
 }
 
 .input-box input:focus {
