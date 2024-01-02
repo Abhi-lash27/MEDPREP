@@ -59,9 +59,7 @@ const PatientDetails = () => {
       </div>
       <div className="About">  
       <h1><pre>
-        Nandri vanakkam
-           By
-         Akalya   
+         
         </pre></h1>
       </div>
     </div>
