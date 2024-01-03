@@ -58,11 +58,20 @@ const PatientDetails = () => {
       </table>
       </div>
       <div className="About">  
-      <h1><pre>
-        Nandri vanakkam
-           By
-         Akalya   
-        </pre></h1>
+      <h2>
+         Recently Accessed Files
+      </h2>
+      <div className='container-details'>
+        <table className='table-details'>
+          <tbody>
+          <tr className='row-details'>
+            <td className='td-details'>A sample</td>
+          </tr>
+          <tr className='row-details'><td className='td-details'>B Sample</td></tr>
+          <tr className='row-details'><td className='td-details'>C Sample</td></tr>
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
     </div>
