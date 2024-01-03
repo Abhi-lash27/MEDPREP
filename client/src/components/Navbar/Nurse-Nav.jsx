@@ -24,12 +24,18 @@ import InputBase from '@mui/material/InputBase';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import {  useTranslation,Trans } from 'react-i18next';
+import i18next from 'i18next';
 const pages = [{'value':'Paitient','link':'/nurse/patient'},{'value':'Reports','link':'/nurse/reports'},{'value':'Records','link':'/nurse/records'}];
 const settings = ['Home','About','change-password','Logout'];
 
 function NurseNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const handelchange = (value) =>
+  {
+     i18next.changeLanguage(value)
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -195,10 +201,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
                   color: 'inherit',
                   width:'75%'
                  }}
+                 onChange={(e) => handelchange(e.target.value)}
               >
-                <MenuItem value={10}>Tamil</MenuItem>
-                <MenuItem value={20}>English</MenuItem>
-                <MenuItem value={30}>French</MenuItem>
+                <MenuItem value='tn'>Tamil</MenuItem>
+                <MenuItem value='en'>English</MenuItem>
+                <MenuItem value='fr'>French</MenuItem>
         </Select>
         </FormControl>
           <Typography 
