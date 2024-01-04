@@ -3,7 +3,17 @@ import './PrevApp.css';
 import '../Patient/Hooks/UseBookContext'
 import { useBookContext } from '../Patient/Hooks/UseBookContext';
 import PatientNav from '../../Navbar/Patient-Nav'
+
+//copy
+import { useTranslation,Trans } from 'react-i18next'
+//
+
 const PrevApp = () => {
+
+  //copy
+  const {t} = useTranslation()
+  //
+
   const {Appointment,dispatch} = useBookContext()
   useEffect(async() =>
   {
@@ -21,7 +31,7 @@ const PrevApp = () => {
       <PatientNav></PatientNav>
       <br></br>
       <div className='container-p' >
-<h1 className='heading'>Previous Appointment</h1>
+<h1 className='heading'>{t('PreviousAppointment')}</h1>
 <br></br>
 {
    <div className='one'>

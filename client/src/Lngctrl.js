@@ -24,9 +24,13 @@ i18next
                //info
                 Name:'Name',
 
+
                //book
+               book:'Book Appointment',
+               PhoneNumber: "Phone Number",
 
                //prev
+               PreviousAppointment:'Previous Appointment',
 
                //report
 
@@ -46,11 +50,14 @@ i18next
 
                //  patient
                //info
-               Name:'பெயர்'
+               Name:'பெயர்',
+               book:'இப்போது பதிவு செய்யவும்',
 
                //book
+               PhoneNumber:"தொலைபேசி எண்",
 
                //prev
+               PreviousAppointment: "முந்தைய நியமனம்",
 
                //report
 
