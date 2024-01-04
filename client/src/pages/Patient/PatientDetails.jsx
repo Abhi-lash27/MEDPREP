@@ -3,8 +3,11 @@ import './PatientDetails.css'
 import img from '../Nurse/Images/img3.jpg'
 import PatientNav from '../../components/Navbar/Patient-Nav'
 import { useState,useEffect } from 'react'
+import { useTranslation,Trans } from 'react-i18next'
+
 
 const PatientDetails = () => {
+    const {t} = useTranslation()
     const [Data,setData] = useState('')
     useEffect( async() => 
     {
@@ -16,11 +19,9 @@ const PatientDetails = () => {
         setData(json)
         console.log()
       }
-     
     },[])
 
-
-  return (
+    return (
     <div className='main'>
         <PatientNav />
     <div className="container_profile">
@@ -30,7 +31,7 @@ const PatientDetails = () => {
             {Data && Data.DB && ( 
             <tbody>
             <tr>
-             <td>Name</td>
+             <td>{t('Name')}</td>
              <td>: {Data.DB.Name}</td>
             </tr>
             <tr>

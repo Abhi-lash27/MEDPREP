@@ -22,6 +22,8 @@ import { styled, alpha } from '@mui/material/styles';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import i18next from 'i18next';
+
 
 
 const pages = [{'value':'Book Appointment','link':'/patient/book'},{'value':'prev Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'prescription','link':'/patient/prescription'}];
@@ -31,6 +33,12 @@ const pages = [{'value':'Book Appointment','link':'/patient/book'},{'value':'pre
 function PatientNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+   
+
+  const handelchange = (value) =>
+  {
+     i18next.changeLanguage(value)
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -156,10 +164,12 @@ function PatientNav() {
                   color: 'inherit',
                   width:'75%'
                  }}
-              >
-                <MenuItem value={10}>Tamil</MenuItem>
-                <MenuItem value={20}>English</MenuItem>
-                <MenuItem value={30}>French</MenuItem>
+                 onChange={(e) => handelchange(e.target.value)}
+                 >
+                   <MenuItem value='tn'>Tamil</MenuItem>
+                   <MenuItem value='en'>English</MenuItem>
+                   <MenuItem value='fr'>French</MenuItem>
+                   <MenuItem value='hi'>Hindi</MenuItem>
         </Select>
         </FormControl>
           <Typography 
