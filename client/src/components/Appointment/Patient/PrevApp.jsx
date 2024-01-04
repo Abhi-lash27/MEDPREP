@@ -40,10 +40,10 @@ const PrevApp = () => {
   <tr className='row'>
     <th className='head'>Name</th>
     <th className='head'>Phone</th>
-    <th className='head'>Date</th>
-    <th className='head'>Time</th>
-    <th className='head'>Doctor</th>
-    <th className='head'>Reason</th>
+    <th className='head'>{t('Date')}</th>
+    <th className='head'>{t('Time')}</th>
+    <th className='head'>{t('Doctor')}</th>
+    <th className='head'>{t('Reason')}</th>
 
   </tr>
   </thead>

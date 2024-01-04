@@ -31,6 +31,10 @@ i18next
 
                //prev
                PreviousAppointment:'Previous Appointment',
+               Date:'Date',
+               Time:'Time',
+               Doctor:'Doctor',
+               Reason:'Reason',
 
                //report
 
@@ -58,6 +62,7 @@ i18next
 
                //prev
                PreviousAppointment: "முந்தைய நியமனம்",
+              
 
                //report
 
@@ -76,11 +81,21 @@ i18next
 
             //  patient
             //info
-            Name:'nom'
+            Name:'nom',
 
             //book
 
                //prev
+               PreviousAppointment:'rendez-vous précédent',
+               Date:'Sélectionner la date',
+               Time:'temps',
+               Doctor:'médecin',
+               Reason:'raison',
+
+
+
+
+
 
                //report
 
@@ -101,17 +116,26 @@ i18next
 
             //  patient
             //info
-            Name:'नाम'
+            Name:'नाम',
             
             //book
 
                //prev
+               PreviousAppointment:'पिछली नियुक्ति',
+               Date:'तारीख',
+               Time:'समय',
+               Doctor:'चिकित्सक',
+               Reason:'कारण',
+
+
+
 
                //report
 
                //pres
             }
          }
+           
         }
     }
 )
