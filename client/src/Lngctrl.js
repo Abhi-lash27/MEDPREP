@@ -38,7 +38,11 @@ i18next
                PreviousAppointment:'Previous Appointment',
                SelectDate:'Select Date',
                ScheduleTime:'Schedule Time',
-               SelectSpecialist: ' Select Specialist: '
+               SelectSpecialist: 'Select Specialist ',
+               Date:'Date',
+               Time:'Time',
+               Doctor:'Doctor',
+               Reason:'Reason',
 
 //prev
                //report
@@ -76,6 +80,8 @@ i18next
                PreviousAppointment: "முந்தைய நியமனம்",
                SelectSpecialist: "நிபுணரை தேர்வு செய்யவும்",
               //prev
+              
+
                //report
 
                //pres
@@ -113,6 +119,16 @@ i18next
             SelectSpecialist: 'Sélectionnez un spécialiste :',
               //prev
                //prev
+               PreviousAppointment:'rendez-vous précédent',
+               Date:'Sélectionner la date',
+               Time:'temps',
+               Doctor:'médecin',
+               Reason:'raison',
+
+
+
+
+
 
                //report
 
@@ -134,6 +150,7 @@ i18next
             //  patient
             //info
             Name:'नाम',
+
             Age:'आयु',
             Gender:'लिंग',
             Email:'ईमेल',
@@ -141,6 +158,7 @@ i18next
             PhoneNumber:'फ़ोन नंबर',
 
             RecentlyAccessedFiles:'हाल ही में एक्सेस की गई फ़ाइल',
+
 
             
             //book
@@ -153,12 +171,21 @@ i18next
              SelectSpecialist: 'विशेषज्ञ का चयन करें',
 
                //prev
+               PreviousAppointment:'पिछली नियुक्ति',
+               Date:'तारीख',
+               Time:'समय',
+               Doctor:'चिकित्सक',
+               Reason:'कारण',
+
+
+
 
                //report
 
                //pres
             }
          }
+           
         }
     }
 )
