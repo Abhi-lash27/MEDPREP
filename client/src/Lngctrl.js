@@ -23,15 +23,24 @@ i18next
                //  patient
                //info
                 Name:'Name',
+                Age:"Age",
+                Gender:"Gender",
+                Email:"Email",
+                BloodGroup:"Blood Group",
+
+                RecentlyAccessedFiles:"Recently Accessed Files",
 
 
                //book
                book:'Book Appointment',
                PhoneNumber: "Phone Number",
-
-               //prev
+               ReasonForAppointment:' Reason For Appointment',
                PreviousAppointment:'Previous Appointment',
+               SelectDate:'Select Date',
+               ScheduleTime:'Schedule Time',
+               SelectSpecialist: ' Select Specialist: '
 
+//prev
                //report
 
                //pres
@@ -51,14 +60,22 @@ i18next
                //  patient
                //info
                Name:'பெயர்',
-               book:'இப்போது பதிவு செய்யவும்',
+               book:'பதிவு செய்யவும்',
+               Age:'வயது',
+               Gender:'பாலினம்',
+               Email:'மின்னஞ்சல்',
+               BloodGroup:'இரத்தக் குழு',
+
+               RecentlyAccessedFiles:'சமீபத்தில் அணுகப்பட்ட கோப்புகள்',
 
                //book
                PhoneNumber:"தொலைபேசி எண்",
-
-               //prev
+               SelectDate:'தேதியை தேர்வுசெய்யவும்',
+               ScheduleTime:'கால அட்டவணை நேரம்',
+               ReasonForAppointment:'பரிசோதனைக்காண காரணம் ',
                PreviousAppointment: "முந்தைய நியமனம்",
-
+               SelectSpecialist: "நிபுணரை தேர்வு செய்யவும்",
+              //prev
                //report
 
                //pres
@@ -76,10 +93,25 @@ i18next
 
             //  patient
             //info
-            Name:'nom'
+            Name:'nom',
+            Age:'Âge',
+            Gender:'Genre',
+            Email:'E-mail',
+            BloodGroup:"Groupe sanguin",
+            PhoneNumber:'Numéro de téléphone',
+            
+            RecentlyAccessedFiles:'Fichier récemment consulté',
+
 
             //book
-
+            book:"Prendre rendez-vous",
+            PhoneNumber: "Numéro de téléphone",
+            ReasonForAppointment:' Raison de la nomination',
+            PreviousAppointment:'Previous Appointment',
+            SelectDate:'Sélectionner une date',
+            ScheduleTime:"Horaire de rendez-vous",
+            SelectSpecialist: 'Sélectionnez un spécialiste :',
+              //prev
                //prev
 
                //report
@@ -101,9 +133,24 @@ i18next
 
             //  patient
             //info
-            Name:'नाम'
+            Name:'नाम',
+            Age:'आयु',
+            Gender:'लिंग',
+            Email:'ईमेल',
+            BloodGroup:"रक्त समूह",
+            PhoneNumber:'फ़ोन नंबर',
+
+            RecentlyAccessedFiles:'हाल ही में एक्सेस की गई फ़ाइल',
+
             
             //book
+           book:"निर्धारित तारीख बुक करना",
+            //PhoneNumber: "Numéro de téléphone",
+             ReasonForAppointment:'नियुक्ति का कारण',
+             PreviousAppointment:'Previous Appointment',
+             SelectDate:'तारीख़ चुनें',
+             ScheduleTime:"अनुसूचित समय",
+             SelectSpecialist: 'विशेषज्ञ का चयन करें',
 
                //prev
 

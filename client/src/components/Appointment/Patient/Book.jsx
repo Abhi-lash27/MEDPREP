@@ -51,14 +51,14 @@ const Book = ({onSave}) => {
                   </div>
                       <div className='column'>
                       <div className='input-box'>
-                    <label>Schedule  Date<span> *</span></label>
+                    <label>{t('SelectDate')}<span> *</span></label>
                     <input type='date' name='selectedDate' id='selectedDate'
                      value={Date}
                      onChange={(e) => setDate(e.target.value)} required/>
                 </div>
     
                 <div className='input-box'>
-                    <label>Schedule Time <span> *</span></label>
+                    <label>{t('ScheduleTime')}<span> *</span></label>
                     <select className='select-box' name='selectedTime' value={Time} onChange={(e) => setTime(e.target.value)} required>
                     <option value="none">Select a Time slot</option>
                     <option value="10:00am - 12:00pm">10:00am - 12:00pm</option>
@@ -73,11 +73,11 @@ const Book = ({onSave}) => {
                     */}
                 
                   <div className='input-box'>
-                  <label>Select Specialist <span> *</span> </label>
+                  <label>{t('SelectSpecialist')} <span> *</span> </label>
                   <select className= 'select-box' name='doctor' id='doctor' value={doc} onChange={(e) => setDoc(e.target.value)} required>
                     <option value='none'>Select a Doctor</option>
-                    <option value='Dr.Vandana'>Dr.Vandana</option>
-                    <option value='Dr.Harit'>Dr.Harit</option>
+                    <option value='Dr.Vandana'>Dr.Vandana | MBBS, DNB - Obstetrics & Gynecology</option>
+                    <option value='Dr.Harit'> Dr.Harit     | MBBS, DNB - General Surgery</option>
                     <option value='Dr.Varsha'>Dr.Varsha</option>
                     <option value='Dr.Subhash'>Dr.Subhash</option>
                     <option value='Dr.Kannappan'>Dr.Kannappan</option>
@@ -85,7 +85,7 @@ const Book = ({onSave}) => {
                   </div>
                 
                   <div className='input-box'>
-                     <label>Reason For Appointment <span> *</span></label>
+                     <label>{t('ReasonForAppointment')} <span> *</span></label>
                      <input type='text' name='reason' id='reason'
                        value={reason}
                        onChange={(e) => setReason(e.target.value)} required/>
