@@ -38,8 +38,8 @@ const PrevApp = () => {
   <table className='tb'>
   <thead >
   <tr className='row'>
-    <th className='head'>Name</th>
-    <th className='head'>Phone</th>
+    <th className='head'>{t('Name')}</th>
+    <th className='head'>{t('PhoneNumber')}</th>
     <th className='head'>{t('Date')}</th>
     <th className='head'>{t('Time')}</th>
     <th className='head'>{t('Doctor')}</th>
