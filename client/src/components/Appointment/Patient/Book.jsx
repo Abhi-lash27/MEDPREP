@@ -2,6 +2,9 @@ import {React,useState} from 'react'
 import './Book.css'
 import { useBookContext } from './Hooks/UseBookContext'
 import PatientNav from '../../Navbar/Patient-Nav'
+import { useTranslation,Trans } from 'react-i18next'
+
+
 const Book = ({onSave}) => {
   const [Name,setName] = useState('')
   const [ph,setPh] = useState('')
@@ -9,6 +12,9 @@ const Book = ({onSave}) => {
   const [Time,setTime] = useState('')
   const [doc,setDoc] = useState('')
   const [reason,setReason] = useState('')
+
+  const {t} = useTranslation()
+
   const handleSubmit = async () =>
   {
     const data = {Name,ph,Date,Time,doc,reason}
@@ -27,32 +33,32 @@ const Book = ({onSave}) => {
         <br></br>
         <div className='assam'>
             <section>
-            <h1 className='heading'>Book Appointment</h1>
+            <h1 className='heading' >{t('book')}</h1>
             <div className='containe_Book'>
                 <div className='form-container'>
                     <form  className='form'>
                           <div className='input-box'>
-                    <label>Name<span> *</span></label>
+                    <label>{t('Name')}<span> *</span></label>
                     <input type='text' name='name' id='name'
                     value={Name}
                     onChange={(e) => setName(e.target.value)} required/>
                   </div>
                   <div className='input-box'>
-                      <label>Phone Number<span> *</span></label>
+                      <label> {t('PhoneNumber')}<span> *</span></label>
                        <input type='text' name='phnno' id='phnno'
                         value={ph}
                         onChange={(e) =>setPh(e.target.value) } required size="10" />
                   </div>
                       <div className='column'>
                       <div className='input-box'>
-                    <label>Schedule  Date<span> *</span></label>
+                    <label>{t('SelectDate')}<span> *</span></label>
                     <input type='date' name='selectedDate' id='selectedDate'
                      value={Date}
                      onChange={(e) => setDate(e.target.value)} required/>
                 </div>
     
                 <div className='input-box'>
-                    <label>Schedule Time <span> *</span></label>
+                    <label>{t('ScheduleTime')}<span> *</span></label>
                     <select className='select-box' name='selectedTime' value={Time} onChange={(e) => setTime(e.target.value)} required>
                     <option value="none">Select a Time slot</option>
                     <option value="10:00am - 12:00pm">10:00am - 12:00pm</option>
@@ -67,11 +73,11 @@ const Book = ({onSave}) => {
                     */}
                 
                   <div className='input-box'>
-                  <label>Select Specialist <span> *</span> </label>
+                  <label>{t('SelectSpecialist')} <span> *</span> </label>
                   <select className= 'select-box' name='doctor' id='doctor' value={doc} onChange={(e) => setDoc(e.target.value)} required>
                     <option value='none'>Select a Doctor</option>
-                    <option value='Dr.Vandana'>Dr.Vandana</option>
-                    <option value='Dr.Harit'>Dr.Harit</option>
+                    <option value='Dr.Vandana'>Dr.Vandana | MBBS, DNB - Obstetrics & Gynecology</option>
+                    <option value='Dr.Harit'> Dr.Harit     | MBBS, DNB - General Surgery</option>
                     <option value='Dr.Varsha'>Dr.Varsha</option>
                     <option value='Dr.Subhash'>Dr.Subhash</option>
                     <option value='Dr.Kannappan'>Dr.Kannappan</option>
@@ -79,7 +85,7 @@ const Book = ({onSave}) => {
                   </div>
                 
                   <div className='input-box'>
-                     <label>Reason For Appointment <span> *</span></label>
+                     <label>{t('ReasonForAppointment')} <span> *</span></label>
                      <input type='text' name='reason' id='reason'
                        value={reason}
                        onChange={(e) => setReason(e.target.value)} required/>

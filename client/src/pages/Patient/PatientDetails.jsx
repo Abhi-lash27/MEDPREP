@@ -35,23 +35,23 @@ const PatientDetails = () => {
              <td>: {Data.DB.Name}</td>
             </tr>
             <tr>
-             <td>Age</td>
+             <td>{t('Age')}</td>
              <td id='right'>: {Data.DB.Age}</td>
             </tr>
             <tr>
-             <td>Gender</td>
+             <td>{t("Gender")}</td>
              <td>: {Data.DB.Gender}</td>
             </tr>
             <tr>
-             <td>Email</td>
+             <td>{t("Email")}</td>
              <td>:{Data.DB.email}</td>
             </tr>
             <tr>
-             <td>Blood</td>
+             <td>{t("BloodGroup")}</td>
              <td>: {Data.DB.blood}</td>
             </tr>
             <tr>
-             <td>ph</td>
+             <td>{t('PhoneNumber')}</td>
              <td>: {Data.DB.ph}</td>
             </tr>
           </tbody> 
@@ -60,7 +60,7 @@ const PatientDetails = () => {
       </div>
       <div className="About">  
       <h2>
-         Recently Accessed Files
+         {t('RecentlyAccessedFiles')}
       </h2>
       <div className='container-details'>
         <table className='table-details'>
