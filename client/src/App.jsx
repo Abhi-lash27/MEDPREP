@@ -18,6 +18,8 @@ import PatientDetails from './pages/Patient/PatientDetails'
 import Reports from './pages/Patient/Reports'
 import Prescription from './pages/Patient/Prescription'
 import Forgot from './components/Forgot'
+import AddDoctor from './pages/Admin/AddDoctor'
+import AdminDashboard from './dashboard/AdminDashboard'
 
 const App = () => {
   return (
@@ -41,6 +43,8 @@ const App = () => {
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
           <Route path='/patient/prescription' exact element={<Prescription/>}/>
           <Route path='/Forgot' exact element={<Forgot/>}/>
+          <Route path='/Admin/AddDoctor' exact element={<AddDoctor/>}/>
+          <Route path='/Admin' exact element={<AdminDashboard />}/>
         </Routes>
     </BrowserRouter>
     </>
