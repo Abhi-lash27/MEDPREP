@@ -3,6 +3,7 @@ import img from '../../pages/Nurse/Images/img7.jpeg'
 import SearchBar from './SearchBar'
 import PatientNav from '../../components/Navbar/Patient-Nav'
 import { useState } from 'react'
+import './Reports.css'
 const Prescription = () => {
     const Data = [
         {
@@ -51,10 +52,17 @@ const Prescription = () => {
                 <div className="description" >
                     ....
                 </div>
+                <div className='btn-pres'>
+                <button>
+                  ckiikkk
+                </button>
                 </div>
+                </div>
+                
             </div>
             </div>
             ))}
+              
         </div>
         </div>
         </div>
