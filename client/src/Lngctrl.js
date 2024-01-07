@@ -44,7 +44,7 @@ i18next
                Doctor:'Doctor',
                Reason:'Reason',
 
-//prev
+               //prev
                //report
 
                //pres
@@ -80,6 +80,10 @@ i18next
                PreviousAppointment: "முந்தைய நியமனம்",
                SelectSpecialist: "நிபுணரை தேர்வு செய்யவும்",
               //prev
+              Date:'தேதி',
+              Time:"நேரம்",
+              Reason:"காரணம்",
+              Doctor:'மருத்துவர்',
               
 
                //report

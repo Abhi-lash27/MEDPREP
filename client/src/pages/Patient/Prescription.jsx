@@ -3,11 +3,6 @@ import img from '../../pages/Nurse/Images/img7.jpeg'
 import SearchBar from './SearchBar'
 import PatientNav from '../../components/Navbar/Patient-Nav'
 import { useState } from 'react'
-import './Reports.css'
-import IconButton from '@mui/material/IconButton';
-import DownloadIcon from '@mui/icons-material/Download';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 const Prescription = () => {
     const Data = [
         {
@@ -59,18 +54,12 @@ const Prescription = () => {
                 <div className="description" >
                     ....
                 </div>
-                <div className='options'>
-                      <IconButton onClick={toggleDownload} >
-                      <RemoveRedEyeIcon></RemoveRedEyeIcon>
-                       </IconButton>
-                      <IconButton onClick={toggleDownload}>
-                      <DownloadIcon></DownloadIcon>
-                      </IconButton>
-                  </div>
                 </div>
+                
             </div>
             </div>
             ))}
+              
         </div>
         </div>
         </div>
