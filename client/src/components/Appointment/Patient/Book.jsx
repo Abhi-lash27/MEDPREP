@@ -26,6 +26,8 @@ const Book = ({onSave}) => {
            }
        )
   }
+  console.log(typeof(Time))
+  console.log(typeof(Date))
   
       return (
         <div>
@@ -67,11 +69,12 @@ const Book = ({onSave}) => {
                     </select>
                  </div>
                 </div>
+
                     {/* <input type='time' name='schtime' id='schtime'
                      value={formData. selectedTime}
                      onChange={handleInputChange}/>
                     */}
-                
+
                   <div className='input-box'>
                   <label>{t('SelectSpecialist')} <span> *</span> </label>
                   <select className= 'select-box' name='doctor' id='doctor' value={doc} onChange={(e) => setDoc(e.target.value)} required>

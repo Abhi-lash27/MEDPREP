@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import DownloadIcon from '@mui/icons-material/Download';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import './Reports.css'
 const Reports = () => {
     const Data = [
       {
@@ -21,7 +22,8 @@ const Reports = () => {
       {
         "Name":"F Samples"
       }
-      ]      
+      ]
+
       const handleSearch = (event) => {
         const searchTerm = event.target.value;
         setSearchTerm(searchTerm);
@@ -38,6 +40,19 @@ const Reports = () => {
       const toggleDownload = () => {
         alert('Akalya warning')
       };
+    
+
+   const fileurl = 'http://localhost:5173/Drone-Workshop-Report.pdf'
+    const handeldownload = (e,url) =>
+    {
+      const file = url.split('/').pop();
+      const aTag = document.createElement('a');
+      aTag.href = url
+      aTag.setAttribute("download",file);
+      document.body.appendChild(aTag);
+      aTag.click()
+      aTag.remove()
+    }
     
   return (
     <div>
@@ -60,12 +75,12 @@ const Reports = () => {
                 ....
               </div>
               <div className='options'>
-              <IconButton onClick={toggleDownload} >
+                <IconButton onClick={toggleDownload} >
                 <RemoveRedEyeIcon></RemoveRedEyeIcon>
-              </IconButton>
-               <IconButton onClick={toggleDownload}>
+                </IconButton>
+                <IconButton onClick={(e) => handeldownload(e,fileurl)}>
                  <DownloadIcon></DownloadIcon>
-              </IconButton>
+                </IconButton>
               </div>
             </div>
           </div>
