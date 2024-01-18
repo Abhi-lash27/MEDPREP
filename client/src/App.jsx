@@ -21,6 +21,7 @@ import Forgot from './components/Forgot'
 import AddDoctor from './pages/Admin/AddDoctor'
 import AdminDashboard from './dashboard/AdminDashboard'
 import NurseIP from './pages/Nurse/NurseIP'
+import AddNurse from './pages/Admin/AddNurse'
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
           <Route path='/nurse' exact element={<NurseDashboard />} />
           <Route path='/nurse/profile' exact element={<NurseProfile />} />
           <Route path='/nurse/patient' exact element={<Patient />} />
-          <Route path='/patient' exact element={<PatientDashboard />} />
+          <Route path='/patient' exact element={<PatientDetails/>} />
           <Route path='/patient/main' exact element={<Main />} />
           <Route path='/patient/book' exact element={<Book />} />  
           <Route path='/patient/prev' exact element={<PrevApp />} />  
@@ -45,6 +46,7 @@ const App = () => {
           <Route path='/patient/prescription' exact element={<Prescription/>}/>
           <Route path='/Forgot' exact element={<Forgot/>}/>
           <Route path='/Admin/AddDoctor' exact element={<AddDoctor/>}/>
+          <Route path='/Admin/AddNurse' exact element={<AddNurse/>}/>
           <Route path='/Admin' exact element={<AdminDashboard />}/>
           <Route path='/nurse/nurseIP' exact element={<NurseIP/>}/>
 
