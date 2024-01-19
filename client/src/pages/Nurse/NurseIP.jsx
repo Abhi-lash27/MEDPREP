@@ -142,6 +142,9 @@ const NurseIP = () => {
                 <label className='ip-label'>Year of Experience </label>
                 <input type="text"  name='ip-org'  />
                 </div>
+                
+                <button className='nip-b'>Submit</button>
+                
             </form>
         </div>
     </div>

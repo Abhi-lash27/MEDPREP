@@ -26,7 +26,7 @@ import i18next from 'i18next';
 
 
 
-const pages = [{'value':'Add-Doctor','link':'/Admin/AddDoctor'}];
+const pages = [{'value':'Add-Doctor','link':'/Admin/AddDoctor'},{'value':'Add-Nurse','link':'/Admin/AddNurse'},{'value':'List-Doctor','link':'/Admin/ListDoctor'},{'value':'List-Nurse','link':'/Admin/ListNurse'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 

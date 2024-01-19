@@ -72,4 +72,13 @@ h2{
     margin-top: 8px;
 }
 
+.nip-b
+{
+    height: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 

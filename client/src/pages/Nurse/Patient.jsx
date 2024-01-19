@@ -6,7 +6,7 @@ import img1 from './img.jpg'
 import Profile from './Profile'
 const Patient = () => {
   const Data = [{
-    "Name":"Abdul Kalam (Ak)",
+    "Name":"Akalya Leader (Ak)",
     "Age":19,
     "Gender":"Male",
     "Blood_group":"o+ve",
