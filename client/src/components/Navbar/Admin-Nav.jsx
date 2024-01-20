@@ -26,11 +26,11 @@ import i18next from 'i18next';
 
 
 
-const pages = [{'value':'Book Appointment','link':'/patient/book'},{'value':'prev Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'prescription','link':'/patient/prescription'}];
+const pages = [{'value':'Add-Doctor','link':'/Admin/AddDoctor'},{'value':'Add-Nurse','link':'/Admin/AddNurse'},{'value':'List-Doctor','link':'/Admin/ListDoctor'},{'value':'List-Nurse','link':'/Admin/ListNurse'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 
-function PatientNav() {
+function AdminNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
    
@@ -70,7 +70,7 @@ function PatientNav() {
             variant="h6"
             noWrap
             component="a"
-            href={"http://localhost:5173/patient/Details"}
+            href={"http://localhost:5173/Admin"}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -229,4 +229,4 @@ function PatientNav() {
     </AppBar>
   );
 }
-export default PatientNav;
+export default AdminNav;

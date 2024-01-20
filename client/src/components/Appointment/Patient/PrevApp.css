@@ -1,0 +1,116 @@
+.heading{
+  text-align: center;
+  color:black;
+  font-size: 40px;
+  background-color: white;
+  padding: 10px;
+  padding-bottom: 5px;
+  
+  /* font-family: 'Lucida Sans'; */
+}
+
+/* .one{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height:30vh;
+  margin-left: 80px;
+  margin-right: 80px;
+} */
+
+.one{
+  position: relative;
+  /* width: fit-content;
+  height:fit-content; */
+  background: transparent;
+  border:2px solid rgba(225,225,225,.5);
+  backdrop-filter: blur(200px);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height:30vh;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+
+.container-p{
+  background-image:url('https://www.smallbiztechnology.com/wp-content/uploads/2015/12/scheduling-appointments.jpg');
+  background-repeat:no-repeat;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+
+}
+
+.tb {
+  border-collapse: collapse;
+  width: 100%;
+  
+  /* backdrop-filter: blur(5px); */
+
+}
+.head{
+  vertical-align: middle;
+  justify-content: space-around;
+  
+}
+.head ,.data {
+  height: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding:10px;
+
+}
+
+.row:nth-child(even){
+  background-color: #f2f2f2}
+
+ .tb tbody .row:hover .data {
+      background-color: rgb(110, 235, 194);
+  }
+
+  .head {
+background-color: #363435f9;
+color: white;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+.one {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: fit-content;
+    height:fit-content;
+}
+body {
+    background-size:cover;
+}
+.tb{
+   border-collapse: collapse;
+  width: 100%;
+  min-height: 30px;
+  width: fit-content;
+  height:fit-content;
+  
+}
+}
+
+@media screen and (max-width: 480px) {
+.one {
+  width: fit-content;
+  height:fit-content;
+}
+body{
+  background-position: center;
+  background-size:cover;
+
+}
+table{
+  width: fit-content;
+  height:fit-content;
+}
+}

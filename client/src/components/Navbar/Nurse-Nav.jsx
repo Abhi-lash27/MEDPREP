@@ -24,12 +24,18 @@ import InputBase from '@mui/material/InputBase';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-const pages = ['Reports','Records'];
+import {  useTranslation,Trans } from 'react-i18next';
+import i18next from 'i18next';
+const pages = [{'value':'Paitient','link':'/nurse/patient'},{'value':'Reports','link':'/nurse/reports'},{'value':'Records','link':'/nurse/records'}];
 const settings = ['Home','About','change-password','Logout'];
 
 function NurseNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const handelchange = (value) =>
+  {
+     i18next.changeLanguage(value)
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -138,8 +144,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" fontSize='small' fontFamily='inherit'>{page}</Typography>
+                <MenuItem key={page.value} onClick={handleCloseNavMenu}>
+                <Link to = {page.link} style={{textDecoration:'none'}}><Typography textAlign="center" fontSize='small' fontFamily='inherit' style={{color:'black'}}>{page.value}</Typography></Link>
                 </MenuItem>
               ))}
               
@@ -175,13 +181,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
           </Search>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+             <Link to= {page.link} style={{textDecoration:'none'}}> <Button
+                key={page.value}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block',fontFamily:'inherit' }}
               >
-                {page}
-              </Button>
+                {page.value}
+              </Button> </Link>
             ))}
           </Box>
 
@@ -195,10 +201,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
                   color: 'inherit',
                   width:'75%'
                  }}
+                 onChange={(e) => handelchange(e.target.value)}
               >
-                <MenuItem value={10}>Tamil</MenuItem>
-                <MenuItem value={20}>English</MenuItem>
-                <MenuItem value={30}>French</MenuItem>
+                <MenuItem value='tn'>Tamil</MenuItem>
+                <MenuItem value='en'>English</MenuItem>
+                <MenuItem value='fr'>French</MenuItem>
         </Select>
         </FormControl>
           <Typography 
@@ -243,11 +250,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
               
                 <MenuItem key='Home' onClick={handleCloseUserMenu}>
                 <HomeRoundedIcon sx={{ display: { xs: 'none', md: 'flex' ,fontSize:25}, mr: 1 }} />
-                  <Link to = '/' ><Typography textAlign="center" >Home</Typography></Link>
+                  <Link to = '/' style={{textDecoration:'none'}}><Typography textAlign="center"  style={{color:'black'}}>Home</Typography></Link>
                 </MenuItem>
                 <MenuItem key='About' onClick={handleCloseUserMenu}>
                 <InfoRoundedIcon sx={{ display: { xs: 'none', md: 'flex' ,fontSize:25}, mr: 1 }} />
-                <Link to='/nurse/profile' ><Typography textAlign="center">Profile</Typography></Link>
+                <Link to='/nurse/profile' style={{textDecoration:'none'}} ><Typography textAlign="center"  style={{color:'black'}}>Profile</Typography></Link>
                 </MenuItem>
                 <MenuItem key='change-password' onClick={handleCloseUserMenu}>
                 <LockOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' ,fontSize:25}, mr: 1 }} />

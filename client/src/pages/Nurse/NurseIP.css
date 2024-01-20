@@ -1,0 +1,84 @@
+
+
+.nurse-ip{
+    min-width: 50px;
+    min-height: 30px; 
+    padding: 20px;
+    
+
+    }
+    .nurse-ip-form{
+     padding: 10px;
+     height: fit-content;
+     align-items: center;
+     justify-content: space-between;
+     display: grid;
+     text-wrap: wrap;
+      
+}
+
+
+
+h2,.ip-label{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+h2{
+    color:darkblue;
+}
+
+.ip-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nurse-ip-form  input{
+    position: relative;
+    height: 50px;
+    width: 25%;
+    font-size: 1rem;
+    color: #707070;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    margin-top: 8px;
+}
+
+.nurse-ip-form .ip-label{
+    padding:25px;
+    font-weight: 500;
+    
+}
+
+.nurse-ip-form .ip-box{
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ip-box .ip-sel{
+    position: relative;
+    height: 50px;
+    width: 25%;
+    font-size: 1rem;
+    color: #707070;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    margin-top: 8px;
+}
+
+.nip-b
+{
+    height: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
