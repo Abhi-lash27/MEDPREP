@@ -17,11 +17,11 @@ const PrevApp = () => {
   const {Appointment,dispatch} = useBookContext()
   useEffect(async() =>
   {
-    const response = await fetch('http://localhost:3500/Data')
+    const response = await fetch('http://localhost:2222/api/appointments')
     if(response.ok)
     {
     const json = await response.json()
-    dispatch({type:'SET_APPOINTMENT',payload:json})
+    dispatch({type:'SET_APPOINTMENT',payload:json.appointment})
     }
   },[]
   )
@@ -39,7 +39,6 @@ const PrevApp = () => {
   <thead >
   <tr className='row'>
     <th className='head'>{t('Name')}</th>
-    <th className='head'>{t('PhoneNumber')}</th>
     <th className='head'>{t('Date')}</th>
     <th className='head'>{t('Time')}</th>
     <th className='head'>{t('Doctor')}</th>
@@ -51,11 +50,10 @@ const PrevApp = () => {
   {
   Appointment.map((value) => 
   <tr className='row'>
-   <td className='data'> {value.Name}</td>
-   <td className='data'> {value.ph}</td>
-   <td className='data'> {value.Date}</td>
-   <td className='data'> {value.Time}</td>
-   <td className='data'> {value.doc}</td>
+   <td className='data'> unknown</td>
+   <td className='data'> {value.appointmentDate}</td>
+   <td className='data'> {value.appointmentTiming}</td>
+   <td className='data'> unknown</td>
    <td className='data'> {value.reason}</td>
   </tr>
   )}
