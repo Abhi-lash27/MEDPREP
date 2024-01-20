@@ -3,12 +3,19 @@ import { Request, Response } from "express";
 
 import prisma from "../db";
 import logger from "../logger";
+import { Reports } from "@prisma/client";
 
 export const createReport = async (req: Request, res: Response) => {
   logger.info(req.body);
   try {
-    const report = await prisma.reports.create({
-      data: req.body
+    const { patientId, title, file, description } = req.body;
+    const report: Reports = await prisma.reports.create({
+      data: {
+        patientId,
+        title,
+        file: { create: file },
+        description
+      }
     });
 
     return res.status(200).json(report);
