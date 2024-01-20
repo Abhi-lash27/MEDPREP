@@ -29,7 +29,7 @@ export const createDoctor = async (req: CreateDoctorProps, res: Response) => {
     return res.status(200).json({ doctor });
   } catch (err: any) {
     logger.error(err);
-    res.status(400).json({ error: "BAD REQUEST" });
+    res.status(400).json({ error: "Bad Request" });
   }
 };
 
