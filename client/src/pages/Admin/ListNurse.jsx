@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import AdminNav from '../../components/Navbar/Admin-Nav';
 import img1 from '../Nurse/img.jpg';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+
 
 const ListNurse = () => {
   const [Data, setData] = useState([]);
@@ -29,6 +32,23 @@ const ListNurse = () => {
     fetchData();
   }, []); 
 
+  const handeldelete = async (value) =>
+  {
+    try {
+      const response = await fetch(' http://localhost:2222/api/nurses/'+value.id,
+      {
+      method:'DELETE'
+    });
+      if (response.ok) {
+        console.log("Deleted")
+      } else {
+        console.error('Error:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
   return (
     <div>
       <AdminNav />
@@ -49,6 +69,11 @@ const ListNurse = () => {
                   Ph:{value.phone}<br></br>
                   <br />
                   ....
+                </div>
+                <div className='options'>
+                <IconButton onClick={() => handeldelete(value)} >
+                    <DeleteIcon></DeleteIcon>
+                </IconButton>
                 </div>
               </div>
             </div>
