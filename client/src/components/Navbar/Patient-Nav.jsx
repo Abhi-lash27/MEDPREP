@@ -11,10 +11,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import {Link} from 'react-router-dom'
+import { deepOrange, green,teal } from '@mui/material/colors';
+import { styled, alpha } from '@mui/material/styles';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const pages = [{'value':'Patient','link':'/patient'},{'value':'Appointment','link':'/patient/prev'},{'value':'Reports','link':'/nurse/reports'},{'value':'Book Appointment','link':'/patient/book'}];
+
+// const settings = ['Home','Profile', 'Logout'];
 
 function PatientNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -35,11 +47,17 @@ function PatientNav() {
     setAnchorElUser(null);
   };
 
+  const handleCloseUseroutMenu = () => {
+    setAnchorElUser(null);
+    alert("Are you sure ?")
+  };
+  
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <LocalHospitalOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' ,fontSize:40}, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -55,12 +73,12 @@ function PatientNav() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            MED_PREP
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
+              size="small"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -87,14 +105,14 @@ function PatientNav() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+               {pages.map((page) => (
+                <MenuItem key={page.value} onClick={handleCloseNavMenu}>
+                <Link to = {page.link} style={{textDecoration:'none'}}><Typography textAlign="center" fontSize='small' fontFamily='inherit' style={{color:'black'}}>{page.value}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <LocalHospitalOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -111,26 +129,63 @@ function PatientNav() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            MED_PREP
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+             <Link to= {page.link} style={{textDecoration:'none'}}> <Button
+                key={page.value}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block',fontFamily:'inherit' }}
               >
-                {page}
-              </Button>
+                {page.value}
+              </Button> </Link>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+
+          <FormControl sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex',color: 'inherit',border:'InactiveBorder',mx: 2} }}>
+             <InputLabel id="demo-simple-select-label" sx={{color:'inherit'}}>Language</InputLabel>
+          <Select
+                defaultValue={20}
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Language"
+                sx={{
+                  color: 'inherit',
+                  width:'75%'
+                 }}
+              >
+                <MenuItem value={10}>Tamil</MenuItem>
+                <MenuItem value={20}>English</MenuItem>
+                <MenuItem value={30}>French</MenuItem>
+        </Select>
+        </FormControl>
+          <Typography 
+            variant="h8"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'sherif',
+              fontWeight: 900,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration:'none',
+            }}>User_id
+            </Typography>
+
+            <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <Avatar variant="Rounded">
+              </Avatar>
               </IconButton>
             </Tooltip>
+
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -147,12 +202,17 @@ function PatientNav() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key='Home_patient' onClick={handleCloseUserMenu}>
+                <Link to='/patient' style={{textDecoration:"none"}}><Typography style={{color:"black", textAlign:"center"}}>Home</Typography></Link>
                 </MenuItem>
-              ))}
+                <MenuItem key='About_patient' onClick={handleCloseUserMenu}>
+                <Link to='/patient/accountsettings' style={{textDecoration:"none"}}><Typography style={{color:"black", textAlign:"center"}}>Profile</Typography></Link>
+                </MenuItem>
+                <MenuItem key='Logout_patient' onClick={handleCloseUseroutMenu} >
+                <Link to='/' style={{textDecoration:"none"}}><label style={{textAlign:"center", color:"black"}}>Logout</label></Link>
+                </MenuItem>
             </Menu>
+          
           </Box>
         </Toolbar>
       </Container>
