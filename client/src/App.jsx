@@ -24,6 +24,8 @@ import NurseIP from './pages/Nurse/NurseIP'
 import AddNurse from './pages/Admin/AddNurse'
 import ListDoctor from './pages/Admin/ListDoctor'
 import ListNurse from './pages/Admin/ListNurse'
+import AppointmentDoc from './pages/Doctor/AppointmentDoc'
+import PatientlistDoc from './pages/Doctor/PatientlistDoc'
 
 const App = () => {
   return (
@@ -53,7 +55,8 @@ const App = () => {
           <Route path='/nurse/nurseIP' exact element={<NurseIP/>}/>
           <Route path='/Admin/ListDoctor' exact element={<ListDoctor/>}/>
           <Route path='/Admin/ListNurse' exact element={<ListNurse/>}/>
-
+          <Route path='/doctor/appointment' exact element={<AppointmentDoc/>}/>
+          <Route path='/doctor/patients' exact element={<PatientlistDoc/>}/>
         </Routes>
     </BrowserRouter>
     </>
