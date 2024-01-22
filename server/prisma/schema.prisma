@@ -1,0 +1,125 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AppointmentStatus {
+  PENDING
+  REJECTED
+  ACCEPTED
+}
+
+enum FileType {
+  pdf
+}
+
+model Admin {
+  id        String   @unique @default(uuid()) @db.Uuid
+  fullName  String
+  phone     String   @db.VarChar(10)
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Nurse {
+  id        String   @unique @default(uuid()) @db.Uuid
+  fullName  String
+  phone     String   @db.VarChar(10)
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Patient {
+  id            String         @unique @default(uuid()) @db.Uuid
+  fullName      String
+  email         String         @unique
+  phone         String         @db.VarChar(10)
+  dob           String
+  bloodGroup    String
+  password      String
+  appointments  Appointments[]
+  reports       Reports[]
+  prescriptions Prescription[]
+  // doctors       DoctorOnPatients[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Appointments {
+  id                String            @unique @default(uuid()) @db.Uuid
+  doctorId          String            @db.Uuid
+  doctor            Doctor            @relation(fields: [doctorId], references: [id])
+  patientId         String            @db.Uuid
+  patient           Patient           @relation(fields: [patientId], references: [id])
+  reason            String
+  appointmentDate   String
+  appointmentTiming String
+  status            AppointmentStatus @default(PENDING)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model Prescription {
+  id         String   @unique @default(uuid()) @db.Uuid
+  patientId  String   @db.Uuid
+  patient    Patient  @relation(fields: [patientId], references: [id])
+  medication String
+  dosage     String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Doctor {
+  id           String         @unique @default(uuid()) @db.Uuid
+  fullName     String
+  phone        String         @db.VarChar(10)
+  email        String         @unique
+  password     String
+  appointments Appointments[]
+  // patients     DoctorOnPatients[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model Reports {
+  id          String   @unique @default(uuid()) @db.Uuid
+  patientId   String   @db.Uuid
+  patient     Patient  @relation(fields: [patientId], references: [id])
+  title       String
+  file        File[]
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model File {
+  id        String   @unique @default(uuid()) @db.Uuid
+  type      FileType @default(pdf)
+  data      Bytes
+  reportId  String?   @unique @db.Uuid
+  reports   Reports? @relation(fields: [reportId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Many to Many relationship between Doctor and Patient
+// model DoctorOnPatients {
+//   doctorId   String
+//   doctor     Doctor   @relation(fields: [doctorId], references: [id])
+//   patietntId String
+//   patient    Patient  @relation(fields: [patietntId], references: [id])
+//   createdAt  DateTime @default(now())
+//
+//   @@id([doctorId, patietntId])
+// }
