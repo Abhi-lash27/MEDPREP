@@ -3,7 +3,17 @@ import './PrevApp.css';
 import '../Patient/Hooks/UseBookContext'
 import { useBookContext } from '../Patient/Hooks/UseBookContext';
 import PatientNav from '../../Navbar/Patient-Nav'
+
+//copy
+import { useTranslation,Trans } from 'react-i18next'
+//
+
 const PrevApp = () => {
+
+  //copy
+  const {t} = useTranslation()
+  //
+
   const {Appointment,dispatch} = useBookContext()
   useEffect(async() =>
   {
@@ -20,29 +30,41 @@ const PrevApp = () => {
     <div>
       <PatientNav></PatientNav>
       <br></br>
-    
-<h1>Previous Appointment</h1>
+      <div className='container-p' >
+<h1 className='heading'>{t('PreviousAppointment')}</h1>
 <br></br>
-{<table id="patient">
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Doctor</th>
-    <th>Reason</th>
+{
+   <div className='one'>
+  <table className='tb'>
+  <thead >
+  <tr className='row'>
+    <th className='head'>{t('Name')}</th>
+    <th className='head'>{t('PhoneNumber')}</th>
+    <th className='head'>{t('Date')}</th>
+    <th className='head'>{t('Time')}</th>
+    <th className='head'>{t('Doctor')}</th>
+    <th className='head'>{t('Reason')}</th>
 
   </tr>
-  {Appointment.map((value) => 
-  <tr>
-   <td> {value.Name}</td>
-   <td> {value.ph}</td>
-   <td> {value.Date}</td>
-   <td> {value.Time}</td>
-   <td> {value.doc}</td>
-   <td> {value.reason}</td>
-  </tr>)}
-</table>}
+  </thead>
+  <tbody>
+  {
+  Appointment.map((value) => 
+  <tr className='row'>
+   <td className='data'> {value.Name}</td>
+   <td className='data'> {value.ph}</td>
+   <td className='data'> {value.Date}</td>
+   <td className='data'> {value.Time}</td>
+   <td className='data'> {value.doc}</td>
+   <td className='data'> {value.reason}</td>
+  </tr>
+  )}
+   </tbody>
+
+</table>
+</div>}
+
+    </div>
     </div>
   );
 };

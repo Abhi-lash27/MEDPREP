@@ -12,25 +12,33 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+import {Link} from 'react-router-dom'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import {Link} from 'react-router-dom'
 import { deepOrange, green,teal } from '@mui/material/colors';
 import { styled, alpha } from '@mui/material/styles';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import i18next from 'i18next';
 
 
-const pages = [{'value':'Patient','link':'/patient'},{'value':'Appointment','link':'/patient/prev'},{'value':'Reports','link':'/nurse/reports'},{'value':'Book Appointment','link':'/patient/book'}];
+
+const pages = [{'value':'Book Appointment','link':'/patient/book'},{'value':'prev Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'prescription','link':'/patient/prescription'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 
 function PatientNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+   
+
+  const handelchange = (value) =>
+  {
+     i18next.changeLanguage(value)
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -62,7 +70,7 @@ function PatientNav() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href={"http://localhost:5173/patient/Details"}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -156,10 +164,12 @@ function PatientNav() {
                   color: 'inherit',
                   width:'75%'
                  }}
-              >
-                <MenuItem value={10}>Tamil</MenuItem>
-                <MenuItem value={20}>English</MenuItem>
-                <MenuItem value={30}>French</MenuItem>
+                 onChange={(e) => handelchange(e.target.value)}
+                 >
+                   <MenuItem value='tn'>Tamil</MenuItem>
+                   <MenuItem value='en'>English</MenuItem>
+                   <MenuItem value='fr'>French</MenuItem>
+                   <MenuItem value='hi'>Hindi</MenuItem>
         </Select>
         </FormControl>
           <Typography 
