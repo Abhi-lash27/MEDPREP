@@ -62,6 +62,8 @@ model Appointments {
   doctor            Doctor            @relation(fields: [doctorId], references: [id])
   patientId         String            @db.Uuid
   patient           Patient           @relation(fields: [patientId], references: [id])
+  patientName       String
+  doctorName        String
   reason            String
   appointmentDate   String
   appointmentTiming String
@@ -107,7 +109,7 @@ model File {
   id        String   @unique @default(uuid()) @db.Uuid
   type      FileType @default(pdf)
   data      Bytes
-  reportId  String?   @unique @db.Uuid
+  reportId  String?  @unique @db.Uuid
   reports   Reports? @relation(fields: [reportId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

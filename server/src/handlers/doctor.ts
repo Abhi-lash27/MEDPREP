@@ -111,14 +111,24 @@ export const updateDoctor = async (req: Request, res: Response) => {
 
 export const deleteDoctor = async (req: Request, res: Response) => {
   try {
+    const appointments = await prisma.appointments.deleteMany({
+      where: {
+        doctorId: req.params.id
+      }
+    })
+
     const doctor: Doctor = await prisma.doctor.delete({
       where: {
         id: req.params.id
       }
     });
 
+    if(!appointments) {
+      return res.status(404).json({ error: "Appointments not found"})
+    }
     if (!doctor) {
       return res.status(404).json({ error: "Doctor not found" });
+
     }
 
     return res.status(200).json("Deleted doctor successfully");
