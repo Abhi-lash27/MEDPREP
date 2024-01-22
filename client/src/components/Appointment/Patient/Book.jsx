@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React,useState,useEffect} from 'react'
 import './Book.css'
 import { useBookContext } from './Hooks/UseBookContext'
 import PatientNav from '../../Navbar/Patient-Nav'
@@ -12,13 +12,32 @@ const Book = ({onSave}) => {
   const [Time,setTime] = useState('')
   const [doc,setDoc] = useState('')
   const [reason,setReason] = useState('')
+  const [Data, setData] = useState([]);
 
   const {t} = useTranslation()
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:2222/api/doctors');
+        if (response.ok) {
+          const json = await response.json();
+          setData(json.doctor);
+          console.log(json.doctor);
+        } else {
+          console.error('Error:', response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); 
 
   const handleSubmit = async () =>
   {
-    const data = {Name,ph,Date,Time,doc,reason}
-    const response = await fetch('http://localhost:3500/Data',{
+    const data = {doctorId:doc,patientId:"c361d2fa-8e6d-4a4d-9fa6-041690ab9b27",reason:reason,appointmentDate:Date,appointmentTiming:Time}
+    const response = await fetch('http://localhost:2222/api/appointments',{
             method:'POST',
             body:JSON.stringify(data),
             headers:{
@@ -44,12 +63,6 @@ const Book = ({onSave}) => {
                     <input type='text' name='name' id='name'
                     value={Name}
                     onChange={(e) => setName(e.target.value)} required/>
-                  </div>
-                  <div className='input-box'>
-                      <label> {t('PhoneNumber')}<span> *</span></label>
-                       <input type='text' name='phnno' id='phnno'
-                        value={ph}
-                        onChange={(e) =>setPh(e.target.value) } required size="10" />
                   </div>
                       <div className='column'>
                       <div className='input-box'>
@@ -79,11 +92,11 @@ const Book = ({onSave}) => {
                   <label>{t('SelectSpecialist')} <span> *</span> </label>
                   <select className= 'select-box' name='doctor' id='doctor' value={doc} onChange={(e) => setDoc(e.target.value)} required>
                     <option value='none'>Select a Doctor</option>
-                    <option value='Dr.Vandana'>Dr.Vandana | MBBS, DNB - Obstetrics & Gynecology</option>
-                    <option value='Dr.Harit'> Dr.Harit     | MBBS, DNB - General Surgery</option>
-                    <option value='Dr.Varsha'>Dr.Varsha</option>
-                    <option value='Dr.Subhash'>Dr.Subhash</option>
-                    <option value='Dr.Kannappan'>Dr.Kannappan</option>
+                   {
+                    Data.map((value) => (
+                      <option value={value.id}>{value.fullName}</option>
+                    ))
+                   }
                   </select>
                   </div>
                 
