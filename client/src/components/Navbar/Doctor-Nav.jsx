@@ -24,7 +24,8 @@ import InputBase from '@mui/material/InputBase';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-const pages = ['Appoinments','Patients','Messages'];
+const pages = ['Appoinments','Patients'];
+
 
 function DoctorNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -188,6 +189,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
               
             ))}
           </Box>
+          
 
           <FormControl sx={{ flexGrow: 0.2, display: { xs: 'none', md: 'flex',color: 'inherit',border:'InactiveBorder',mx: 2} }}>
              <InputLabel id="demo-simple-select-label" sx={{color:'inherit'}}>Language</InputLabel>
@@ -244,8 +246,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+             
                 <MenuItem key='Home_doc' onClick={handleCloseUserMenu}>
                 <Link to='/doctor' style={{textDecoration:"none"}}><Typography style={{color:"black", textAlign:"center"}}>Home</Typography></Link>
+                </MenuItem>
+                <MenuItem key='Appointment_doc' onClick={handleCloseUserMenu}>
+                  <Link to='/doctor/appointment' style={{textDecoration:"none"}}><Typography style={{color:"black",textAlign:"center"}}>Appoinments</Typography></Link>
+                </MenuItem>
+                <MenuItem key='Patient_doc' onClick={handleCloseUserMenu}>
+                  <Link to='/doctor/patients' style={{textDecoration:"none"}}><Typography style={{color:"black",textAlign:"center"}}>Patients</Typography></Link>
                 </MenuItem>
                 <MenuItem key='About_doc' onClick={handleCloseUserMenu}>
                 <Link to='/doctor/accountsettings' style={{textDecoration:"none"}}><Typography style={{color:"black", textAlign:"center"}}>Profile</Typography></Link>
@@ -253,6 +262,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
                 <MenuItem key='Logout_doc' onClick={handleCloseUseroutMenu} >
                 <Link to='/' style={{textDecoration:"none"}}><label style={{textAlign:"center", color:"black"}}>Logout</label></Link>
                 </MenuItem>
+                
             </Menu>
           </Box>
         </Toolbar>

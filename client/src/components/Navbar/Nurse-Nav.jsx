@@ -29,6 +29,7 @@ import i18next from 'i18next';
 const pages = [{'value':'Paitient','link':'/nurse/patient'},{'value':'Reports','link':'/nurse/reports'},{'value':'Records','link':'/nurse/records'}];
 const settings = ['Home','About','change-password','Logout'];
 
+
 function NurseNav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
