@@ -4,12 +4,16 @@
 }
 
 .topnav input[type=text] {
-  float: right;
   padding: 6px;
   border: none;
   margin-top: 8px;
   margin-right: 16px;
+  margin-left: 33%;
   font-size: 17px;
+  width:500px;
+  border: 1px solid grey;
+  border-radius: 3px;
+
 }
 @media screen and (max-width: 600px) {
   .topnav select, .topnav input[type=text] {
