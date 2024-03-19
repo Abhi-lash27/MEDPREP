@@ -6,7 +6,6 @@ import UserSidebar from '../../components/UserProfile/UserSidebar'
 import AccountSetting from '../../components/UserProfile/AccountSettings'
 import './DoctorProfile.css'
 import ChangePassword from '../../components/UserProfile/ChangePassword'
-import Notifications from '../../components/UserProfile/Notifications'
 import Footer from '../../components/Footer/Footer'
 
 const DoctorProfile = () => {
@@ -30,7 +29,6 @@ const DoctorProfile = () => {
         <div className='right'>
           {activepage === 'accountsettings' && <AccountSetting/>}
           {activepage === 'changepassword' && <ChangePassword/> }
-          {activepage === 'notify' && <Notifications/> }
         </div>
       </div>
       <Footer/>
