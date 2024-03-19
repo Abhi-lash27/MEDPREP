@@ -17,4 +17,4 @@ const port = 2222 as number;
 
 app.listen(port, () => {
   logger.info(`listening on http://localhost:${port}`);
-})
+}) 

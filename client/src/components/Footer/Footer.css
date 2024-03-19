@@ -1,0 +1,14 @@
+.footer-main-container{
+    margin: 50px;
+    display: flex;
+}
+.footer-logo img{
+    padding: 20px;
+    width: 200px;
+}
+.media-links{
+    flex-direction: column;
+}
+.copy-right-text{
+    align-items: center;
+}

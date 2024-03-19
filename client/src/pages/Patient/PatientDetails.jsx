@@ -8,16 +8,16 @@ import { useTranslation,Trans } from 'react-i18next'
 
 const PatientDetails = () => {
     const {t} = useTranslation()
-    const [Data,setData] = useState('')
+    const [Data,setData] = useState(null)
     useEffect( async() => 
     {
-      const response = await fetch('http://localhost:3600/DB')
+      const response = await fetch('http://localhost:2222/api/patients/c361d2fa-8e6d-4a4d-9fa6-041690ab9b27')
       const json = await response.json()
       console.log(json)
       if(response.ok)
       {
         setData(json)
-        console.log()
+        console.log(json)
       }
     },[])
 
@@ -28,31 +28,27 @@ const PatientDetails = () => {
       <div className="box">
         <img src={img} alt="" />
         <table id ='info'>
-            {Data && Data.DB && ( 
+            {Data && ( 
             <tbody>
             <tr>
              <td>{t('Name')}</td>
-             <td>: {Data.DB.Name}</td>
+             <td>: {Data.fullName}</td>
             </tr>
             <tr>
-             <td>{t('Age')}</td>
-             <td id='right'>: {Data.DB.Age}</td>
+             <td>{t('email')}</td>
+             <td id='right'>: {Data.email}</td>
             </tr>
             <tr>
-             <td>{t("Gender")}</td>
-             <td>: {Data.DB.Gender}</td>
-            </tr>
-            <tr>
-             <td>{t("Email")}</td>
-             <td>:{Data.DB.email}</td>
+             <td>{t("phone")}</td>
+             <td>: {Data.phone}</td>
             </tr>
             <tr>
              <td>{t("BloodGroup")}</td>
-             <td>: {Data.DB.blood}</td>
+             <td>: {Data.bloodGroup}</td>
             </tr>
             <tr>
-             <td>{t('PhoneNumber')}</td>
-             <td>: {Data.DB.ph}</td>
+             <td>{t('dob')}</td>
+             <td>: {Data.dob}</td>
             </tr>
           </tbody> 
             )} 

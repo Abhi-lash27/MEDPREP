@@ -1,50 +1,36 @@
-import React, { useState,useReducer } from 'react'
+import React, { useState,useReducer,useEffect } from 'react'
 import './Patient.css'
 import HeadBanner from '../../components/Banner/HeadBanner'
 import NurseNav from '../../components/Navbar/Nurse-Nav'
 import img1 from './img.jpg'
 import Profile from './Profile'
 const Patient = () => {
-  const Data = [{
-    "Name":"Akalya Leader (Ak)",
-    "Age":19,
-    "Gender":"Male",
-    "Blood_group":"o+ve",
-    "Siblings":3,
-    "Email":"abdulkalam123aasath@gmail.com",
-    "ph":"111111111"
-  },
-  {
-    "Name":"Arun",
-    "Age":20,
-    "Gender":"Male",
-    "Blood_group":"A-ve",
-    "Siblings":0,
-    "Email":"arun@gmail.com",
-    "ph":"111111111"
-  },
-  {
-    "Name":"Abilash",
-    "Age":20,
-    "Gender":"Male",
-    "Blood_group":"B+ve",
-    "Siblings":2,
-    "Email":"abilash@gmail.com",
-    "ph":"111111111"
-  },{
-    "Name":"Athyul",
-    "Age":19,
-    "Gender":"Male",
-    "Blood_group":"o+ve",
-    "Siblings":2,
-    "Email":"Athyul@gmail.com",
-    "ph":"111111111"
-  }]
+  const [Data, setData] = useState([]);
   const [Info,setInfo] = useState(null)
   const handelclick = (value) =>
   {
     setInfo(value)
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:2222/api/patients');
+        if (response.ok) {
+          const json = await response.json();
+          setData(json.patient);
+          console.log(json.patient);
+        } else {
+          console.error('Error:', response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
 
 
   return (
@@ -63,12 +49,13 @@ const Patient = () => {
           <div className="item">
             <img src={img1} alt="Patient" />
             <div className="info" >
-              <div className="name">{value.Name}</div>
+              <div className="name">{value.fullName}</div>
               <div className="description" >
-                Name: {value.Name}<br />
-                Age: {value.Age}<br />
-                Gender: {value.Gender}<br />
-                Blood Group: {value.Blood_group}<br />
+                Name: {value.fullName}<br />
+                Age: {value.email}<br />
+                Gender: {value.phone}<br />
+                Blood Group: {value.bloodGroup}<br />
+                DOB:{value.dob}
                 ....
               </div>
             </div>

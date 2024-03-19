@@ -7,6 +7,7 @@ import AccountSetting from '../../components/UserProfile/AccountSettings'
 import './DoctorProfile.css'
 import ChangePassword from '../../components/UserProfile/ChangePassword'
 import Notifications from '../../components/UserProfile/Notifications'
+import Footer from '../../components/Footer/Footer'
 
 const DoctorProfile = () => {
 
@@ -32,6 +33,7 @@ const DoctorProfile = () => {
           {activepage === 'notify' && <Notifications/> }
         </div>
       </div>
+      <Footer/>
       </div>
   )
 }
