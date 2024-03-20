@@ -3,6 +3,8 @@ import './First.css';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
+import { useTranslation,Trans } from 'react-i18next'
+
 
 
 const FirstPage = () => {
@@ -96,7 +98,7 @@ const FirstPage = () => {
   return (
     <div>
         <PatientNav/>
-            <h1 className='heading'>Book Your Appointment</h1>
+            <h1 className='heading'>{t('Book Your Appointment')}</h1>
         <SearchBar handleSearch={handleSearch}></SearchBar>
           <div className='main-c'>
           <div className='card-s'>
@@ -108,12 +110,12 @@ const FirstPage = () => {
             </div>
             
             <div className='content'>
-              <h2>Dr.{data.name}, {data.degree}</h2>
+              <h2>{t('Dr')}.{data.name}, {data.degree}</h2>
               <p className='des'>{data.speciality}</p>
-              <p className='exp'>Experience: {data.Exp} years </p>
+              <p className='exp'>{t('Experience:')} {data.Exp} {t('years')} </p>
               <div className='action-buttons'>
                 <button className='btn'  onClick={()=>navigate('/patient/book')}>
-                  <span>Book Appointment</span>
+                  <span>{t('Book Appointment')}</span>
                   </button>
               </div>
             </div>

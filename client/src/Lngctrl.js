@@ -44,6 +44,25 @@ i18next
                Doctor:'Doctor',
                Reason:'Reason',
 
+               PatientDetails:'PatientDetails',
+               patientinfo:'patientinfo',
+               patientId:' patientId',
+               Name:'Name',
+               PhoneNumber:'PhoneNumber',
+               email:'e-mail',
+               DOB:'Date of Birt',
+               Age:'age',
+               BloodGroup:'Blood Group', 
+               AadharID:'Identifiant Aadhar',
+               LookingforaSpeacialist:'Looking for a Speacialist',
+               Noprescriptionfound:' No prescription found',
+               Prescription:'Prescription',
+               BookYourAppointment:'BookYourAppointment',
+               Experience:'Experience',
+               Dr:'Doctor',
+               years:'years',
+               BookAppointment:'Book Appointment',
+
                //prev
                //report
 
@@ -84,6 +103,27 @@ i18next
               Time:"நேரம்",
               Reason:"காரணம்",
               Doctor:'மருத்துவர்',
+
+              PatientDetails:'நோயாளி விவரங்கள்',
+               patientinfo:'நோயாளி தகவல்',
+               patientId:'நோயாளி ஐடி',
+               Name:'பெயர்',
+               PhoneNumber:'தொலைபேசி எண்',
+               email:'மின்னஞ்சல்',
+               DOB:'பிறந்த தேதி',
+               Age:'வயது',
+               BloodGroup:'இரத்த வகை', 
+               AadharID:'ஆதார் ஐடி',
+               LookingforaSpeacialist:'நிபுணரைத் தேடுகிறது',
+               Noprescriptionfound:'மருந்துச் சீட்டு எதுவும் கிடைக்கவில்லை',
+               Prescription:'மருந்துச்சீட்டு',
+               BookYourAppointment:'உங்கள் சந்திப்பை பதிவு செய்யவும்',
+               Experience:'அனுபவம்',
+               Dr:'மருத்துவர்',
+               years:'ஆண்டுகள்',
+               BookAppointment:'புத்தக நியமனம்',
+
+              
               
 
                //report
@@ -128,7 +168,36 @@ i18next
                Time:'temps',
                Doctor:'médecin',
                Reason:'raison',
+              
 
+               PatientDetails:'Détails du patient',
+               patientinfo:'Informations sur les patients',
+               patientId:'Identifiant du patient',
+               Name:'nom',
+               PhoneNumber:'numéro de téléphone',
+               email:'e-mail',
+               DOB:'date de naissance',
+               Age:'âge',
+               BloodGroup:'groupe sanguin', 
+               AadharID:'Identifiant Aadhar',
+               LookingforaSpeacialist:'Vous cherchez un spécialiste',
+               Noprescriptionfound:'Aucune ordonnance trouvée',
+               Prescription:'Ordonnance',
+               BookYourAppointment:'Prenez votre rendez-vous',
+               Experience:'Expérience',
+               Dr:'médecin',
+               years:'années',
+               BookAppointment:'Prendre rendez-vous',
+               
+
+
+
+               
+
+
+           
+
+               
 
 
 

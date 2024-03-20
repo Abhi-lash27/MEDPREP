@@ -6,6 +6,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
+import { useTranslation,Trans } from 'react-i18next'
 const Prescription = () => {
     const Data = [
         {
@@ -40,7 +41,7 @@ const Prescription = () => {
   return (
     <div>
     <PatientNav/>
-    <h1 className='heading'>Prescription</h1>
+    <h1 className='heading'>{t('Prescription')}</h1>
     <SearchBar handleSearch={handleSearch}></SearchBar>
         {Data && <div className="container">
         <div className="PatientLayout">
@@ -74,7 +75,7 @@ const Prescription = () => {
         </div>
         </div>}
         {!Data && <div>
-           <h1>No prescription found</h1> 
+           <h1>{t('No prescription found')}</h1> 
         </div>}
         </div>
   )

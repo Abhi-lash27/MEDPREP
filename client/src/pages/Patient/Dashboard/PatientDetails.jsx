@@ -7,6 +7,9 @@ import './PatientDetails.css';
 import DoctorDetails from './DoctorDetails';
 import Left from './Left';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
+import { useTranslation,Trans } from 'react-i18next'
+
+
 
 
 const Front = () => {
@@ -39,7 +42,7 @@ const Front = () => {
       
       <div className='mid'>
       <div className='wel'>
-          <h2>Looking for a Speacialist ??</h2>
+          <h2>{t('Looking for a Speacialist ??')}</h2>
           {/* <p className='p'><i>Search Doctor By Name</i></p> */}
         </div>
 
