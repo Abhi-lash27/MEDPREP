@@ -1,0 +1,55 @@
+.patient-navbar{
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+    box-shadow: 0 1px 3px -2px black;
+    align-items: center;
+    background-color: white;
+}
+.patient-navbar-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.patient-navbar-logo img{
+    width: 20%;
+    margin: 10px;
+}
+.language-selector{
+    padding: 10px;
+    color: black;
+}
+
+.patient-navbar-list{
+    font-family: "Poppins";
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.patient-navbar-list li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+li:after {    
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    display: block;
+    height: 2px;
+    /* left: 50%; */
+    position: relative;
+    background: black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  li:hover:after { 
+    width: 100%;
+  }

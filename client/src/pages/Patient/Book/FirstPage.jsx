@@ -8,6 +8,8 @@ import { useTranslation,Trans } from 'react-i18next'
 
 
 const FirstPage = () => {
+  const {t} = useTranslation()
+
     const initialDocCard = [
         {
           profile:'https://th.bing.com/th?id=OIP.h2RfTna7CBfVMHkss4aKWwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2',
@@ -94,6 +96,7 @@ const FirstPage = () => {
       const [filteredItems, setFilteredItems] = useState([...initialDocCard]);
       const [items, setItems] = useState([...initialDocCard]);
       const navigate= useNavigate();
+
     
   return (
     <div>

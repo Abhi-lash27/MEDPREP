@@ -13,6 +13,8 @@ import { useTranslation,Trans } from 'react-i18next'
 
 
 const Front = () => {
+  const {t} = useTranslation()
+
   return (
     <div>
 <PatientNav/>
