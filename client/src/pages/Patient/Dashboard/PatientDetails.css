@@ -17,7 +17,8 @@
    border-radius: 10px;
    background-color:whitesmoke;
    /* opacity: 0.9; */
-   color: navy;
+   color: #00203FFF;
+   ;
    position: fixed;
    height: fit-content;
    
@@ -39,7 +40,7 @@
   }
  .mid{
   width: 76%;
-  margin-left: 23%;
+  margin-left: 25%;
   margin-right: 5%;
   border: 2px solid white;
   border-radius: 10px;

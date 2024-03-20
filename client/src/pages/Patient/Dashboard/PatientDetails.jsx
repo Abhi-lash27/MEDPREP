@@ -44,7 +44,7 @@ const Front = () => {
       
       <div className='mid'>
       <div className='wel'>
-          <h2>{t('Looking for a Speacialist ??')}</h2>
+          <h2>{t('Looking for a Specialist ??')}</h2>
           {/* <p className='p'><i>Search Doctor By Name</i></p> */}
         </div>
 
