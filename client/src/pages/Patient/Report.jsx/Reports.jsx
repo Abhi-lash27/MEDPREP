@@ -37,7 +37,7 @@ const Reports = () => {
       const [filteredItems, setFilteredItems] = useState([...Data]);
       const [showDropdown, setShowDropdown] = useState(false);
       const toggleDownload = () => {
-        alert('Akalya warning')
+        alert('view')
       };
     
 
