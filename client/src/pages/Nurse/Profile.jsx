@@ -12,8 +12,7 @@ const Profile = ({Info}) => {
         <p>Age: {Info.Age}</p>
         <p>Gender: {Info.Gender}</p>
       </div>
-      <div className="About">
-        <ul>
+      <div className="About">        <ul>
           <h1>About</h1>
         </ul>
         <ul>

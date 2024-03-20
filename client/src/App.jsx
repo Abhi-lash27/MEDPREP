@@ -12,7 +12,7 @@ import PChangePassword from './components/UserProfile/Patient/PChangePassword'
 import PNotifications from './components/UserProfile/Patient/PNotifications'
 import Main from './components/Appointment/Patient/Main'
 import DoctorProfile from './pages/Doctor/DoctorProfile'
-import NurseProfile from './components/Navbar/Nurse/NurseProfile'
+import NurseProfile from './pages/Nurse/NurseProfile'
 import Book from './components/Appointment/Patient/Book'
 import PatientDetails from './pages/Patient/PatientDetails'
 import Reports from './pages/Patient/Reports'
@@ -26,6 +26,7 @@ import ListDoctor from './pages/Admin/ListDoctor'
 import ListNurse from './pages/Admin/ListNurse'
 import AppointmentDoc from './pages/Doctor/AppointmentDoc'
 import PatientlistDoc from './pages/Doctor/PatientlistDoc'
+import NChangePassword from './components/UserProfile/Nurse/NChangePassword'
 
 const App = () => {
   return (
@@ -36,7 +37,7 @@ const App = () => {
           <Route path='/signup' exact element={<SignUp />} />
           <Route path='/doctor' exact element={<DoctorDashboard />} />
           <Route path='/nurse' exact element={<NurseDashboard />} />
-          <Route path='/nurse/profile' exact element={<NurseProfile />} />
+          {/* <Route path='/nurse/profile' exact element={<NurseProfile />} /> */}
           <Route path='/nurse/patient' exact element={<Patient />} />
           <Route path='/patient' exact element={<PatientDetails/>} />
           <Route path='/patient/main' exact element={<Main />} />
@@ -57,6 +58,8 @@ const App = () => {
           <Route path='/Admin/ListNurse' exact element={<ListNurse/>}/>
           <Route path='/doctor/appointment' exact element={<AppointmentDoc/>}/>
           <Route path='/doctor/patients' exact element={<PatientlistDoc/>}/>
+          <Route path='/nurse/:activepage' exact element={<NurseProfile/>} />
+          <Route path='/nurse/:activepage' exact element={<NChangePassword/>} />
         </Routes>
     </BrowserRouter>
     </>

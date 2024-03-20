@@ -2,8 +2,9 @@ import React, { useState,useReducer,useEffect } from 'react'
 import './Patient.css'
 import HeadBanner from '../../components/Banner/HeadBanner'
 import NurseNav from '../../components/Navbar/Nurse-Nav'
+import Footer from '../../components/Footer/Footer'
 import img1 from './img.jpg'
-import Profile from './Profile'
+// import Profile from './Profile'
 const Patient = () => {
   const [Data, setData] = useState([]);
   const [Info,setInfo] = useState(null)
@@ -66,6 +67,7 @@ const Patient = () => {
     </div>
   </div>}
   {Info && < Profile Info ={Info} />}
+  <Footer/>
 </div>
 );
 }
