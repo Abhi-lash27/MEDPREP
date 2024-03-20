@@ -1,5 +1,4 @@
 import React from 'react'
-import './PatientDetails.css'
 import img from '../Nurse/Images/img3.jpg'
 import PatientNav from '../../components/Navbar/Patient-Nav'
 import { useState,useEffect } from 'react'
