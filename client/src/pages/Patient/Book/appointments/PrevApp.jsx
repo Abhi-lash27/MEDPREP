@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './PrevApp.css';
-import '../Patient/Hooks/UseBookContext'
-import { useBookContext } from '../Patient/Hooks/UseBookContext';
-import PatientNav from '../../Navbar/Patient-Nav'
+import '../../../../components/Appointment/Patient/Hooks/UseBookContext'
+import { useBookContext } from '../../../../components/Appointment/Patient/Hooks/UseBookContext';
+import PatientNav from '../../../../components/Navbar/Patient-Nav'
 
 //copy
 import { useTranslation,Trans } from 'react-i18next'

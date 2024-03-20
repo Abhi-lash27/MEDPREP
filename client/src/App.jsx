@@ -5,12 +5,12 @@ import Home from './pages/Home'
 import SignUp from './components/SignUp'
 import DoctorDashboard from './dashboard/DoctorDashboard'
 import NurseDashboard from './dashboard/NurseDashboard'
+
 import PatientDashboard from './dashboard/PatientDashboard'
-import PrevApp from './components/Appointment/Patient/PrevApp'
+import PrevApp from './pages/Patient/Book/appointments/PrevApp' 
 import PatientProfile from './pages/Patient/PatientProfile'
 import PChangePassword from './components/UserProfile/Patient/PChangePassword'
 import PNotifications from './components/UserProfile/Patient/PNotifications'
-import Main from './components/Appointment/Patient/Main'
 import DoctorProfile from './pages/Doctor/DoctorProfile'
 import NurseProfile from './pages/Nurse/NurseProfile'
 import Book from './components/Appointment/Patient/Book'
@@ -39,9 +39,10 @@ const App = () => {
           <Route path='/nurse' exact element={<NurseDashboard />} />
           {/* <Route path='/nurse/profile' exact element={<NurseProfile />} /> */}
           <Route path='/nurse/patient' exact element={<Patient />} />
+
           <Route path='/patient' exact element={<PatientDetails/>} />
-          <Route path='/patient/main' exact element={<Main />} />
           <Route path='/patient/book' exact element={<Book />} />  
+          <Route path='/patient/bookApp' exact element={<FirstPage/>}/>
           <Route path='/patient/prev' exact element={<PrevApp />} />  
           <Route path='/patient/Reports' exact element={<Reports/>} />  
           <Route path='/patient/:activepage' exact element={<PatientProfile/>} />
@@ -49,6 +50,8 @@ const App = () => {
           <Route path='/patient/Details' exact element={<PatientDetails/>}/>
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
           <Route path='/patient/prescription' exact element={<Prescription/>}/>
+          <Route path='/patient/docinfo' exact element={<ViewDetails/>}/>
+
           <Route path='/Forgot' exact element={<Forgot/>}/>
           <Route path='/Admin/AddDoctor' exact element={<AddDoctor/>}/>
           <Route path='/Admin/AddNurse' exact element={<AddNurse/>}/>

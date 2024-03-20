@@ -26,7 +26,7 @@ import i18next from 'i18next';
 
 
 
-const pages = [{'value':'Book Appointment','link':'/patient/book'},{'value':'prev Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'prescription','link':'/patient/prescription'}];
+const pages = [{'value':'Book Appointment','link':'/patient/bookApp'},{'value':'prev Appointment','link':'/patient/prev'},{'value':'Reports','link':'/patient/Reports'},{'value':'prescription','link':'/patient/prescription'}];
 
 // const settings = ['Home','Profile', 'Logout'];
 

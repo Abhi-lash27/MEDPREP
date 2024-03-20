@@ -4,6 +4,8 @@
     max-width: 90%;
     transition: transform 1s;
 }
+
+
 .checkoutLayout{
     display: grid;
     grid-template-columns: repeat(1, 1fr);

@@ -1,0 +1,147 @@
+.container-D{
+    margin-top: 40px;
+    margin-left: 170px;
+    margin-right: 180px;
+    margin-bottom: 40px;
+    background-color: white;
+    
+    /* border: 1px solid gray; */
+    height: 90vh;
+    /* font-family: */
+}
+
+.title{
+    text-align: center;
+    font-size: 45px;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.left-D{
+    width: 20%;
+    float:left;
+}
+
+.right-D{
+    width: 80%;
+    float: right;
+    padding-top: 25px;
+}
+
+.left-D img{
+    margin-top: 30px;
+    margin-left: 60px;
+    height: 350px;
+    width: 140%;
+    border-radius: 15px;
+}
+
+/* .left-bg{
+    
+} */
+
+.next-1 {
+    float: left;
+    margin-left: 30%;
+    /* margin-top: 10px; */
+    text-align: left;
+    padding: 10px;
+}
+
+.nam{
+    font-weight: 300;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   }
+
+   .ita{
+    font-weight: 100;
+    float: left;
+    padding: 10px;
+    /* margin-bottom: 5px; */
+   }
+
+   hr{
+    margin-top: 55px;
+    
+   }
+
+   .next-table{
+    padding: 10px;
+   }
+
+   /* .table-row{
+   } */
+   
+   .table-row td{
+    padding: 10px;
+    text-align: left;
+   }
+
+    .avail{
+    color:navy;
+    /* float:right; */
+   }
+ 
+   /* .btn{
+    margin-top: 0px;
+   } */
+
+   .action-buttons {
+    padding-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width:20px;
+ }
+ 
+ .action-buttons .btn{
+    background-color:var(--primary);
+    color:white;
+    text-align: center;
+      padding-top: 0;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      margin-left: 100%;
+      border-radius: 8px;
+      height: 45px;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      flex: 1 0 200px;
+      max-height: 25px;
+      /* float: right; */
+      
+    }
+ 
+    .btn span{
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+    
+    .btn span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    
+    }
+    
+    .btn:hover span {
+        padding-right: 25px;
+      }
+      
+      .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+ 
+ 
+ 

@@ -2,6 +2,7 @@
 
 
 .assam {
+    margin-top: 0%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +13,8 @@
 .heading{
     text-align: center;
     padding: 10px;
-    color: black;
+    color: navy;
+    margin-top: 0%;
 }
 
 .container_Book {
@@ -93,8 +95,10 @@
 .btn {
     height: 55px;
     width: 100%;
-    background-color: rgb(130, 106, 251);
-    color: #fff;
+    border: 2px solid navy;
+    background-color: white;
+    /* background-color: rgb(130, 106, 251); */
+    color: navy;
     font-size: 1rem;
     font-weight: 400;
     border: none;
@@ -105,7 +109,8 @@
 }
 
 .btn:hover {
-    background-color: rgb(88, 56, 250);
+    background-color:navy;
+    color:white;
 }
 
 /* Image styles */

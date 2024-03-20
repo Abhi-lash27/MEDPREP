@@ -1,7 +1,7 @@
 import {React,useState,useEffect} from 'react'
 import './Book.css'
-import { useBookContext } from './Hooks/UseBookContext'
-import PatientNav from '../../Navbar/Patient-Nav'
+import { useBookContext } from '../../../../components/Appointment/Patient/Hooks/UseBookContext'
+import PatientNav from '../../../../components/Navbar/Patient-Nav'
 import { useTranslation,Trans } from 'react-i18next'
 
 

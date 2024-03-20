@@ -1,13 +1,12 @@
 import React from 'react'
-import img from '../../pages/Nurse/Images/img7.jpeg'
-import SearchBar from './SearchBar'
-import PatientNav from '../../components/Navbar/Patient-Nav'
+import SearchBar from '../SearchBar'
 import { useState } from 'react'
 import IconButton from '@mui/material/IconButton';
 import DownloadIcon from '@mui/icons-material/Download';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import './Reports.css'
+import PatientNav from '../../../components/Navbar/Patient-Nav';
 const Reports = () => {
     const Data = [
       {
@@ -38,7 +37,7 @@ const Reports = () => {
       const [filteredItems, setFilteredItems] = useState([...Data]);
       const [showDropdown, setShowDropdown] = useState(false);
       const toggleDownload = () => {
-        alert('Akalya warning')
+        alert('view')
       };
     
 
@@ -56,19 +55,20 @@ const Reports = () => {
     
   return (
     <div>
-        <PatientNav></PatientNav>
-        <br></br>
+      <PatientNav/>
+        <h1 className='heading'>Reports</h1>
+
         <SearchBar handleSearch={handleSearch}></SearchBar>
     <div className="container">
     <div className="PatientLayout">
       <div className="PatientLayout">
       <div className="returnCart">
          <br></br>
-        <h1>Reports</h1>
+        
         {filteredItems.map((value)=>(
         <div className="list" >
           <div className="item">
-            <img src={img} alt="Patient" />
+            <img src="https://tse1.mm.bing.net/th?id=OIP.DESibMnCsqIPZhsedjkAAwHaHa&pid=Api&P=0&h=180" alt="Patient" />
             <div className="info" >
               <div className="name">{value.Name}</div>
               <div className="description" >
