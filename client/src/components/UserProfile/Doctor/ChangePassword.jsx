@@ -1,9 +1,6 @@
 import React from 'react'
 import { Trans, useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-
-
-import React from 'react';
 import './ChangePassword.css';
 
 const ChangePassword = () => {
