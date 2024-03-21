@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DoctorNav from '../../components/Navbar/Doctor-Nav';
 import HeadBanner from '../../components/Banner/HeadBanner';
 import './AppointmentDoc.css';
+import Footer from '../../components/Footer/Footer';
 import { useTranslation,Trans } from 'react-i18next'
 
 const AppointmentDoc = () => {
@@ -109,6 +110,7 @@ const AppointmentDoc = () => {
           </tbody>
         </table>
       </div>
+      <Footer/>
     </div>
   );
 };

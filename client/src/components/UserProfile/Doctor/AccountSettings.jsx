@@ -1,8 +1,7 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AccountSettings.css';
 
 const AccountSetting = () => {
-  // Sample data
   const [Data, setData] = useState({
     name: 'John Doe',
     specialization: 'Cardiologist',
@@ -11,24 +10,6 @@ const AccountSetting = () => {
     dateOfJoin: '2020-01-01',
     experience: '5 years',
   });
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:2222/api/doctors/d1377869-5f26-43a9-a93f-6e060fcb5f0f');
-  //       if (response.ok) {
-  //         const json = await response.json();
-  //         setData(json.doctors);
-  //         console.log(json.doctors);
-  //       } else {
-  //         console.error('Error:', response.status, response.statusText);
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   return (
     <div className='accountsettings'>
