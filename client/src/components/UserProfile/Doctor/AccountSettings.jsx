@@ -1,7 +1,13 @@
 import React, { useState,useEffect } from 'react';
 import './AccountSettings.css';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+
+
 
 const AccountSetting = () => {
+  const { t } = useTranslation();
+
   // Sample data
   const [Data, setData] = useState({
     name: 'John Doe',
@@ -32,30 +38,32 @@ const AccountSetting = () => {
 
   return (
     <div className='accountsettings'>
-      <h1 className='acnt-head'>Personal Information</h1>
+      {/* Personal Information */}
+      <h1 className='acnt-head'>{t('info')}</h1>
       <div className='form'>
         <div className='form-group'>
-          <label>Your Name <span>*</span></label>
+          <label>{t('Name')} <span>*</span></label>
           <input type='text' className='input-doc' name='name' id='name' value={Data.name} readOnly />
         </div>
         <div className='form-group'>
-          <label>Specialization <span>*</span></label>
+          <label>{t('Specialization')} <span>*</span></label>
           <input type='text' className='input-doc' name='spec' id='spec' value={Data.specialization} readOnly />
         </div>
         <div className='form-group'>
-          <label>Phone <span>*</span></label>
+          <label>{t('Phone')} <span>*</span></label>
           <input type='text' className='input-doc' name='phone' id='phone' value={Data.phone} readOnly />
         </div>
         <div className='form-group'>
-          <label>Email <span>*</span></label>
+          <label>{t('Email')} <span>*</span></label>
           <input type='text' className='input-doc' name='email' id='email' value={Data.email} readOnly />
         </div>
+        {/* date of join */}
         <div className='form-group'>
-          <label>Date of Join <span>*</span></label>
+          <label>{t('join')} <span>*</span></label>
           <input type='date' className='input-doc' name='doj' id='doj' value={Data.dateOfJoin} readOnly />
         </div>
         <div className='form-group'>
-          <label>Experience <span>*</span></label>
+          <label>{t('Experience')} <span>*</span></label>
           <input type='text' className='input-doc' name='exp' id='exp' value={Data.experience} readOnly />
         </div>
       </div>
