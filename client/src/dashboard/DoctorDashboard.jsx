@@ -17,7 +17,7 @@ const DoctorDashboard = () => {
       <Hero/>
       <div className="dashboard-content">
         <section className="responsibilities-section">
-          <h1>Responsibilities for Doctor</h1>
+        <h2 className="responsibility-heading">RESPONSIBILITES OF DOCTOR</h2>
           <div className="responsibility-container">
             <div className="responsibility-item">
               <h2>1. Medical Advice and Prescriptions:</h2>
