@@ -2,6 +2,7 @@ import React from 'react';
 import DoctorNav from '../components/Navbar/Doctor-Nav';
 import HeadBanner from '../components/Banner/HeadBanner';
 import Footer from '../components/Footer/Footer';
+import Hero from '../components/Hero/DocHero';
 import { Trans } from 'react-i18next';
 import './DoctorDashboard.css';
 
@@ -9,10 +10,11 @@ const DoctorDashboard = () => {
   return (
     <div className="doctor-dashboard">
       <DoctorNav />
-      <HeadBanner
+      {/* <HeadBanner
         bannerimage='https://source.unsplash.com/random?wallpapers'
         heading='WELCOME'
-      />
+      /> */}
+      <Hero/>
       <div className="dashboard-content">
         <section className="responsibilities-section">
           <h1>Responsibilities for Doctor</h1>
