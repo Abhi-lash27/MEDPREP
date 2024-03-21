@@ -276,8 +276,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './DoctorNav.css'
 import Logo from '../Asset/medrep.jpg'
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+
+
 
 const DoctorNav = () => {
+  const { t } = useTranslation();
+
+  const handleChange = (e) => {
+    i18next.changeLanguage(e.target.value);
+  };
   return (
     <div className='doctor-navbar'>
       <div className="doctor-navbar-logo">
@@ -290,10 +299,11 @@ const DoctorNav = () => {
         <li><Link style={{textDecoration:'none', color:'black'}} to='/doctor/patients'>Patients</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/doctor/accountsettings'>Profile</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/'>Logout</Link></li>
-        <select className='language-selector'>
-        <option value="english">English</option>
-        <option value="tamil">Tamil</option>
-        <option value="french">French</option>
+        <select className='language-selector' onChange={handleChange}>
+        <option value="en">English</option>
+        <option value="tn">Tamil</option>
+        <option value="fr">French</option>
+        <option value='hi'>Hindi</option>
       </select>
       </ul>
     </div>

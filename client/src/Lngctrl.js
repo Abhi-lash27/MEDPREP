@@ -49,6 +49,18 @@ i18next
 
                //pres
 
+
+               //doc-appointment
+               Status:'Status',
+               Actions:'Actions',
+               Approve:"Approve",
+               Reject:'Reject',
+               Report:'Report',
+               Prescription:'Prescription',
+               Reports:'Reports',
+               Prescriptions:'Prescriptions',
+               
+
             }
          },
          tn:
@@ -89,6 +101,22 @@ i18next
                //report
 
                //pres
+
+
+               //doc-appointment
+               Status:'நிலை',
+               Actions:'நடவடிக்கை',
+               Approve:'ஏற்றுக்கொள்',
+               Reject:'நிராகரிக்கவும்',
+               Accepted:'',
+               Rejected:'',
+               Report:'அறிக்கை',
+               Reports:'அறிக்கைகள்',
+               Prescription:'மருந்துச்சீட்டு',
+               Prescriptions:'மருந்துச்சீட்டுகள்',
+               
+               
+
             }
          },
          fr:{
@@ -137,6 +165,16 @@ i18next
                //report
 
                //pres
+
+               //doc-appointment
+               Status:'Statut',
+               Actions:'Actions',
+               Approve:"Approuver",
+               Reject:'Rejeter',
+               Report:'Rapport',
+               Prescription:'ordonnance',
+               Reports:'Rapports',
+               Prescriptions:'ordonnances',
 
 
             }
@@ -187,6 +225,20 @@ i18next
                //report
 
                //pres
+
+               //doctor-appointment
+               Status:'स्थिति',
+               Actions:'कार्रवाई',
+               Approve:'मंज़ूरी देना',
+               Reject:'अस्वीकार करना',
+               Accepted:'',
+               Rejected:'',
+               Report:'प्रतिवेदन',
+               Reports:'रिपोर्टों',
+               Prescription:'नुस्खा',
+               Prescriptions:'नुस्खे',
+               
+
             }
          }
            

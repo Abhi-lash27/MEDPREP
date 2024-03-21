@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DoctorNav from '../../components/Navbar/Doctor-Nav';
 import HeadBanner from '../../components/Banner/HeadBanner';
 import './AppointmentDoc.css';
+import { useTranslation,Trans } from 'react-i18next'
 
 const AppointmentDoc = () => {
   // Sample appointment data
@@ -49,6 +50,8 @@ const AppointmentDoc = () => {
     );
   };
 
+  const {t} = useTranslation()
+
   return (
     <div>
       <DoctorNav />
@@ -60,14 +63,14 @@ const AppointmentDoc = () => {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Reason</th>
-              <th>Status</th>
-              <th>Actions</th>
-              <th>Report</th>
-              <th>Prescription</th>
+              <th>{t('Name')}</th>
+              <th>{t('Date')}</th>
+              <th>{t('Time')}</th>
+              <th>{t('Reason')}</th>
+              <th>{t('Status')}</th>
+              <th>{t('Actions')}</th>
+              <th>{t('Report')}</th>
+              <th>{t('Prescription')}</th>
             </tr>
           </thead>
           <tbody>
@@ -82,10 +85,10 @@ const AppointmentDoc = () => {
                   {appointment.status === 'Pending' && (
                     <>
                       <button className='status-btn approve' onClick={() => handleApprove(appointment.id)}>
-                        Approve
+                       {t(' Approve')}
                       </button>
                       <button className='status-btn decline' onClick={() => handleReject(appointment.id)}>
-                        Reject
+                       {t(' Reject')}
                       </button>
                     </>
                   )}
