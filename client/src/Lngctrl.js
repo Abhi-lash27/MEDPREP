@@ -78,7 +78,16 @@ i18next
                Prescription:'Prescription',
                Reports:'Reports',
                Prescriptions:'Prescriptions',
+               //doc-accountsettings
+               Phone:'Phone',
                
+               
+               //change Password
+               change:'Change Password',
+               old:"Old Password",
+               newpass:"New Password",
+               confirm:"Confirm Password",
+               save:"Save Changes",
 
             }
          },
@@ -104,6 +113,7 @@ i18next
                RecentlyAccessedFiles:'சமீபத்தில் அணுகப்பட்ட கோப்புகள்',
 
                //book
+               Phone:'தொலைபேசி எண்',
                PhoneNumber:"தொலைபேசி எண்",
                SelectDate:'தேதியை தேர்வுசெய்யவும்',
                ScheduleTime:'கால அட்டவணை நேரம்',
@@ -154,8 +164,19 @@ i18next
                Reports:'அறிக்கைகள்',
                Prescription:'மருந்துச்சீட்டு',
                Prescriptions:'மருந்துச்சீட்டுகள்',
+
+               //doctor-accountsettings
+               Specialization:'',
+               join:'நிறுவனத்தில் சேர்ந்த தேதி',
+               Experience:'அனுபவங்கள்',
+               info:'உங்கள் விவரங்கள்',
                
-               
+                //change Password
+                change:'கடவுச்சொல்லை மாற்று',
+                old:"பழைய கடவுச்சொல்",
+                newpass:"புதிய கடவுச்சொல்",
+                confirm:"கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+                save:"மாற்றங்களைச் சேமிக்கவும்",
 
             }
          },
@@ -266,6 +287,7 @@ i18next
             Gender:'लिंग',
             Email:'ईमेल',
             BloodGroup:"रक्त समूह",
+            Phone:'फ़ोन नंबर',
             PhoneNumber:'फ़ोन नंबर',
 
             RecentlyAccessedFiles:'हाल ही में एक्सेस की गई फ़ाइल',
@@ -273,7 +295,7 @@ i18next
 
             
             //book
-           book:"निर्धारित तारीख बुक करना",
+            book:"निर्धारित तारीख बुक करना",
             //PhoneNumber: "Numéro de téléphone",
              ReasonForAppointment:'नियुक्ति का कारण',
              PreviousAppointment:'Previous Appointment',
@@ -306,6 +328,21 @@ i18next
                Reports:'रिपोर्टों',
                Prescription:'नुस्खा',
                Prescriptions:'नुस्खे',
+
+               //doctor-accountsettings
+               Specialization:'विशेषज्ञता',
+               join:'विशेषज्ञता',
+               Experience:'अनुभव',
+               info:'व्यक्तिगत जानकारी',
+
+
+               //change Password
+               change:'पासवर्ड बदलें',
+               old:"पुराना पासवर्ड",
+               newpass:"नया पासवर्ड",
+               confirm:"पासवर्ड की पुष्टि कीजिये",
+               save:"Save",
+             
                
 
             }
