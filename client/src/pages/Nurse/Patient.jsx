@@ -2,10 +2,45 @@ import React, { useState,useReducer,useEffect } from 'react'
 import './Patient.css'
 import HeadBanner from '../../components/Banner/HeadBanner'
 import NurseNav from '../../components/Navbar/Nurse-Nav'
+import Footer from '../../components/Footer/Footer'
 import img1 from './img.jpg'
-import Profile from './Profile'
+// import Profile from './Profile'
 const Patient = () => {
-  const [Data, setData] = useState([]);
+  const Data = [{
+    "Name":"Adbul",
+    "Age":19,
+    "Gender":"Male",
+    "Blood_group":"o+ve",
+    "Siblings":3,
+    "Email":"abdulkalam123aasath@gmail.com",
+    "ph":"111111111"
+  },
+  {
+    "Name":"Arun",
+    "Age":20,
+    "Gender":"Male",
+    "Blood_group":"A-ve",
+    "Siblings":0,
+    "Email":"arun@gmail.com",
+    "ph":"111111111"
+  },
+  {
+    "Name":"Abilash",
+    "Age":20,
+    "Gender":"Male",
+    "Blood_group":"B+ve",
+    "Siblings":2,
+    "Email":"abilash@gmail.com",
+    "ph":"111111111"
+  },{
+    "Name":"Athyul",
+    "Age":19,
+    "Gender":"Male",
+    "Blood_group":"o+ve",
+    "Siblings":2,
+    "Email":"Athyul@gmail.com",
+    "ph":"111111111"
+  }]
   const [Info,setInfo] = useState(null)
   const handelclick = (value) =>
   {
@@ -66,6 +101,7 @@ const Patient = () => {
     </div>
   </div>}
   {Info && < Profile Info ={Info} />}
+  <Footer/>
 </div>
 );
 }

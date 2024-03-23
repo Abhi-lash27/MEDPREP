@@ -1,0 +1,50 @@
+.doctor-dashboard {
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.responsibilities-section {
+  margin-bottom: 30px;
+}
+
+.responsibility-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.responsibility-item {
+  flex: 1 1 300px;
+  margin: 0 10px 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex; /* Add display flex */
+  flex-direction: column; /* Set flex direction to column */
+  align-items: center; /* Align items at the center horizontally */
+  justify-content: center; /* Align content at the center vertically */
+}
+
+.responsibility-item h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center; /* Align text at the center */
+}
+
+.responsibility-heading {
+  text-align: center;
+  margin-bottom: 20px; /* Optional: Add margin bottom for spacing */
+}
+
+
+.responsibility-item p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const ChangePassword = () => {
+const NChangePassword = () => {
   return (
     <div className='accountsettings'>
       <h1 className='acnt-head'>Change Password</h1>
@@ -24,4 +24,4 @@ const ChangePassword = () => {
   )
 }
 
-export default ChangePassword
+export default NChangePassword

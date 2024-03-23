@@ -1,6 +1,7 @@
 import React, { useState,useReducer,useEffect } from 'react'
 import DoctorNav from '../../components/Navbar/Doctor-Nav'
 import HeadBanner from '../../components/Banner/HeadBanner'
+import Footer from '../../components/Footer/Footer'
 
 const PatientlistDoc = () => {
     const [Data, setData] = useState([]);
@@ -40,26 +41,26 @@ const PatientlistDoc = () => {
     <div className="PatientLayout">
       <div className="returnCart">
         <h1>Patient Details</h1>
-        {Data.map((value)=>(
-        <div className="list" onClick={() => handelclick(value)}>
-          <div className="item">
-            {/* <img src={img1} alt="Patient" /> */}
-            <div className="info" >
-              <div className="name">{value.fullName}</div>
-              <div className="description" >
-                {/* Name: {value.fullName}<br /> */}
-                Age: {value.email}<br />
-                Gender: {value.phone}<br />
-                Blood Group: {value.bloodGroup}<br />
-                DOB:{value.dob}
-              </div>
+        {Data.map((value,index)=>(
+        <div  key={index} className='card-d'>
+            <div className='background'>
+               <img src={value.profile} className='ic'/>
             </div>
-          </div>
+            
+            <div className='content'>
+              <h2>Name: {value.fullName}</h2>
+              <p className='exp'>Email: {value.email}</p>
+              <p className='exp'>Mobile: {value.phone}</p>
+              <p className='exp'>Blood Group:{value.bloodGroup}</p>
+              <p className='exp'>Date of Birth:{value.dob}</p>
+            </div>
+          
         </div>
         ))}
       </div>
     </div>
   </div>
+  <Footer/>
   </div>
   )
 }

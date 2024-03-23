@@ -2,11 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import DoctorNav from '../../components/Navbar/Doctor-Nav'
 import HeadBanner from '../../components/Banner/HeadBanner'
-import UserSidebar from '../../components/UserProfile/UserSidebar'
-import AccountSetting from '../../components/UserProfile/AccountSettings'
+import UserSidebar from '../../components/UserProfile/Doctor/UserSidebar'
+import AccountSetting from '../../components/UserProfile/Doctor/AccountSettings'
 import './DoctorProfile.css'
-import ChangePassword from '../../components/UserProfile/ChangePassword'
-import Notifications from '../../components/UserProfile/Notifications'
+import ChangePassword from '../../components/UserProfile/Doctor/ChangePassword'
+import Footer from '../../components/Footer/Footer'
 
 const DoctorProfile = () => {
 
@@ -29,9 +29,9 @@ const DoctorProfile = () => {
         <div className='right'>
           {activepage === 'accountsettings' && <AccountSetting/>}
           {activepage === 'changepassword' && <ChangePassword/> }
-          {activepage === 'notify' && <Notifications/> }
         </div>
       </div>
+      <Footer/>
       </div>
   )
 }

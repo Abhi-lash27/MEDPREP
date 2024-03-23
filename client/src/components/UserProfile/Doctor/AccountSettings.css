@@ -1,0 +1,56 @@
+.accountsettings {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .accountsettings h1 {
+    padding: 10px 20px;
+  }
+  
+  .accountsettings .form {
+    display: flex;
+    flex-direction: column; /* Change to column layout on mobile */
+    width: 100%;
+    padding: 10px 20px;
+  }
+  
+  .accountsettings .form .form-group {
+    margin: 10px 0;
+  }
+  
+  .accountsettings .form .form-group label {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 5px;
+  }
+  
+  .accountsettings .form .form-group .input-doc {
+    padding: 10px 20px;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 5px;
+    outline: none;
+    width: 100%; /* Ensure input fields take full width */
+  }
+  
+  .save-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1976d2;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    .accountsettings .form .form-group {
+      width: 100%; /* Adjust width of form groups for full width */
+    }
+  
+    .accountsettings .form .form-group .input-doc {
+      width: calc(100%); /* Adjust input width to fit within form group */
+    }
+  }
+  

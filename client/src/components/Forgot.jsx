@@ -1,5 +1,4 @@
 import React from 'react';
-import './Forgot.css'
 
 function Forgot() {
   return (
