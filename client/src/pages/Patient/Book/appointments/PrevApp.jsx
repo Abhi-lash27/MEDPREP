@@ -3,6 +3,7 @@ import './PrevApp.css';
 import '../../../../components/Appointment/Patient/Hooks/UseBookContext'
 import { useBookContext } from '../../../../components/Appointment/Patient/Hooks/UseBookContext';
 import PatientNav from '../../../../components/Navbar/Patient-Nav'
+import Footer from '../../../../components/Footer/Footer';
 
 //copy
 import { useTranslation,Trans } from 'react-i18next'
@@ -63,6 +64,7 @@ const PrevApp = () => {
 </div>}
 
     </div>
+    <Footer/>
     </div>
   );
 };

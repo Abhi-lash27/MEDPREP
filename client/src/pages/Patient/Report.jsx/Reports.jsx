@@ -7,6 +7,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import './Reports.css'
 import PatientNav from '../../../components/Navbar/Patient-Nav';
+import Footer from '../../../components/Footer/Footer';
+
 const Reports = () => {
     const Data = [
       {
@@ -90,6 +92,7 @@ const Reports = () => {
     </div>
   </div>
   </div>
+  <Footer/>
   </div>
   )
 }

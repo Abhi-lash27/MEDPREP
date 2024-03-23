@@ -3,6 +3,7 @@ import './Book.css'
 import { useBookContext } from '../../../../components/Appointment/Patient/Hooks/UseBookContext'
 import PatientNav from '../../../../components/Navbar/Patient-Nav'
 import { useTranslation,Trans } from 'react-i18next'
+import Footer from '../../../../components/Footer/Footer'
 
 
 const Book = ({onSave}) => {
@@ -112,6 +113,7 @@ const Book = ({onSave}) => {
             </div>
             </section>
         </div>
+        <Footer/>
         </div>
       )
     }

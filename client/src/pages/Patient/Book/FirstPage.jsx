@@ -4,10 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
 import { useTranslation,Trans } from 'react-i18next'
+import Footer from '../../../components/Footer/Footer';
 
 
 
 const FirstPage = () => {
+
+  const { t } = useTranslation();
+
+  const handleChange = (e) => {
+    i18next.changeLanguage(e.target.value);
+  };
     const initialDocCard = [
         {
           profile:'https://th.bing.com/th?id=OIP.h2RfTna7CBfVMHkss4aKWwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2',
@@ -126,6 +133,7 @@ const FirstPage = () => {
          </div>
 
     </div>
+    <Footer/> 
          
        </div>
   )
