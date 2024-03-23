@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './PUserSidebar.css'
+import './PUserSideBar.css'
 
-const UserSidebar = ({activepage}) => {
+const UserSideBar = ({activepage}) => {
   return (
     <div className='usersidebar'>
       {
@@ -63,4 +63,4 @@ const UserSidebar = ({activepage}) => {
   )
 }
 
-export default UserSidebar
+export default UserSideBar

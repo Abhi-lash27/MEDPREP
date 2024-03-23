@@ -15,16 +15,16 @@ const PrevApp = () => {
   //
 
   const {Appointment,dispatch} = useBookContext()
-  useEffect(async() =>
-  {
-    const response = await fetch('http://localhost:2222/api/appointments')
-    if(response.ok)
-    {
-    const json = await response.json()
-    dispatch({type:'SET_APPOINTMENT',payload:json.appointment})
-    }
-  },[]
-  )
+  // useEffect(async() =>
+  // {
+  //   const response = await fetch('http://localhost:2222/api/appointments')
+  //   if(response.ok)
+  //   {
+  //   const json = await response.json()
+  //   dispatch({type:'SET_APPOINTMENT',payload:json.appointment})
+  //   }
+  // },[]
+  // )
  
   return (
     <div>

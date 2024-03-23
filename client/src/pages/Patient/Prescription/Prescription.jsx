@@ -41,7 +41,7 @@ const Prescription = () => {
   return (
     <div>
     <PatientNav/>
-    <h1 className='heading'>{t('Prescription')}</h1>
+    <h1 className='heading'>{('Prescription')}</h1>
     <SearchBar handleSearch={handleSearch}></SearchBar>
         {Data && <div className="container">
         <div className="PatientLayout">
