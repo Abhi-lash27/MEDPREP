@@ -3,9 +3,13 @@ import './First.css';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
+import { useTranslation,Trans } from 'react-i18next'
+
 
 
 const FirstPage = () => {
+  const {t} = useTranslation()
+
     const initialDocCard = [
         {
           profile:'https://th.bing.com/th?id=OIP.h2RfTna7CBfVMHkss4aKWwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2',
@@ -92,12 +96,13 @@ const FirstPage = () => {
       const [filteredItems, setFilteredItems] = useState([...initialDocCard]);
       const [items, setItems] = useState([...initialDocCard]);
       const navigate= useNavigate();
+
     
   return (
     <div>
         <PatientNav/>
-            <h1 className='heading'>Book Your Appointment</h1>
-        <SearchBar handleSearch={handleSearch}></SearchBar>
+            <h1 className='heading'>{t('Book Your Appointment')}</h1>
+        {/* <SearchBar handleSearch={handleSearch}></SearchBar> */}
           <div className='main-c'>
           <div className='card-s'>
 
@@ -108,12 +113,12 @@ const FirstPage = () => {
             </div>
             
             <div className='content'>
-              <h2>Dr.{data.name}, {data.degree}</h2>
+              <h2>{t('Dr')}.{data.name}, {data.degree}</h2>
               <p className='des'>{data.speciality}</p>
-              <p className='exp'>Experience: {data.Exp} years </p>
+              <p className='exp'>{t('Experience:')} {data.Exp} {t('years')} </p>
               <div className='action-buttons'>
                 <button className='btn'  onClick={()=>navigate('/patient/book')}>
-                  <span>Book Appointment</span>
+                  <span>{t('Book Appointment')}</span>
                   </button>
               </div>
             </div>

@@ -1,6 +1,8 @@
 import {React,useState} from 'react'
 // import img from './doc.jpg';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation,Trans } from 'react-i18next'
+
 
 
 
@@ -21,47 +23,49 @@ const Left = () => {
 
   const [pInfo, setPInfo] = useState([...PatDetails]);
   const navigate= useNavigate();
+  const {t} = useTranslation()
+
 
   return (
     <div>
               {pInfo.map((pat,index) =>(
 
               <div className='left'>
-          <div className='patient-info'>
-            <h2>Patient Details</h2>
+          <div className={t('patient-info')}>
+            <h2>{t('Patient Details')}</h2>
              <img src={pat.patProfile} className='img-1'/>
             <table className='info'>
               <tbody >
               <tr className='row-f'>
-                  <td className='row-l'>Patient Id</td>
+                  <td className='row-l'>{t('Patient Id')}</td>
                   <td className='row-d'>{pat.patId}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l'>Name:</td>
+                  <td className='row-l'>{t('Name:')}</td>
                   <td className='row-d'>{pat.patName}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l'>Phone Number:</td>
+                  <td className='row-l'>{t('Phone Number:')}</td>
                   <td className='row-d'>{pat.patPhoneNo}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l' >Email:</td>
+                  <td className='row-l' >{t('Email:')}</td>
                   <td className='row-d' >{pat.patEmail}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l'>DOB:</td>
+                  <td className='row-l'>{t('DOB:')}</td>
                   <td className='row-d'>{pat.patDob}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l'>Age:</td>
+                  <td className='row-l'>{t('Age:')}</td>
                   <td className='row-d'>{pat.patAge}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l'>Blood Group:</td>
+                  <td className='row-l'>{t('Blood Group:')}</td>
                   <td className='row-d'>{pat.patBg}</td>
                 </tr>
                 <tr className='row-f'>
-                  <td className='row-l'>Aadhar ID:</td>
+                  <td className='row-l'>{t('Aadhar ID:')}</td>
                   <td className='row-d'>{pat.patAadhar}</td>
                 </tr>
 

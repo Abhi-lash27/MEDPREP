@@ -9,7 +9,8 @@
  .main-c{
     /* background-color: bisque; */
     font-family:Poppins, sans-serif;
-    margin-left: 25px; 
+    margin-left: 55px; 
+    margin-top: 20px;
  }
  
  .card-s{
@@ -42,9 +43,11 @@
  }
 
  .heading{
-    color: navy;
-    margin-top: 45px;
+    color: #00203FFF;
+    opacity: 0.8;
+    margin-top: 55px;
     margin-bottom: 10px;
+    text-align: center;
  }
  
  .background{
@@ -62,10 +65,10 @@
  } 
  
  .content {
-    flex:3 1 350px;
+    /* flex:3 1 350px; */
     display: flex ;
  flex-direction: column; 
- justify-content: start; 
+ justify-content: center; 
  /* padding: 16px;  */
  max-width:fit-content ;
  max-height: 20vh;
@@ -90,7 +93,8 @@
     
     /* text-align: center; */
     text-wrap: wrap;
-   
+    color:#00203FFF;
+    opacity: 0.8;
     margin-left: 35px;
     font-size: 20px;
     font-weight:600; 
