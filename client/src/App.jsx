@@ -48,8 +48,6 @@ const App = () => {
  
           
           
-          <Route path='/docde' exact element={<DoctorDetails/>}/>
-          <Route path='/left' exact element={<Left/>}/>
 
 
           <Route path='/patient' exact element={<PatientDetails/>} />
