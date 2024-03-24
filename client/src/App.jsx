@@ -42,15 +42,12 @@ const App = () => {
           <Route path='/signup' exact element={<SignUp />} />
           <Route path='/doctor' exact element={<DoctorDashboard />} />
           <Route path='/nurse' exact element={<NurseDashboard />} />
+          {/* Patient Dashboard */}
+          <Route path='/patient' exact element={<PatientDetails/>} />
+
           {/* <Route path='/nurse/profile' exact element={<NurseProfile />} /> */}
           <Route path='/nurse/patient' exact element={<Patient />} />
  
- 
-          
-          
-
-
-          <Route path='/patient' exact element={<PatientDetails/>} />
           <Route path='/patient/book' exact element={<Book />} />  
           <Route path='/patient/bookApp' exact element={<FirstPage/>}/>
           <Route path='/patient/prev' exact element={<PrevApp />} />  
