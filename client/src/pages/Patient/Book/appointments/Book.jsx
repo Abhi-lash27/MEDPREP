@@ -3,7 +3,8 @@ import './Book.css'
 import { useBookContext } from '../../../../components/Appointment/Patient/Hooks/UseBookContext'
 import PatientNav from '../../../../components/Navbar/Patient-Nav'
 import { useTranslation,Trans } from 'react-i18next'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Book = ({onSave}) => {
   const [Name,setName] = useState('')
@@ -44,9 +45,14 @@ const Book = ({onSave}) => {
                 'Content-Type':'application/json'}
            }
        )
+       toast.success("Appointment Booked Successfully!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
   }
+
   console.log(typeof(Time))
   console.log(typeof(Date))
+  
   
       return (
         <div>
