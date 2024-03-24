@@ -29,7 +29,7 @@ const Left = () => {
 
               <div className='left'>
           <div className='patient-info'>
-            <h2>'Patient Details'</h2>
+            <h2>Patient Details</h2>
              <img src={pat.patProfile} className='img-1'/>
             <table className='info'>
               <tbody >
