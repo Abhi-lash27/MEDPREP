@@ -18,8 +18,8 @@
    background-color:whitesmoke;
    /* opacity: 0.9; */
    color: navy;
-   position: fixed;
-   height: fit-content;
+   /* position: fixed; */
+   height: max-content;
    
 
 
