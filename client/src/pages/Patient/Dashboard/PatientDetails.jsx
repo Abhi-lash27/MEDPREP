@@ -7,12 +7,14 @@ import './PatientDetails.css';
 import DoctorDetails from './DoctorDetails';
 import Left from './Left';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
-import { useTranslation,Trans } from 'react-i18next'
+import { useTranslation} from 'react-i18next'
 
 
 
 
-const Front = () => {
+const PatientDetails = () => {
+    const {t} = useTranslation()
+
   return (
     <div>
 <PatientNav/>
@@ -56,7 +58,7 @@ const Front = () => {
   )
 }
 
-export default Front
+export default PatientDetails
 
 
 

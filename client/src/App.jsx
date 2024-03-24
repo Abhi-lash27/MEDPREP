@@ -14,7 +14,6 @@ import PNotifications from './components/UserProfile/Patient/PNotifications'
 import DoctorProfile from './pages/Doctor/DoctorProfile'
 import NurseProfile from './pages/Nurse/NurseProfile'
 import Book from './pages/Patient/Book/appointments/Book'
-import PatientDetails from './pages/Patient/PatientDetails'
 import Reports from './pages/Patient/Report.jsx/Reports'
 import Prescription from './pages/Patient/Prescription/Prescription'
 import Forgot from './components/Forgot'
@@ -30,6 +29,9 @@ import NChangePassword from './components/UserProfile/Nurse/NChangePassword'
 import FirstPage from './pages/Patient/Book/FirstPage'
 import DoctorDetails from './pages/Patient/Dashboard/DoctorDetails'
 import ViewDetails from './pages/Patient/Dashboard/view more/ViewDetails'
+import Front from './pages/Patient/Dashboard/PatientDetails'
+import PatientDetails from './pages/Patient/Dashboard/PatientDetails'
+import Left from './pages/Patient/Dashboard/Left'
 
 const App = () => {
   return (
@@ -42,6 +44,13 @@ const App = () => {
           <Route path='/nurse' exact element={<NurseDashboard />} />
           {/* <Route path='/nurse/profile' exact element={<NurseProfile />} /> */}
           <Route path='/nurse/patient' exact element={<Patient />} />
+ 
+ 
+          
+          
+          <Route path='/docde' exact element={<DoctorDetails/>}/>
+          <Route path='/left' exact element={<Left/>}/>
+
 
           <Route path='/patient' exact element={<PatientDetails/>} />
           <Route path='/patient/book' exact element={<Book />} />  
@@ -50,7 +59,7 @@ const App = () => {
           <Route path='/patient/Reports' exact element={<Reports/>} />  
           <Route path='/patient/:activepage' exact element={<PatientProfile/>} />
           <Route path='/patient/:activepage' exact element={<PChangePassword/>}/>
-          <Route path='/patient/Details' exact element={<PatientDetails/>}/>
+          {/* <Route path='/patient/Details' exact element={<PatientDetails/>}/> */}
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
           <Route path='/patient/prescription' exact element={<Prescription />} />
           <Route path='/patient/docinfo' exact element={<ViewDetails/>}/>
