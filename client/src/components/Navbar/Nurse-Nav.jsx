@@ -20,7 +20,7 @@ function NurseNav() {
       
       <ul className="nurse-navbar-list">
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse'>{t('Home')}</Link></li>
-        <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/patient'>{t('Patients')}</Link></li>
+        <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/patientlist'>{t('Patients')}</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/reports'>{t('Reports')}</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/records'>{t('Records')}</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/accountsettings'>{t('Profile')}</Link></li>

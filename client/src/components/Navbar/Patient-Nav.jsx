@@ -240,7 +240,7 @@ import i18next from 'i18next';
 import { useNavigate } from 'react-router-dom';
 
 
-const DoctorNav = () => {
+const PatientNav = () => {
 
   const handleChange = (e) => {
     i18next.changeLanguage(e.target.value);
@@ -274,5 +274,5 @@ const DoctorNav = () => {
   )
 }
 
-export default DoctorNav
+export default PatientNav
 

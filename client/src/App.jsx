@@ -1,31 +1,29 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Patient from './pages/Nurse/Patient'
+import PatientList from './pages/Nurse/PatientList'
 import Home from './pages/Home'
 import SignUp from './components/SignUp'
 import DoctorDashboard from './dashboard/DoctorDashboard'
 import NurseDashboard from './dashboard/NurseDashboard'
 
 import PatientDashboard from './dashboard/PatientDashboard'
-import PrevApp from './pages/Patient/Book/appointments/PrevApp' 
+import PrevApp from './pages/Patient/PrevAppointment/PrevApp'
 import PatientProfile from './pages/Patient/PatientProfile'
 import PChangePassword from './components/UserProfile/Patient/PChangePassword'
 import DoctorProfile from './pages/Doctor/DoctorProfile'
 import NurseProfile from './pages/Nurse/NurseProfile'
-import Book from './pages/Patient/Book/appointments/Book'
+import Book from './pages/Patient/BookAppointment/Book'
 import Reports from './pages/Patient/Report.jsx/Reports'
 import Prescription from './pages/Patient/Prescription/Prescription'
 import Forgot from './components/Forgot'
 import AddDoctor from './pages/Admin/AddDoctor'
 import AdminDashboard from './dashboard/AdminDashboard'
-import NurseIP from './pages/Nurse/NurseIP'
 import AddNurse from './pages/Admin/AddNurse'
 import ListDoctor from './pages/Admin/ListDoctor'
 import ListNurse from './pages/Admin/ListNurse'
 import AppointmentDoc from './pages/Doctor/AppointmentDoc'
 import PatientlistDoc from './pages/Doctor/PatientlistDoc'
 import NChangePassword from './components/UserProfile/Nurse/NChangePassword'
-import FirstPage from './pages/Patient/Book/FirstPage'
 import DoctorDetails from './pages/Patient/Dashboard/DoctorDetails'
 import ViewDetails from './pages/Patient/Dashboard/view more/ViewDetails'
 import Front from './pages/Patient/Dashboard/PatientDetails'
@@ -45,10 +43,10 @@ const App = () => {
           <Route path='/patient' exact element={<PatientDetails/>} />
 
           {/* <Route path='/nurse/profile' exact element={<NurseProfile />} /> */}
-          <Route path='/nurse/patient' exact element={<Patient />} />
+          <Route path='/nurse/patientlist' exact element={<PatientList />} />
  
           <Route path='/patient/book' exact element={<Book />} />  
-          <Route path='/patient/bookApp' exact element={<FirstPage/>}/>
+          <Route path='/patient/bookApp' exact element={<PatientDashboard/>}/>
           <Route path='/patient/prev' exact element={<PrevApp />} />  
           <Route path='/patient/Reports' exact element={<Reports/>} />  
           <Route path='/patient/:activepage' exact element={<PatientProfile/>} />
@@ -62,7 +60,6 @@ const App = () => {
           <Route path='/Admin/AddDoctor' exact element={<AddDoctor/>}/>
           <Route path='/Admin/AddNurse' exact element={<AddNurse/>}/>
           <Route path='/Admin' exact element={<AdminDashboard />}/>
-          <Route path='/nurse/nurseIP' exact element={<NurseIP/>}/>
           <Route path='/Admin/ListDoctor' exact element={<ListDoctor/>}/>
           <Route path='/Admin/ListNurse' exact element={<ListNurse/>}/>
           <Route path='/doctor/appointment' exact element={<AppointmentDoc/>}/>

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import './PrevApp.css';
-import '../../../../components/Appointment/Patient/Hooks/UseBookContext'
-import { useBookContext } from '../../../../components/Appointment/Patient/Hooks/UseBookContext';
-import PatientNav from '../../../../components/Navbar/Patient-Nav'
-import Footer from '../../../../components/Footer/Footer';
+import "../../../components/Appointment/Patient/Hooks/UseBookContext"
+import { useBookContext } from '../../../components/Appointment/Patient/Hooks/UseBookContext';
+import PatientNav from '../../../components/Navbar/Patient-Nav';
+import Footer from '../../../components/Footer/Footer';
 
 //copy
 import { useTranslation,Trans } from 'react-i18next'

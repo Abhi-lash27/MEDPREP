@@ -5,7 +5,7 @@ import NurseNav from '../../components/Navbar/Nurse-Nav'
 import Footer from '../../components/Footer/Footer'
 import img1 from './img.jpg'
 // import Profile from './Profile'
-const Patient = () => {
+const PatientList = () => {
   const Data = [{
     "Name":"Adbul",
     "Age":19,
@@ -106,4 +106,4 @@ const Patient = () => {
 );
 }
 
-export default Patient
+export default PatientList
