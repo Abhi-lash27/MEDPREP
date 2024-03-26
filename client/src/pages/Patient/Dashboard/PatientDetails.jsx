@@ -12,8 +12,8 @@ import { useTranslation} from 'react-i18next'
 
 
 
-const PatientDetails = () => {
-    const {t} = useTranslation()
+const Front = () => {
+  const {t} = useTranslation()
 
   return (
     <div>
@@ -44,7 +44,7 @@ const PatientDetails = () => {
       
       <div className='mid'>
       <div className='wel'>
-          <h2>{t('Looking for a Speacialist ??')}</h2>
+          <h2>{t('Looking for a Specialist ??')}</h2>
           {/* <p className='p'><i>Search Doctor By Name</i></p> */}
         </div>
 

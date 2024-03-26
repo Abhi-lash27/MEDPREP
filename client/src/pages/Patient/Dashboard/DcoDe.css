@@ -93,6 +93,7 @@
     font-weight:600; 
     margin-top: 15px;
     margin-bottom:10px;
+    text-align: center;
  } 
  
  .content .des{
@@ -101,9 +102,8 @@
  }
  
  .content .exp{
-    margin-left: 35px;
-    margin-bottom: 2px;
-    text-align: center;
+   margin-top: 3px;
+ 
  }
  
  /* .content .secondary{
@@ -111,15 +111,11 @@
  } */
  
  .action-buttons {
-    /* border-top: 2px solid var(--gray); */
-    /* padding-top: 10px; */
     padding-bottom: 5px;
     margin-left: 20px;
-    /* gap: 12px; */
     display: flex;
-    /* margin-top: auto; */
     flex-wrap: wrap;
-    width:20px;
+    width:10px;
  }
  
  .action-buttons .btn{
@@ -132,7 +128,7 @@
       font-size: 16px;
       cursor: pointer;
       margin-top: 15px;
-      margin-left: 50px;
+      margin-left: 20px;
       border-radius: 8px;
       height: 45px;
       justify-content: center;

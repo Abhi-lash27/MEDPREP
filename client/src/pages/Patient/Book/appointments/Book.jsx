@@ -45,9 +45,14 @@ const Book = ({onSave}) => {
                 'Content-Type':'application/json'}
            }
        )
+      //  toast.success("Appointment Booked Successfully!", {
+      //   position: toast.POSITION.TOP_RIGHT,
+      // });
   }
+
   console.log(typeof(Time))
   console.log(typeof(Date))
+  
   
       return (
         <div>

@@ -101,12 +101,13 @@ const FirstPage = () => {
       const [filteredItems, setFilteredItems] = useState([...initialDocCard]);
       const [items, setItems] = useState([...initialDocCard]);
       const navigate= useNavigate();
+
     
   return (
     <div>
         <PatientNav/>
             <h1 className='heading'>{t('Book Your Appointment')}</h1>
-        <SearchBar handleSearch={handleSearch}></SearchBar>
+        {/* <SearchBar handleSearch={handleSearch}></SearchBar> */}
           <div className='main-c'>
           <div className='card-s'>
 

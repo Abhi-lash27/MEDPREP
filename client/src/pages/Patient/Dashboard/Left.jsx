@@ -22,6 +22,8 @@ const Left = () => {
 
   const [pInfo, setPInfo] = useState([...PatDetails]);
   const navigate= useNavigate();
+  const {t} = useTranslation()
+
 
   return (
     <div>

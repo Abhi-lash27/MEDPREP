@@ -1,4 +1,4 @@
-.doctor-navbar{
+.patient-navbar{
     display: flex;
     justify-content: space-around;
     padding: 25px;
@@ -6,12 +6,12 @@
     align-items: center;
     background-color: white;
 }
-.doctor-navbar-logo{
+.patient-navbar-logo{
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.doctor-navbar-logo img{
+.patient-navbar-logo img{
     width: 20%;
     margin: 10px;
 }
@@ -20,7 +20,7 @@
     color: black;
 }
 
-.doctor-navbar-list{
+.patient-navbar-list{
     font-family: "Poppins";
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
     font-weight: 500;
 }
 
-.doctor-navbar-list li{
+.patient-navbar-list li{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,44 +53,3 @@ li:after {
   li:hover:after { 
     width: 100%;
   }
-
-  /* Media Query for Mobile Devices */
-@media (max-width: 768px) {
-    .doctor-navbar {
-      flex-direction: column; /* Stack items vertically on smaller screens */
-      align-items: center; /* Center align items on smaller screens */
-      padding: 10px; /* Adjusted padding for smaller screens */
-    }
-  
-    .doctor-navbar-logo img {
-      width: 60px; /* Adjusted logo size for smaller screens */
-      margin-right: 0; /* Remove margin for smaller screens */
-    }
-  
-    .doctor-navbar-list {
-      margin-top: 10px; /* Add margin on top for spacing */
-      gap: 10px; /* Adjusted gap between list items */
-    }
-  
-    .doctor-navbar-list li {
-      font-size: 14px; /* Adjusted font size for smaller screens */
-      text-align: center; /* Center align list items */
-      margin: 0; /* Remove any margin */
-      padding: 5px 0; /* Adjusted padding */
-      width: 100%; /* Make list items full width */
-      border-top: 1px solid #ccc; /* Add separator between list items */
-    }
-  
-    .doctor-navbar-list li:last-child {
-      border-bottom: 1px solid #ccc; /* Add border at the bottom of the last item */
-      margin-top: 10px; /* Add margin on top for spacing */
-    }
-  
-    .language-selector {
-      font-size: 14px; /* Adjusted font size for smaller screens */
-      width: 100%; /* Make language selector full width */
-      padding: 10px; /* Adjusted padding */
-      border-top: 1px solid #ccc; /* Add border at the top */
-    }
-  }
-  

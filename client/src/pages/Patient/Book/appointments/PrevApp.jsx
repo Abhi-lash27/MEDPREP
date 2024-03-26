@@ -16,16 +16,16 @@ const PrevApp = () => {
   //
 
   const {Appointment,dispatch} = useBookContext()
-  useEffect(async() =>
-  {
-    const response = await fetch('http://localhost:2222/api/appointments')
-    if(response.ok)
-    {
-    const json = await response.json()
-    dispatch({type:'SET_APPOINTMENT',payload:json.appointment})
-    }
-  },[]
-  )
+  // useEffect(async() =>
+  // {
+  //   const response = await fetch('http://localhost:2222/api/appointments')
+  //   if(response.ok)
+  //   {
+  //   const json = await response.json()
+  //   dispatch({type:'SET_APPOINTMENT',payload:json.appointment})
+  //   }
+  // },[]
+  // )
  
   return (
     <div>
@@ -44,6 +44,8 @@ const PrevApp = () => {
     <th className='head'>{t('Time')}</th>
     <th className='head'>{t('Doctor')}</th>
     <th className='head'>{t('Reason')}</th>
+    <th className='head'>{t('Status')}</th>
+    <th className='head'>{t('Action')}</th>
 
   </tr>
   </thead>
@@ -56,6 +58,11 @@ const PrevApp = () => {
    <td className='data'> {value.appointmentTiming}</td>
    <td className='data'> unknown</td>
    <td className='data'> {value.reason}</td>
+   <td className='data'> Pending</td>
+   <td className='data'> 
+   <Button >Delete</Button>
+   </td>
+
   </tr>
   )}
    </tbody>

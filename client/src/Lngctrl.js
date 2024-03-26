@@ -43,6 +43,7 @@ i18next
                Time:'Time',
                Doctor:'Doctor',
                Reason:'Reason',
+               Experience:'Experience',
 
                PatientDetails:'PatientDetails',
                patientinfo:'patientinfo',
@@ -59,7 +60,7 @@ i18next
                Prescription:'Prescription',
                BookYourAppointment:'BookYourAppointment',
                Experience:'Experience',
-               Dr:'Doctor',
+               Dr:'Dr',
                years:'years',
                BookAppointment:'Book Appointment',
 
