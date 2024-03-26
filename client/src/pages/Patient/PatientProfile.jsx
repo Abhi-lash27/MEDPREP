@@ -6,7 +6,6 @@ import UserSidebar from '../../components/UserProfile/Patient/PUserSidebar'
 import AccountSettings from '../../components/UserProfile/Patient/PAccountSettings'
 import './PatientProfile.css'
 import ChangePassword from '../../components/UserProfile/Patient/PChangePassword'
-import Notifications from '../../components/UserProfile/Patient/PNotifications'
 
 const PatientProfile = () => {
 
@@ -29,7 +28,6 @@ const PatientProfile = () => {
         <div className='right'>
           {activepage === 'accountsettings' && <AccountSettings/>}
           {activepage === 'changepassword' && <ChangePassword/> }
-          {activepage === 'notify' && <Notifications/> }
         </div>
       </div>
       </div>

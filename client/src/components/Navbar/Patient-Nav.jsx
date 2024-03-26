@@ -258,6 +258,7 @@ const PatientNav = () => {
         <li><Link style={{textDecoration:'none', color:'black'}} to='/patient/prev'>Prev Appointments</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/patient/Reports'>Reports</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/patient/prescription'>Prescription</Link></li>
+        <li><Link style={{textDecoration:'none',color:'black'}} to='/patient/accountsettings'>Profile</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/'>Logout</Link></li>
         <select className='language-selector' onChange={handleChange}>
         <option value="en">English</option>
