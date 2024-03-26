@@ -1,7 +1,8 @@
 import {React,useState} from 'react'
 // import img from './doc.jpg';
 import { useNavigate } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next'; // Added import
 
 
 
@@ -22,7 +23,11 @@ const Left = () => {
 
   const [pInfo, setPInfo] = useState([...PatDetails]);
   const navigate= useNavigate();
-  const {t} = useTranslation()
+  const { t } = useTranslation();
+
+  const handleChange = (e) => {
+    i18next.changeLanguage(e.target.value);
+  };
 
 
   return (

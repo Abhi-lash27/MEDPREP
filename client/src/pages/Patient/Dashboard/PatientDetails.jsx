@@ -8,6 +8,7 @@ import DoctorDetails from './DoctorDetails';
 import Left from './Left';
 import PatientNav from '../../../components/Navbar/Patient-Nav';
 import { useTranslation} from 'react-i18next'
+import Footer from '../../../components/Footer/Footer';
 
 
 
@@ -54,11 +55,12 @@ const Front = () => {
       </div>
       
     </div>
+    <Footer/>
     </div>
   )
 }
 
-export default PatientDetails
+export default Front
 
 
 

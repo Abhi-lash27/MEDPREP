@@ -17,11 +17,14 @@
    border-radius: 10px;
    background-color:whitesmoke;
    /* opacity: 0.9; */
+   color: navy;
+   /* position: fixed; */
+   height: max-content;
    color: #00203FFF;
    ;
-   position: fixed;
+   /* position: fixed;
    height: fit-content;
-   
+    */
 
 
   }
@@ -32,7 +35,7 @@
     float: right;
     /* background-color: rebeccapurple; */
     border-radius: 15px;
-    height: 90vh;
+    height: 50vh;
     position:static;
 
   

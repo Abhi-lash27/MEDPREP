@@ -167,7 +167,8 @@ i18next
                Prescriptions:'மருந்துச்சீட்டுகள்',
 
                //doctor-accountsettings
-               Specialization:'',
+               title:'கணக்கு அமைப்புகள்',
+               Specialization:'சிறப்பு',
                join:'நிறுவனத்தில் சேர்ந்த தேதி',
                Experience:'அனுபவங்கள்',
                info:'உங்கள் விவரங்கள்',

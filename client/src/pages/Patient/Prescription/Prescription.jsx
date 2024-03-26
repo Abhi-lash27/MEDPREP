@@ -82,13 +82,15 @@ const Prescription = () => {
         </div>
         </div>
         </div>
-      )}
+      
       {filteredItems.length === 0 && (
         <div>
           <h1>{t('No prescription found')}</h1>
         </div>
       )}
       <Footer/>
+    </div>
+    }
     </div>
   );
 };

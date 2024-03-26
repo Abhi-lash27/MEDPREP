@@ -256,10 +256,12 @@ const DoctorNav = () => {
       </div>
       
       <ul className="patient-navbar-list">
+        <li><Link style={{textDecoration:'none', color:'black'}} to='/patient'>Home</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/patient/bookapp'>Book Appointment</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/patient/prev'>Previous Appointments</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/patient/reports'>Reports</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/patient/prescription'>Prescription</Link></li>
+        <li><Link style={{textDecoration:'none',color:'black'}} to='/patient/accountsettings'>Profile</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/'>Logout</Link></li>
         <select className='language-selector'  onChange={handleChange}>
         <option value="en">English</option>

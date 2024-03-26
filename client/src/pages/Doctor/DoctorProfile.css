@@ -17,8 +17,24 @@
     min-height: 60vh;
 }
 .docprofile .docprofilein .right{
-    width: 60%;
+    width: 50%;
     border: 1px solid rgb(207,207,207);
     border-radius: 5px;
     min-height: 60vh;
+}
+
+@media (max-width: 768px) {
+    .docprofile .docprofilein .left{
+        width: 20%;
+        border: 1px solid rgb(207,207,207);
+        border-radius: 5px;
+        min-height: 120vh;
+    }
+    .docprofile .docprofilein .right{
+        width: 50%;
+        border: 1px solid rgb(207,207,207);
+        border-radius: 5px;
+        min-height: 120vh;
+    }
+    
 }

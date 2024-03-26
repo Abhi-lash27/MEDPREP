@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './PUserSideBar.css'
 
-const UserSideBar = ({activepage}) => {
+const PUserSideBar = ({activepage}) => {
   return (
     <div className='usersidebar'>
       {
@@ -45,4 +45,4 @@ const UserSideBar = ({activepage}) => {
   )
 }
 
-export default UserSideBar
+export default PUserSideBar
