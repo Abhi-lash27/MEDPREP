@@ -20,18 +20,25 @@
 
 .status-btn {
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 10px 10px;
   border: none;
   border-radius: 5px;
   color: #fff;
+  margin: 8px;
 }
 
 .status-btn.approve {
   background-color: #5cb85c;
 }
+.status-btn.approve:hover{
+  background-color: #0056b3;
+}
 
 .status-btn.decline {
   background-color: #d9534f;
+}
+.status-btn.decline:hover{
+  background-color: #0056b3;
 }
 
 .action-btn {
@@ -42,6 +49,22 @@
   color: #fff;
   cursor: pointer;
 }
+/* AppointmentDoc.css */
+
+.doc-add-prescription-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.doc-add-prescription-button:hover {
+  background-color: #0056b3;
+}
+
 
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {

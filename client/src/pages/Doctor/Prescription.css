@@ -1,0 +1,84 @@
+/* Prescription.css */
+
+.doc-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .doc-title {
+    margin-top: 20px; /* Add margin-top */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .doc-label {
+    display: block;
+    font-weight: bold;
+    margin: 10px;
+  }
+  
+  .doc-form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  textarea.doc-form-control {
+    height: 100px;
+  }
+  
+  .doc-btn-add {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .doc-btn-add:hover {
+    background-color: #0056b3;
+  }
+  
+  .doc-todo-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .doc-todo-item {
+    margin-bottom: 10px;
+  }
+  
+  .doc-btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .doc-btn-delete:hover {
+    background-color: #c82333;
+  }
+  
+  /* Style for upload button */
+  .doc-btn-upload {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .doc-btn-upload:hover {
+    background-color: #218838;
+  }
+  

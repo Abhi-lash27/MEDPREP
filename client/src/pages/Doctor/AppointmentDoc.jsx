@@ -3,7 +3,7 @@ import DoctorNav from '../../components/Navbar/Doctor-Nav';
 import HeadBanner from '../../components/Banner/HeadBanner';
 import './AppointmentDoc.css';
 import Footer from '../../components/Footer/Footer';
-import { useTranslation,Trans } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next';
 
 const AppointmentDoc = () => {
   // Sample appointment data
@@ -16,6 +16,7 @@ const AppointmentDoc = () => {
       reason: 'Checkup',
       status: 'Pending',
       actionStatus: '',
+      prescription: { medicine: '', dosage: '', description: '' }
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ const AppointmentDoc = () => {
       reason: 'Follow-up',
       status: 'Pending',
       actionStatus: '',
+      prescription: { medicine: '', dosage: '', description: '' }
     },
     // Add more sample appointments as needed
   ]);
@@ -51,7 +53,23 @@ const AppointmentDoc = () => {
     );
   };
 
-  const {t} = useTranslation()
+  const handlePrescriptionUpload = (id, medicine, dosage, description) => {
+    setAppointments(prevAppointments =>
+      prevAppointments.map(appointment =>
+        appointment.id === id
+          ? {
+              ...appointment,
+              prescription: { medicine, dosage, description }
+            }
+          : appointment
+      )
+    );
+  };
+
+  const { t } = useTranslation();
+  const navigateToPrescriptionForm = () => {
+    window.location.href = '/prescription-form-doctor'; // Redirect to prescription form page
+  };
 
   return (
     <div>
@@ -70,7 +88,6 @@ const AppointmentDoc = () => {
               <th>{t('Reason')}</th>
               <th>{t('Status')}</th>
               <th>{t('Actions')}</th>
-              <th>{t('Report')}</th>
               <th>{t('Prescription')}</th>
             </tr>
           </thead>
@@ -85,11 +102,17 @@ const AppointmentDoc = () => {
                 <td>
                   {appointment.status === 'Pending' && (
                     <>
-                      <button className='status-btn approve' onClick={() => handleApprove(appointment.id)}>
-                       {t(' Approve')}
+                      <button
+                        className='status-btn approve'
+                        onClick={() => handleApprove(appointment.id)}
+                      >
+                        {t('Approve')}
                       </button>
-                      <button className='status-btn decline' onClick={() => handleReject(appointment.id)}>
-                       {t(' Reject')}
+                      <button
+                        className='status-btn decline'
+                        onClick={() => handleReject(appointment.id)}
+                      >
+                        {t('Reject')}
                       </button>
                     </>
                   )}
@@ -100,17 +123,17 @@ const AppointmentDoc = () => {
                   )}
                 </td>
                 <td>
-                  <input type='file' />
-                </td>
-                <td>
-                  <input type='file' />
-                </td>
+                {/* Button to redirect to prescription form */}
+                <button className='doc-add-prescription-button' onClick={navigateToPrescriptionForm}>
+                  {t('Add Prescription')}
+                </button>
+              </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

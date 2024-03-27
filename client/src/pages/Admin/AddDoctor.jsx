@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AddDoctor.css'
 import AdminNav from '../../components/Navbar/Admin-Nav';
+import Footer from '../../components/Footer/Footer';
 function AddDoctor() {
       const [Name,setName] = useState('');
       const [Email,setEmail] = useState('');
@@ -19,7 +20,7 @@ function AddDoctor() {
   }
      return (
     <div>
-      <AdminNav></AdminNav>
+      <AdminNav/>
       <div className="menu">
         <div className="formbox">
           <br /><br /><br /><br />
@@ -47,6 +48,7 @@ function AddDoctor() {
             <center><button type="submit" name="submit" className="submit-btn">ADD DOCTOR</button></center>
           </form>
         </div>
+        <Footer/>
       </div>
     </div>
   );

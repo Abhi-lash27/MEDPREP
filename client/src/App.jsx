@@ -29,6 +29,7 @@ import ViewDetails from './pages/Patient/Dashboard/view more/ViewDetails'
 import Front from './pages/Patient/Dashboard/PatientDetails'
 import PatientDetails from './pages/Patient/Dashboard/PatientDetails'
 import Left from './pages/Patient/Dashboard/Left'
+import PrescriptionForm from './pages/Doctor/PrescriptionForm'
 
 const App = () => {
   return (
@@ -53,6 +54,7 @@ const App = () => {
           <Route path='/patient/:activepage' exact element={<PChangePassword/>}/>
           {/* <Route path='/patient/Details' exact element={<PatientDetails/>}/> */}
           <Route path='/doctor/:activepage' exact element={<DoctorProfile />} />
+          <Route path='/prescription-form-doctor' exact element={<PrescriptionForm />} />
           <Route path='/patient/prescription' exact element={<Prescription />} />
           <Route path='/patient/docinfo' exact element={<ViewDetails/>}/>
 

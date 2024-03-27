@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AddDoctor.css'
 import AdminNav from '../../components/Navbar/Admin-Nav';
+import Footer from '../../components/Footer/Footer';
 function AddNurse() {
       const [Name,setName] = useState('');
       const [Email,setEmail] = useState('');
@@ -19,10 +20,10 @@ function AddNurse() {
   }
      return (
     <div>
-      <AdminNav></AdminNav>
+      <AdminNav/>
       <div className="menu">
         <div className="formbox">
-          <br /><br /><br /><br />
+          <br /><br />
           <center><h1 style={{ color: '#009879' }}>ADD NURSE</h1></center>
           <form  id="register1" className="input-group" autoComplete="off" onSubmit={handelchange}>
             <input type="text" name="doctorname" className="input-field" placeholder="Enter  Full Name" value= {Name} onChange={(e) =>{setName(e.target.value)}} required />
@@ -47,6 +48,7 @@ function AddNurse() {
             <center><button type="submit" name="submit" className="submit-btn">ADD NURSE</button></center>
           </form>
         </div>
+        <Footer/>
       </div>
     </div>
   );
