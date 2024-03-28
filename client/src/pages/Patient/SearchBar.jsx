@@ -1,12 +1,12 @@
-import React from 'react'
-import './SearchBar.css'
+import React from "react";
+import "./SearchBar.css";
 
-const SearchBar = ({handleSearch}) => {
+const SearchBar = ({ handleSearch }) => {
   return (
     <div className="topnav">
-      <input type="text" placeholder="Search.."  onChange={handleSearch}/>
+      <input type="text" placeholder="Search.." onChange={handleSearch} />
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

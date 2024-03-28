@@ -1,4 +1,3 @@
-
 // import React from 'react';
 // import logo from '../Asset/medrep.jpg';
 // import './Footer.css'
@@ -31,12 +30,16 @@
 // };
 
 // export default Footer;
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import logo from '../Asset/medrep.jpg'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import logo from "../Asset/medrep.jpg";
 
 // Add the icons to the library
 library.add(faEnvelope, faFacebookF, faTwitter, faInstagram);
@@ -56,45 +59,48 @@ const Footer = () => {
         <FontAwesomeIcon icon={faInstagram} style={iconStyle} />
       </div>
       <div style={copyrightStyle}>
-        <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Your Company Name. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   );
 };
 
 const footerStyle = {
-  backgroundColor: '#fff',
-  color: 'black',
-  padding: '20px',
-  textAlign: 'center',
-  position:'relative',
+  backgroundColor: "#fff",
+  color: "black",
+  padding: "20px",
+  textAlign: "center",
+  position: "relative",
 };
 
 const logoContainerStyle = {
-  marginBottom: '20px',
+  marginBottom: "20px",
 };
 
 const logoStyle = {
-  width: '200px', // Adjust size as needed
+  width: "200px", // Adjust size as needed
 };
 
 const contactStyle = {
-  marginBottom: '10px',
+  marginBottom: "10px",
 };
 
 const socialMediaStyle = {
-  marginBottom: '20px',
+  marginBottom: "20px",
 };
 
 const iconStyle = {
-  marginRight: '10px',
-  color: 'black',
-  fontSize: '20px',
+  marginRight: "10px",
+  color: "black",
+  fontSize: "20px",
 };
 
 const copyrightStyle = {
-  borderTop: '1px solid #666',
-  paddingTop: '10px',
+  borderTop: "1px solid #666",
+  paddingTop: "10px",
 };
 
 export default Footer;

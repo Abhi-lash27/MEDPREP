@@ -27,7 +27,14 @@ export default function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!fullName || !email || !password || !dateOfBirth || !phoneNumber || !bloodGroup) {
+    if (
+      !fullName ||
+      !email ||
+      !password ||
+      !dateOfBirth ||
+      !phoneNumber ||
+      !bloodGroup
+    ) {
       setGeneralError("All fields are required");
       return;
     } else {
@@ -66,27 +73,25 @@ export default function SignUp() {
         password,
         dob: formattedDateOfBirth,
         phone: phoneNumber,
-        bloodGroup
+        bloodGroup,
       });
 
-      if(response.status >= 200 && response.status < 300) {
-        setFullName("")
-        setEmail("")
-        setPassword("")
-        setPhoneNumber("")
-        setDateOfBirth("")
-        setBloodGroup("")
-        return toast.success("Registered successfully")
+      if (response.status >= 200 && response.status < 300) {
+        setFullName("");
+        setEmail("");
+        setPassword("");
+        setPhoneNumber("");
+        setDateOfBirth("");
+        setBloodGroup("");
+        return toast.success("Registered successfully");
       }
-
-
     } catch (error) {
       logger.error("Signup error:", error.response.data);
-      setGeneralError(error.response.data.message || "An error occurred during signup");
+      setGeneralError(
+        error.response.data.message || "An error occurred during signup",
+      );
     }
-
   };
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -146,9 +151,7 @@ export default function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               {generalError && (
-                <span style={{ color: "red" }}>
-                  {generalError}
-                </span>
+                <span style={{ color: "red" }}>{generalError}</span>
               )}
               <br />
               <br />

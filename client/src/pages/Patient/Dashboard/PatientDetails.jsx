@@ -1,29 +1,24 @@
-
-
 //1st page : Left->leftsidePanel, doctordetails->doclist
 
-import React from 'react'
-import './PatientDetails.css';
-import DoctorDetails from './DoctorDetails';
-import Left from './Left';
-import PatientNav from '../../../components/Navbar/Patient-Nav';
-import { useTranslation} from 'react-i18next'
-import Footer from '../../../components/Footer/Footer';
-
-
-
+import React from "react";
+import "./PatientDetails.css";
+import DoctorDetails from "./DoctorDetails";
+import Left from "./Left";
+import PatientNav from "../../../components/Navbar/Patient-Nav";
+import { useTranslation } from "react-i18next";
+import Footer from "../../../components/Footer/Footer";
 
 const Front = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div>
-<PatientNav/>
-    
-    <div className='front-m'>
-           <Left/>
-      
-{/* 
+      <PatientNav />
+
+      <div className="front-m">
+        <Left />
+
+        {/* 
     //    <div className='right'>
     //   <div className='top-r'>
     //     Calender 
@@ -42,25 +37,21 @@ const Front = () => {
     //   </table>
     //   </div>
     //   </div> */}
-      
-      <div className='mid'>
-      <div className='wel'>
-          <h2>{t('Looking for a Specialist ??')}</h2>
-          {/* <p className='p'><i>Search Doctor By Name</i></p> */}
-        </div>
 
-        <div className='doc-list'>        
-        <DoctorDetails/>
+        <div className="mid">
+          <div className="wel">
+            <h2>{t("Looking for a Specialist ??")}</h2>
+            {/* <p className='p'><i>Search Doctor By Name</i></p> */}
+          </div>
+
+          <div className="doc-list">
+            <DoctorDetails />
+          </div>
         </div>
       </div>
-      
+      <Footer />
     </div>
-    <Footer/>
-    </div>
-  )
-}
+  );
+};
 
-export default Front
-
-
-
+export default Front;

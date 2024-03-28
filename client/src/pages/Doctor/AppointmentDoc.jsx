@@ -1,74 +1,74 @@
-import React, { useState,useRef } from 'react';
-import DoctorNav from '../../components/Navbar/Doctor-Nav';
-import HeadBanner from '../../components/Banner/HeadBanner';
-import './AppointmentDoc.css';
-import Footer from '../../components/Footer/Footer';
-import { useTranslation, Trans } from 'react-i18next';
+import React, { useState, useRef } from "react";
+import DoctorNav from "../../components/Navbar/Doctor-Nav";
+import HeadBanner from "../../components/Banner/HeadBanner";
+import "./AppointmentDoc.css";
+import Footer from "../../components/Footer/Footer";
+import { useTranslation, Trans } from "react-i18next";
 
 const AppointmentDoc = () => {
   // Sample appointment data
   const [appointments, setAppointments] = useState([
     {
       id: 1,
-      name: 'John Doe',
-      date: '2024-03-19',
-      time: '10:00 AM',
-      reason: 'Checkup',
-      status: 'Pending',
-      actionStatus: '',
-      prescription: { medicine: '', dosage: '', description: '' }
+      name: "John Doe",
+      date: "2024-03-19",
+      time: "10:00 AM",
+      reason: "Checkup",
+      status: "Pending",
+      actionStatus: "",
+      prescription: { medicine: "", dosage: "", description: "" },
     },
     {
       id: 2,
-      name: 'Jane Smith',
-      date: '2024-03-20',
-      time: '11:30 AM',
-      reason: 'Follow-up',
-      status: 'Pending',
-      actionStatus: '',
-      prescription: { medicine: '', dosage: '', description: '' }
+      name: "Jane Smith",
+      date: "2024-03-20",
+      time: "11:30 AM",
+      reason: "Follow-up",
+      status: "Pending",
+      actionStatus: "",
+      prescription: { medicine: "", dosage: "", description: "" },
     },
     // Add more sample appointments as needed
   ]);
 
   // Function to handle approval
-  const handleApprove = id => {
-    setAppointments(prevAppointments =>
-      prevAppointments.map(appointment =>
+  const handleApprove = (id) => {
+    setAppointments((prevAppointments) =>
+      prevAppointments.map((appointment) =>
         appointment.id === id
-          ? { ...appointment, status: 'Approved', actionStatus: 'Approved' }
-          : appointment
-      )
+          ? { ...appointment, status: "Approved", actionStatus: "Approved" }
+          : appointment,
+      ),
     );
   };
 
   // Function to handle rejection
-  const handleReject = id => {
-    setAppointments(prevAppointments =>
-      prevAppointments.map(appointment =>
+  const handleReject = (id) => {
+    setAppointments((prevAppointments) =>
+      prevAppointments.map((appointment) =>
         appointment.id === id
-          ? { ...appointment, status: 'Rejected', actionStatus: 'Rejected' }
-          : appointment
-      )
+          ? { ...appointment, status: "Rejected", actionStatus: "Rejected" }
+          : appointment,
+      ),
     );
   };
 
   const handlePrescriptionUpload = (id, medicine, dosage, description) => {
-    setAppointments(prevAppointments =>
-      prevAppointments.map(appointment =>
+    setAppointments((prevAppointments) =>
+      prevAppointments.map((appointment) =>
         appointment.id === id
           ? {
               ...appointment,
-              prescription: { medicine, dosage, description }
+              prescription: { medicine, dosage, description },
             }
-          : appointment
-      )
+          : appointment,
+      ),
     );
   };
 
   const { t } = useTranslation();
   const navigateToPrescriptionForm = () => {
-    window.location.href = '/prescription-form-doctor'; // Redirect to prescription form page
+    window.location.href = "/prescription-form-doctor"; // Redirect to prescription form page
   };
   const handleFileInputClick = () => {
     fileInputRef.current.click(); // Trigger click event on file input
@@ -79,25 +79,25 @@ const AppointmentDoc = () => {
     <div>
       <DoctorNav />
       <HeadBanner
-        bannerimage='https://source.unsplash.com/random?wallpapers'
-        heading='Appointments'
+        bannerimage="https://source.unsplash.com/random?wallpapers"
+        heading="Appointments"
       />
-      <div className='appointment-table mt-4'>
+      <div className="appointment-table mt-4">
         <table>
           <thead>
             <tr>
-              <th>{t('Name')}</th>
-              <th>{t('Date')}</th>
-              <th>{t('Time')}</th>
-              <th>{t('Reason')}</th>
-              <th>{t('Status')}</th>
-              <th>{t('Actions')}</th>
-              <th>{t('Report')}</th>
-              <th>{t('Prescription')}</th>
+              <th>{t("Name")}</th>
+              <th>{t("Date")}</th>
+              <th>{t("Time")}</th>
+              <th>{t("Reason")}</th>
+              <th>{t("Status")}</th>
+              <th>{t("Actions")}</th>
+              <th>{t("Report")}</th>
+              <th>{t("Prescription")}</th>
             </tr>
           </thead>
           <tbody>
-            {appointments.map(appointment => (
+            {appointments.map((appointment) => (
               <tr key={appointment.id}>
                 <td>{appointment.name}</td>
                 <td>{appointment.date}</td>
@@ -105,46 +105,54 @@ const AppointmentDoc = () => {
                 <td>{appointment.reason}</td>
                 <td>{appointment.status}</td>
                 <td>
-                  {appointment.status === 'Pending' && (
+                  {appointment.status === "Pending" && (
                     <>
                       <button
-                        className='status-btn approve'
+                        className="status-btn approve"
                         onClick={() => handleApprove(appointment.id)}
                       >
-                        {t('Approve')}
+                        {t("Approve")}
                       </button>
                       <button
-                        className='status-btn decline'
+                        className="status-btn decline"
                         onClick={() => handleReject(appointment.id)}
                       >
-                        {t('Reject')}
+                        {t("Reject")}
                       </button>
                     </>
                   )}
-                  {appointment.status !== 'Pending' && (
-                    <span className={`action-status ${appointment.actionStatus}`}>
+                  {appointment.status !== "Pending" && (
+                    <span
+                      className={`action-status ${appointment.actionStatus}`}
+                    >
                       {appointment.actionStatus}
                     </span>
                   )}
                 </td>
                 <td>
-                <input 
-          type='file' 
-          style={{ display: 'none' }} 
-          ref={fileInputRef} 
-          onChange={(e) => console.log(e.target.files[0])} // Handle file selection
-        />
-        {/* Custom styled button to trigger file input */}
-        <button className='doc-add-prescription-button' onClick={handleFileInputClick}>
-          Upload Report
-        </button>
+                  <input
+                    type="file"
+                    style={{ display: "none" }}
+                    ref={fileInputRef}
+                    onChange={(e) => console.log(e.target.files[0])} // Handle file selection
+                  />
+                  {/* Custom styled button to trigger file input */}
+                  <button
+                    className="doc-add-prescription-button"
+                    onClick={handleFileInputClick}
+                  >
+                    Upload Report
+                  </button>
                 </td>
                 <td>
-                {/* Button to redirect to prescription form */}
-                <button className='doc-add-prescription-button' onClick={navigateToPrescriptionForm}>
-                  {t('Add Prescription')}
-                </button>
-              </td>
+                  {/* Button to redirect to prescription form */}
+                  <button
+                    className="doc-add-prescription-button"
+                    onClick={navigateToPrescriptionForm}
+                  >
+                    {t("Add Prescription")}
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
