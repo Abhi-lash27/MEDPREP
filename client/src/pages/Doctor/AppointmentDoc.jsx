@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import DoctorNav from '../../components/Navbar/Doctor-Nav';
 import HeadBanner from '../../components/Banner/HeadBanner';
 import './AppointmentDoc.css';
@@ -70,6 +70,10 @@ const AppointmentDoc = () => {
   const navigateToPrescriptionForm = () => {
     window.location.href = '/prescription-form-doctor'; // Redirect to prescription form page
   };
+  const handleFileInputClick = () => {
+    fileInputRef.current.click(); // Trigger click event on file input
+  };
+  const fileInputRef = useRef(null);
 
   return (
     <div>
@@ -88,6 +92,7 @@ const AppointmentDoc = () => {
               <th>{t('Reason')}</th>
               <th>{t('Status')}</th>
               <th>{t('Actions')}</th>
+              <th>{t('Report')}</th>
               <th>{t('Prescription')}</th>
             </tr>
           </thead>
@@ -121,6 +126,18 @@ const AppointmentDoc = () => {
                       {appointment.actionStatus}
                     </span>
                   )}
+                </td>
+                <td>
+                <input 
+          type='file' 
+          style={{ display: 'none' }} 
+          ref={fileInputRef} 
+          onChange={(e) => console.log(e.target.files[0])} // Handle file selection
+        />
+        {/* Custom styled button to trigger file input */}
+        <button className='doc-add-prescription-button' onClick={handleFileInputClick}>
+          Upload Report
+        </button>
                 </td>
                 <td>
                 {/* Button to redirect to prescription form */}
