@@ -9,31 +9,27 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+
+import axios from "axios";
+import logger from "../../logger";
+import { toast } from "react-toastify";
 
 export default function SignUp() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [roles, setRoles] = useState(["Doctor", "Nurse", "Patient"]);
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [bloodGroup, setBloodGroup] = useState("");
   const [generalError, setGeneralError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!fullName) {
-      setGeneralError("Name is required");
+    if (!fullName || !email || !password || !dateOfBirth || !phoneNumber || !bloodGroup) {
+      setGeneralError("All fields are required");
       return;
-    } else if (!email) {
-      setGeneralError("Email is required");
-    } else if (!password) {
-      setGeneralError('Password is required');
-    } else if (!role) {
-      setGeneralError('Role is required');
     } else {
       setGeneralError("");
     }
@@ -58,14 +54,39 @@ export default function SignUp() {
       setPasswordError("");
     }
 
-    const data = new FormData(event.currentTarget);
-    console.log({
-      fullName,
-      email,
-      password,
-      role,
-    });
+    const formattedDateOfBirth = (() => {
+      const [year, month, day] = dateOfBirth.split("-");
+      return `${day}/${month}/${year}`;
+    })();
+
+    try {
+      const response = await axios.post("http://localhost:2222/signup", {
+        fullName,
+        email,
+        password,
+        dob: formattedDateOfBirth,
+        phone: phoneNumber,
+        bloodGroup
+      });
+
+      if(response.status >= 200 && response.status < 300) {
+        setFullName("")
+        setEmail("")
+        setPassword("")
+        setPhoneNumber("")
+        setDateOfBirth("")
+        setBloodGroup("")
+        return toast.success("Registered successfully")
+      }
+
+
+    } catch (error) {
+      logger.error("Signup error:", error.response.data);
+      setGeneralError(error.response.data.message || "An error occurred during signup");
+    }
+
   };
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -98,7 +119,6 @@ export default function SignUp() {
                 onChange={(e) => setFullName(e.target.value)}
               />
             </Grid>
-
             <Grid item xs={12}>
               <TextField
                 required
@@ -111,23 +131,6 @@ export default function SignUp() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </Grid>
-            <Grid item xs={12}>
-              <InputLabel>Role</InputLabel>
-              <Select
-                sx={{ width: 400 }}
-                id="role"
-                name="role"
-                value={role}
-                defaultValue=""
-                onChange={(e) => setRole(e.target.value)}
-              >
-                {roles.map((role) => (
-                  <MenuItem key={role} value={role}>
-                    {role}
-                  </MenuItem>
-                ))}
-              </Select>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -143,17 +146,54 @@ export default function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               {generalError && (
-              <span style={{ color: "red"}}>
-                {generalError}
-              </span>
-            )}
+                <span style={{ color: "red" }}>
+                  {generalError}
+                </span>
+              )}
               <br />
               <br />
               {passwordError && (
                 <span style={{ color: "red" }}>{passwordError}</span>
               )}
             </Grid>
-
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="dateOfBirth"
+                label="Date of Birth"
+                name="dateOfBirth"
+                type="date"
+                value={dateOfBirth}
+                onChange={(e) => setDateOfBirth(e.target.value)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="phoneNumber"
+                label="Phone Number"
+                name="phoneNumber"
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="bloodGroup"
+                label="Blood Group"
+                name="bloodGroup"
+                value={bloodGroup}
+                onChange={(e) => setBloodGroup(e.target.value)}
+              />
+            </Grid>
           </Grid>
           <Button
             type="submit"

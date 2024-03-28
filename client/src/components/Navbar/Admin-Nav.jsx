@@ -20,6 +20,12 @@ const AdminNav = () => {
     setSelectedLanguage(selectedLang);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('admin-token');
+    window.location.replace('/')
+    toast.success("Logout Successfull")
+  }
+
   return (
     <div className='admin-navbar'>
       <div className="admin-navbar-logo">
@@ -31,7 +37,7 @@ const AdminNav = () => {
         <li><Link style={{textDecoration:'none', color:'black'}} to='/Admin/AddNurse'>{t('Add Nurse')}</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/Admin/ListDoctor'>{t('Doctor List')}</Link></li>
         <li><Link style={{textDecoration:'none',color:'black'}} to='/Admin/ListNurse'>{t('Nurse List')}</Link></li>
-        <li><Link style={{textDecoration:'none',color:'black'}} to='/'>{t('Logout')}</Link></li>
+        <li onClick={handleLogout}><Link style={{textDecoration:'none',color:'black'}} to='/'>{t('Logout')}</Link></li>
         <select className='language-selector' onChange={handleChange} value={selectedLanguage}>
           <option value="en">{t('English')}</option>
           <option value="tn">{t('Tamil')}</option>

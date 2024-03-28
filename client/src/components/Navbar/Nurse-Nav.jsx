@@ -12,6 +12,12 @@ function NurseNav() {
     i18next.changeLanguage(e.target.value);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('nurse-token');
+    window.location.replace('/')
+    toast.success("Logout Successfull")
+  }
+
   return (
     <div className='nurse-navbar'>
       <div className="nurse-navbar-logo">
@@ -24,7 +30,7 @@ function NurseNav() {
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/reports'>{t('Reports')}</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/records'>{t('Records')}</Link></li>
         <li><Link style={{textDecoration:'none', color:'black'}} to='/nurse/accountsettings'>{t('Profile')}</Link></li>
-        <li><Link style={{textDecoration:'none', color:'black'}} to='/'>{t('Logout')}</Link></li>
+        <li onClick={handleLogout}><Link style={{textDecoration:'none', color:'black'}} to='/'>{t('Logout')}</Link></li>
         <select className='language-selector' onChange={handleChange}>
         <option value="en">English</option>
         <option value="tn">Tamil</option>

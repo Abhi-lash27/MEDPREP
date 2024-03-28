@@ -12,31 +12,81 @@ import Typography from '@mui/material/Typography';
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import axios from "axios";
+import logger from "../../logger";
+import { toast } from "react-toastify";
 
 
 export default function SignInSide() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-  const [roles, setRoles] = useState(["Doctor", "Nurse", "Patient"]);
+  const [roles, setRoles] = useState(["Admin", "Doctor", "Nurse", "Patient"]);
   const [generalError, setGeneralError] = useState("");
 
-  const handleSubmit = (event) => {
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if(!email || !password) {
+    if (!email || !password) {
       setGeneralError("Invalid email or password");
+      return;
     } else {
-      setGeneralError("")
+      setGeneralError("");
     }
 
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email,
-      password,
-      role
-    });
+    try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/login/${role.toLowerCase()}`, {
+        email,
+        password,
+      });
+
+      const { token } = res.data;
+
+      if (token) {
+        let storageKey;
+        let redirectPath;
+
+        switch (role) {
+          case 'Admin':
+            storageKey = 'admin-token';
+            redirectPath = '/admin';
+            break;
+          case 'Doctor':
+            storageKey = 'doctor-token';
+            redirectPath = '/doctor';
+            break;
+          case 'Nurse':
+            storageKey = 'nurse-token';
+            redirectPath = '/nurse';
+            break;
+          case 'Patient':
+            storageKey = 'patient-token';
+            redirectPath = '/patient';
+            break;
+          default:
+            storageKey = null;
+            redirectPath = '/';
+        }
+
+        if (storageKey) {
+          localStorage.setItem(storageKey, token);
+          window.location.href = redirectPath;
+        } else {
+          toast.error("Invalid role");
+          window.location.href = '/';
+        }
+
+      } else {
+        toast.error("Token not received");
+      }
+    } catch (err) {
+      logger.error(err);
+      toast.error(err.message);
+    }
   };
+
 
   return (
 
@@ -135,11 +185,11 @@ export default function SignInSide() {
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="/Forget" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
+                {/*<Grid item xs>*/}
+                {/*  <Link href="/Forget" variant="body2">*/}
+                {/*    Forgot password?*/}
+                {/*  </Link>*/}
+                {/*</Grid>*/}
                 <Grid item>
                   <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
