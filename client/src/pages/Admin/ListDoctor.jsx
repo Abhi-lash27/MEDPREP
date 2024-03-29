@@ -100,7 +100,7 @@ const ListDoctor = () => {
                         alignItems: "flex-end",
                       }}>
                         <IconButton onClick={() => handleDelete(value)}>
-                          <DeleteIcon style={{color: "red", fontSize: "16px"}}/>Delete
+                          <DeleteIcon style={{color: "red"}}/>Delete
                         </IconButton>
                       </div>
                     </div>

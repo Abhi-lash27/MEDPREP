@@ -1,74 +1,87 @@
-import { React, useState } from "react";
-// import img from './doc.jpg';
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import i18next from "i18next"; // Added import
+import { useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode";
+import logger from "../../../../logger";
+import axios from "axios";
 
 const Left = () => {
-  const PatDetails = [
-    {
-      patProfile:
-        "https://th.bing.com/th/id/OIP.WPYPa4GubQVLa0kQqXcfvwHaHa?w=179&h=180&c=7&r=0&o=5&cb=10&dpr=1.3&pid=1.7",
-      patId: "E1010",
-      patName: "Abcd",
-      patPhoneNo: "9876604321",
-      patEmail: "abc@gmail.com",
-      patDob: "12-09-2003",
-      patAge: "21",
-      patBg: "A+ve",
-      patAadhar: "505416968153",
-    },
-  ];
 
-  const [pInfo, setPInfo] = useState([...PatDetails]);
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+  const [data, setData] = useState([]);
+  const [token, setToken] = useState(null);
 
-  const handleChange = (e) => {
-    i18next.changeLanguage(e.target.value);
-  };
+  useEffect(() => {
+    const storedToken = localStorage.getItem('patient-token');
+    if (!storedToken) {
+      logger.error("Token not found in localStorage.");
+      return window.location.href = "/";
+    }
+
+    setToken(storedToken);
+
+    try {
+      const decodedToken = jwtDecode(storedToken);
+      const id = decodedToken.id;
+
+      const fetchData = async () => {
+        try {
+          const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/patients/${id}`, {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${storedToken}`
+            }
+          });
+          setData([res.data]); // Wrap res.data in an array
+          console.log(res.data);
+        } catch (err) {
+          logger.error(err);
+        }
+      };
+
+      fetchData();
+    } catch (err) {
+      logger.error("Error decoding JWT token:", err);
+      // Handle the error, e.g., redirect to login page
+      window.location.href = "/";
+    }
+  }, []);
 
   return (
     <div>
-      {pInfo.map((pat, index) => (
-        <div className="left">
+      {data.map((patient) => ( // Rename data to patient
+        <div key={patient.id} className="left">
           <div className="patient-info">
             <h2>Patient Details</h2>
-            <img src={pat.patProfile} className="img-1" />
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" className="img-1" alt={patient.fullName} />
             <table className="info">
               <tbody>
-                <tr className="row-f">
-                  <td className="row-l">Patient Id</td>
-                  <td className="row-d">{pat.patId}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">Name:</td>
-                  <td className="row-d">{pat.patName}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">Phone Number:</td>
-                  <td className="row-d">{pat.patPhoneNo}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">Email:</td>
-                  <td className="row-d">{pat.patEmail}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">DOB:</td>
-                  <td className="row-d">{pat.patDob}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">Age:</td>
-                  <td className="row-d">{pat.patAge}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">Blood Group:</td>
-                  <td className="row-d">{pat.patBg}</td>
-                </tr>
-                <tr className="row-f">
-                  <td className="row-l">Aadhar ID:</td>
-                  <td className="row-d">{pat.patAadhar}</td>
-                </tr>
+              <tr className="row-f">
+                <td className="row-l">Name:</td>
+                <td className="row-d">{patient.fullName}</td>
+              </tr>
+              <tr className="row-f">
+                <td className="row-l">Phone Number:</td>
+                <td className="row-d">{patient.phone}</td>
+              </tr>
+              <tr className="row-f">
+                <td className="row-l">Email:</td>
+                <td className="row-d">{patient.email}</td>
+              </tr>
+              <tr className="row-f">
+                <td className="row-l">DOB:</td>
+                <td className="row-d">{patient.dob}</td>
+              </tr>
+              <tr className="row-f">
+                <td className="row-l">Blood Group:</td>
+                <td className="row-d">{patient.bloodGroup}</td>
+              </tr>
+              <tr className="row-f">
+                <td className="row-l">Age:</td>
+                <td className="row-d">{patient.age}</td>
+              </tr>
+              <tr className="row-f">
+                <td className="row-l">Gender:</td>
+                <td className="row-d">{patient.gender}</td>
+              </tr>
+
               </tbody>
             </table>
           </div>

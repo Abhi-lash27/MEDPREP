@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 interface User {
+  id: string;
   fullName: string;
   email: string;
 }
@@ -28,6 +29,7 @@ export const hashPassword = async (password: string): Promise<string> => {
 
 const createJWT = (user: User, role: JWTClaims["role"]): string => {
   const token: string= jwt.sign({
+      id: user.id,
       name: user.fullName,
       email: user.email,
       role: role

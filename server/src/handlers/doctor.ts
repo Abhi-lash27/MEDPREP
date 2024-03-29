@@ -65,6 +65,7 @@ export const getAllDoctor = async (_req: Request, res: Response) => {
     // @ts-ignore
     const doctor: Doctor[] = await prisma.doctor.findMany({
       select: {
+        id: true,
         fullName: true,
         email: true,
         phone: true,

@@ -13,7 +13,9 @@ interface CreatePatientProps extends Request {
     email: string,
     dob: string,
     bloodGroup: string,
-    password: string
+    password: string,
+    gender: string,
+    age: string
   };
 }
 
@@ -27,7 +29,9 @@ export const createPatient = async (req: CreatePatientProps, res: Response) => {
         email: req.body.email,
         dob: req.body.dob,
         bloodGroup: req.body.bloodGroup,
-        password: await hashPassword(req.body.password)
+        password: await hashPassword(req.body.password),
+        gender: req.body.gender,
+        age: req.body.age
       }
     });
     return res.status(200).json({ patient });
@@ -62,7 +66,20 @@ export const patientLogin = async (req: LoginProps, res: Response) => {
 
 export const getAllPatients = async (_req: Request, res: Response) => {
   try {
-    const patient: Patient[] = await prisma.patient.findMany();
+    const patient = await prisma.patient.findMany({
+      select: {
+        fullName: true,
+        email: true,
+        dob: true,
+        bloodGroup: true,
+        gender: true,
+        age: true,
+        phone: true,
+        appointments: true,
+        reports: true,
+        prescriptions: true
+      }
+    });
 
     if (patient.length === 0) {
       return res.status(404).json({ error: "Patients not found" });
@@ -76,11 +93,18 @@ export const getAllPatients = async (_req: Request, res: Response) => {
 
 export const getSinglePatient = async (req: Request, res: Response) => {
   try {
-    const patient: Patient | null = await prisma.patient.findUnique({
+    const patient = await prisma.patient.findUnique({
       where: {
         id: req.params.id
       },
-      include: {
+      select: {
+        fullName: true,
+        email: true,
+        dob: true,
+        bloodGroup: true,
+        gender: true,
+        age: true,
+        phone: true,
         appointments: true,
         reports: true,
         prescriptions: true

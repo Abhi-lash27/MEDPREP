@@ -21,6 +21,8 @@ export default function SignUp() {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [bloodGroup, setBloodGroup] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
   const [generalError, setGeneralError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -33,7 +35,9 @@ export default function SignUp() {
       !password ||
       !dateOfBirth ||
       !phoneNumber ||
-      !bloodGroup
+      !bloodGroup ||
+      !age ||
+      !gender
     ) {
       setGeneralError("All fields are required");
       return;
@@ -74,6 +78,8 @@ export default function SignUp() {
         dob: formattedDateOfBirth,
         phone: phoneNumber,
         bloodGroup,
+        age,
+        gender
       });
 
       if (response.status >= 200 && response.status < 300) {
@@ -83,6 +89,8 @@ export default function SignUp() {
         setPhoneNumber("");
         setDateOfBirth("");
         setBloodGroup("");
+        setAge("");
+        setGender("");
         return toast.success("Registered successfully");
       }
     } catch (error) {
@@ -195,6 +203,29 @@ export default function SignUp() {
                 name="bloodGroup"
                 value={bloodGroup}
                 onChange={(e) => setBloodGroup(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="age"
+                label="Age"
+                name="age"
+                type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="gender"
+                label="Gender"
+                name="gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
               />
             </Grid>
           </Grid>
