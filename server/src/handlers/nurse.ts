@@ -12,6 +12,7 @@ interface CreateNurseProps extends Request {
     phone: string
     email: string
     password: string
+    experience: string
   };
 }
 
@@ -23,7 +24,8 @@ export const createNurse = async (req: CreateNurseProps, res: Response) => {
         fullName: req.body.fullName,
         phone: req.body.phone,
         email: req.body.email,
-        password: await hashPassword(req.body.password)
+        password: await hashPassword(req.body.password),
+        experience: req.body.experience
       }
     });
     return res.status(200).json({ nurse });

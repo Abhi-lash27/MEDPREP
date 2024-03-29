@@ -1,21 +1,62 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import "./AddDoctor.css";
 import AdminNav from "../../components/Navbar/Admin-Nav";
 import Footer from "../../components/Footer/Footer";
+import axios from "axios";
+import { toast } from "react-toastify";
+import logger from "../../../logger";
+
 function AddDoctor() {
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [ph, setPh] = useState("");
-  const handelchange = async () => {
-    const data = { fullName: Name, phone: ph, email: Email, password: pass };
-    const response = await fetch("http://localhost:2222/api/doctors", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [specializations, setSpecializations] = useState("");
+  const [experience, setExperience] = useState();
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("admin-token");
+    setToken(storedToken);
+
+    if (!storedToken) {
+      return window.location.href = "/";
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/doctors`, {
+          fullName,
+          phone,
+          password,
+          email,
+          specializations,
+          experience
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+
+      if (res.status >= 200 && res.status < 300) {
+        setFullName("");
+        setEmail("");
+        setPassword("");
+        setPhone("");
+        setSpecializations("");
+        setExperience("");
+        return toast.success("Doctor created successfully");
+      }
+
+    } catch (err) {
+      logger.error(err);
+      return toast.error(err);
+    }
   };
   return (
     <div>
@@ -33,36 +74,27 @@ function AddDoctor() {
             id="register1"
             className="input-group"
             autoComplete="off"
-            onSubmit={handelchange}
+            onSubmit={handleSubmit}
           >
             <input
               type="text"
-              name="doctorname"
+              name="fullName"
               className="input-field"
               placeholder="Enter Doctor's Full Name"
-              value={Name}
+              value={fullName}
               onChange={(e) => {
-                setName(e.target.value);
+                setFullName(e.target.value);
               }}
               required
             />
-            {/*<select name="spec" className="input-field" id="spec" onChange={() => myFunction()}>
-              <option value="" disabled selected>--Select Specialization--</option>
-              <option value="Dermatology">Dermatology</option>
-              <option value="Orthopedic">Orthopedic</option>
-              <option value="Neurology">Neurology</option>
-              <option value="Physiotheraphy">Physiotheraphy</option>
-              <option value="Cardiology">Cardiology</option>
-              <option value="Emergency">Emergency</option>
-             </select>*/}{" "}
             <br />
             <input
-              type="text"
-              name="Email"
+              type="email"
+              name="email"
               className="input-field"
               id="myinput1"
               placeholder="Email"
-              value={Email}
+              value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -72,28 +104,45 @@ function AddDoctor() {
               name="password"
               className="input-field"
               id="myinput1"
-              placeholder="Create Password"
-              value={pass}
+              placeholder="Password"
+              value={password}
               onChange={(e) => {
-                setPass(e.target.value);
+                setPassword(e.target.value);
               }}
             />
             <input
               type="text"
-              name="Email"
+              name="phoneNumber"
               className="input-field"
               id="myinput1"
               placeholder="Phone"
-              value={ph}
+              value={phone}
               onChange={(e) => {
-                setPh(e.target.value);
+                setPhone(e.target.value);
               }}
             />
-            {/* <select className='input-field'>
-            <option value='' disabled >--Gender--</option>
-              <option value='Male'>Male</option>
-              <option value='Female'>Female</option>
-            </select> */}
+            <input
+              type="text"
+              name="specializations"
+              className="input-field"
+              id="myinput1"
+              placeholder="Specialization"
+              value={specializations}
+              onChange={(e) => {
+                setSpecializations(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              name="experience"
+              className="input-field"
+              id="myinput1"
+              placeholder="Experience"
+              value={experience}
+              onChange={(e) => {
+                setExperience(e.target.value);
+              }}
+            />
             <br />
             <br />
             <center>

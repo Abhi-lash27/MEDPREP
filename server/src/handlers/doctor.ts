@@ -12,6 +12,8 @@ interface CreateDoctorProps extends Request {
     phone: string;
     email: string;
     password: string;
+    specializations: string;
+    experience: string;
   };
 }
 
@@ -23,7 +25,9 @@ export const createDoctor = async (req: CreateDoctorProps, res: Response) => {
         fullName: req.body.fullName,
         phone: req.body.phone,
         email: req.body.email,
-        password: await hashPassword(req.body.password)
+        password: await hashPassword(req.body.password),
+        specializations: req.body.specializations,
+        experience: req.body.experience
       }
     });
     return res.status(200).json({ doctor });
@@ -58,7 +62,16 @@ export const doctorLogin = async (req: LoginProps, res: Response) => {
 
 export const getAllDoctor = async (_req: Request, res: Response) => {
   try {
-    const doctor: Doctor[] = await prisma.doctor.findMany();
+    // @ts-ignore
+    const doctor: Doctor[] = await prisma.doctor.findMany({
+      select: {
+        fullName: true,
+        email: true,
+        phone: true,
+        experience: true,
+        specializations: true
+      }
+    });
 
     if (doctor.length === 0) {
       return res.status(404).json({ error: "Doctors not found" });

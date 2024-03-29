@@ -1,22 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddDoctor.css";
 import AdminNav from "../../components/Navbar/Admin-Nav";
 import Footer from "../../components/Footer/Footer";
+import axios from "axios";
+import { toast } from "react-toastify"; // Import Axios
+
 function AddNurse() {
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [ph, setPh] = useState("");
-  const handelchange = async () => {
-    const data = { fullName: Name, phone: ph, email: Email, password: pass };
-    const response = await fetch("http://localhost:2222/api/nurses", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [experience, setExperience] = useState("");
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("admin-token");
+    setToken(storedToken);
+
+    if (!storedToken) {
+      return window.location.href = "/";
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      fullName: fullName,
+      phone: phone,
+      email: email,
+      password: password,
+      experience: experience,
+    };
+
+    try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/nurses`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+      });
+
+      if (res.status >= 200 && res.status < 300) {
+        setFullName("");
+        setEmail("");
+        setPassword("");
+        setPhone("");
+        setExperience("");
+        return toast.success("Nurse created successfully");
+      }
+
+    } catch (error) {
+      toast.error("Error adding nurse:", error);
+    }
   };
+
   return (
     <div>
       <AdminNav />
@@ -31,36 +69,27 @@ function AddNurse() {
             id="register1"
             className="input-group"
             autoComplete="off"
-            onSubmit={handelchange}
+            onSubmit={handleSubmit}
           >
             <input
               type="text"
-              name="doctorname"
+              name="fullName"
               className="input-field"
-              placeholder="Enter  Full Name"
-              value={Name}
+              placeholder="Enter Full Name"
+              value={fullName}
               onChange={(e) => {
-                setName(e.target.value);
+                setFullName(e.target.value);
               }}
               required
             />
-            {/*<select name="spec" className="input-field" id="spec" onChange={() => myFunction()}>
-              <option value="" disabled selected>--Select Specialization--</option>
-              <option value="Dermatology">Dermatology</option>
-              <option value="Orthopedic">Orthopedic</option>
-              <option value="Neurology">Neurology</option>
-              <option value="Physiotheraphy">Physiotheraphy</option>
-              <option value="Cardiology">Cardiology</option>
-              <option value="Emergency">Emergency</option>
-             </select>*/}{" "}
             <br />
             <input
-              type="text"
-              name="Email"
+              type="email"
+              name="email"
               className="input-field"
               id="myinput1"
               placeholder="Email"
-              value={Email}
+              value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -71,27 +100,33 @@ function AddNurse() {
               className="input-field"
               id="myinput1"
               placeholder="Create Password"
-              value={pass}
+              value={password}
               onChange={(e) => {
-                setPass(e.target.value);
+                setPassword(e.target.value);
               }}
             />
             <input
               type="text"
-              name="Email"
+              name="phone"
               className="input-field"
               id="myinput1"
               placeholder="Phone Number"
-              value={ph}
+              value={phone}
               onChange={(e) => {
-                setPh(e.target.value);
+                setPhone(e.target.value);
               }}
             />
-            {/* <select className='input-field'>
-            <option value='' disabled >--Gender--</option>
-              <option value='Male'>Male</option>
-              <option value='Female'>Female</option>
-            </select> */}
+            <input
+              type="text"
+              name="experience"
+              className="input-field"
+              id="myinput1"
+              placeholder="Experience"
+              value={experience}
+              onChange={(e) => {
+                setExperience(e.target.value);
+              }}
+            />
             <br />
             <br />
             <center>

@@ -36,6 +36,7 @@ model Nurse {
   phone     String   @db.VarChar(10)
   email     String   @unique
   password  String
+  experience String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -83,15 +84,17 @@ model Prescription {
 }
 
 model Doctor {
-  id           String         @unique @default(uuid()) @db.Uuid
-  fullName     String
-  phone        String         @db.VarChar(10)
-  email        String         @unique
-  password     String
-  appointments Appointments[]
+  id              String         @unique @default(uuid()) @db.Uuid
+  fullName        String
+  phone           String         @db.VarChar(10)
+  email           String         @unique
+  password        String
+  specializations String
+  experience      String
+  appointments    Appointments[]
   // patients     DoctorOnPatients[]
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
 }
 
 model Reports {
