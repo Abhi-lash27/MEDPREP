@@ -1,0 +1,66 @@
+.report-upload-container {
+    width: 50%;
+    margin: 20px auto;
+  }
+  
+  .upload-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-input {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+  }
+  
+  .file-input {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+  }
+  
+  .upload-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838;
+  }
+  

@@ -1,8 +1,12 @@
 /* Prescription.css */
 
 .doc-form-container {
-    max-width: 400px;
-    margin: 0 auto;
+    width: 50%;
+    margin: 20px auto;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
   .doc-title {

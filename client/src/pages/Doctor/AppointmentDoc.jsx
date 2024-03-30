@@ -85,8 +85,13 @@ const AppointmentDoc = () => {
 
   const { t } = useTranslation();
   const navigateToPrescriptionForm = (patientId) => {
-    window.location.href = `/prescription-form-doctor/${patientId}`; // Redirect to prescription form page with patient ID
+    window.location.href = `/doctor/prescription-form-doctor/${patientId}`; // Redirect to prescription form page with patient ID
   };
+
+  const navigateToUploadForm = (patientId) => {
+    window.location.href = `/doctor/upload-form-doctor/${patientId}`;
+  };
+
   const handleFileInputClick = () => {
     fileInputRef.current.click(); // Trigger click event on file input
   };
@@ -147,7 +152,7 @@ const AppointmentDoc = () => {
                 {/* Custom styled button to trigger file input */}
                 <button
                   className="doc-add-prescription-button"
-                  onClick={handleFileInputClick}
+                  onClick={() => navigateToUploadForm(appointment.patientId)}
                 >
                   Upload Report
                 </button>

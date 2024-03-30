@@ -30,6 +30,7 @@ import Front from "./pages/Patient/Dashboard/PatientDetails";
 import PatientDetails from "./pages/Patient/Dashboard/PatientDetails";
 import Left from "./pages/Patient/Dashboard/Left";
 import PrescriptionForm from "./pages/Doctor/PrescriptionForm";
+import ReportUpload from "./pages/Doctor/ReportUpload";
 
 const App = () => {
   return (
@@ -63,9 +64,14 @@ const App = () => {
           {/* <Route path='/patient/Details' exact element={<PatientDetails/>}/> */}
           <Route path="/doctor/:activepage" exact element={<DoctorProfile />} />
           <Route
-            path="/prescription-form-doctor/:patientId"
+            path="/doctor/prescription-form-doctor/:patientId"
             exact
             element={<PrescriptionForm />}
+          />
+          <Route
+            path="/doctor/upload-form-doctor/:patientId"
+            exact
+            element={<ReportUpload />}
           />
           <Route
             path="/patient/prescription"
@@ -85,6 +91,7 @@ const App = () => {
             exact
             element={<AppointmentDoc />}
           />
+          
           <Route path="/doctor/patients" exact element={<PatientlistDoc />} />
           <Route path="/nurse/:activepage" exact element={<NurseProfile />} />
           <Route
