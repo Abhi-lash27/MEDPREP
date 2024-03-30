@@ -76,13 +76,14 @@ model Appointments {
 }
 
 model Prescription {
-  id         String   @unique @default(uuid()) @db.Uuid
-  patientId  String   @db.Uuid
-  patient    Patient  @relation(fields: [patientId], references: [id])
-  medication String
-  dosage     String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id          String   @unique @default(uuid()) @db.Uuid
+  patientId   String   @db.Uuid
+  patient     Patient  @relation(fields: [patientId], references: [id])
+  medication  String
+  dosage      String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Doctor {

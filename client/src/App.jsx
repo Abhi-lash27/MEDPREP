@@ -63,7 +63,7 @@ const App = () => {
           {/* <Route path='/patient/Details' exact element={<PatientDetails/>}/> */}
           <Route path="/doctor/:activepage" exact element={<DoctorProfile />} />
           <Route
-            path="/prescription-form-doctor"
+            path="/prescription-form-doctor/:patientId"
             exact
             element={<PrescriptionForm />}
           />

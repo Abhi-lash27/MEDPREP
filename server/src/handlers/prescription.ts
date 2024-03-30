@@ -12,7 +12,8 @@ export const createPrescriptions = async (req: Request, res: Response) => {
       data: {
         patientId: req.body.patientId,
         medication: req.body.medication,
-        dosage: req.body.dosage
+        dosage: req.body.dosage,
+        description: req.body.description
       }
     });
     return res.status(200).json(prescription);

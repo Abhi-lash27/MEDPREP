@@ -87,9 +87,17 @@ export const getAllDoctor = async (_req: Request, res: Response) => {
 
 export const getSingleDoctor = async (req: Request, res: Response) => {
   try {
-    const doctor: Doctor | null = await prisma.doctor.findUnique({
+    const doctor = await prisma.doctor.findUnique({
       where: {
         id: req.params.id
+      },
+      select: {
+        fullName: true,
+        phone: true,
+        email: true,
+        specializations: true,
+        experience: true,
+        appointments: true
       }
     });
 

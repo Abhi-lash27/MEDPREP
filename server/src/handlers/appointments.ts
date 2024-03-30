@@ -86,31 +86,5 @@ export const deleteAppointment = async (req: Request, res: Response) => {
   }
 };
 
-// GET ALL FOR INDIVIDUAL DOCTOR
 
-export const getAppointmentForDoctor = async (req: Request, res: Response) => {
-  try {
-    const appointments: Appointments[] = await prisma.appointments.findMany({
-      where: {
-        doctorId: req.params.doctorId
-      },
-      include: {
-        patient: true,
-        doctor: true
-      },
-      orderBy: {
-        createdAt: "desc"
-      }
-    });
-
-    if (appointments.length === 0 || !appointments) {
-      return res.status(404).json({ error: "Appointments not found for the specified doctor" });
-    }
-
-    res.status(200).json(appointments);
-  } catch (err) {
-    logger.error(err);
-    return res.status(400).json("BAD REQUEST");
-  }
-};
 

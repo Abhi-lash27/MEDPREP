@@ -1,74 +1,91 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DoctorNav from "../../components/Navbar/Doctor-Nav";
 import HeadBanner from "../../components/Banner/HeadBanner";
 import "./AppointmentDoc.css";
 import Footer from "../../components/Footer/Footer";
 import { useTranslation, Trans } from "react-i18next";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
+import logger from "../../../logger";
+import { toast } from "react-toastify";
 
 const AppointmentDoc = () => {
-  // Sample appointment data
-  const [appointments, setAppointments] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      date: "2024-03-19",
-      time: "10:00 AM",
-      reason: "Checkup",
-      status: "Pending",
-      actionStatus: "",
-      prescription: { medicine: "", dosage: "", description: "" },
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      date: "2024-03-20",
-      time: "11:30 AM",
-      reason: "Follow-up",
-      status: "Pending",
-      actionStatus: "",
-      prescription: { medicine: "", dosage: "", description: "" },
-    },
-    // Add more sample appointments as needed
-  ]);
 
-  // Function to handle approval
-  const handleApprove = (id) => {
-    setAppointments((prevAppointments) =>
-      prevAppointments.map((appointment) =>
-        appointment.id === id
-          ? { ...appointment, status: "Approved", actionStatus: "Approved" }
-          : appointment,
-      ),
-    );
-  };
+  const [appointments, setAppointments] = useState([]);
 
-  // Function to handle rejection
-  const handleReject = (id) => {
-    setAppointments((prevAppointments) =>
-      prevAppointments.map((appointment) =>
-        appointment.id === id
-          ? { ...appointment, status: "Rejected", actionStatus: "Rejected" }
-          : appointment,
-      ),
-    );
-  };
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('doctor-token')
+
+    if(!storedToken) {
+      return window.location.href = '/'
+    }
+
+    setToken(storedToken)
+
+    const decodedToken = jwtDecode(storedToken)
+    const id = decodedToken.id
+
+    const fetchAppointments = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/doctors/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${storedToken}`
+          }
+        })
+
+        setAppointments(res.data.appointments)
+        console.log(res.data);
+
+      } catch (err) {
+        logger.error(err)
+      }
+    }
+    fetchAppointments()
+  }, []);
+
+
+  const handleApprove = async (appointmentId, status) => {
+    try {
+      const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/appointments/${appointmentId}`, {
+        status,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `bearer ${token}`
+        }
+      })
+
+      if(res.status >= 200 && res.status < 300) {
+        toast.success("Status Updated")
+        setTimeout(() => {
+          window.location.reload()
+        }, 1500)
+      }
+
+    } catch (err) {
+      toast.error(err)
+    }
+  }
 
   const handlePrescriptionUpload = (id, medicine, dosage, description) => {
     setAppointments((prevAppointments) =>
       prevAppointments.map((appointment) =>
         appointment.id === id
           ? {
-              ...appointment,
-              prescription: { medicine, dosage, description },
-            }
+            ...appointment,
+            prescription: { medicine, dosage, description },
+          }
           : appointment,
       ),
     );
   };
 
   const { t } = useTranslation();
-  const navigateToPrescriptionForm = () => {
-    window.location.href = "/prescription-form-doctor"; // Redirect to prescription form page
+  const navigateToPrescriptionForm = (patientId) => {
+    window.location.href = `/prescription-form-doctor/${patientId}`; // Redirect to prescription form page with patient ID
   };
   const handleFileInputClick = () => {
     fileInputRef.current.click(); // Trigger click event on file input
@@ -85,76 +102,67 @@ const AppointmentDoc = () => {
       <div className="appointment-table mt-4">
         <table>
           <thead>
-            <tr>
-              <th>{t("Name")}</th>
-              <th>{t("Date")}</th>
-              <th>{t("Time")}</th>
-              <th>{t("Reason")}</th>
-              <th>{t("Status")}</th>
-              <th>{t("Actions")}</th>
-              <th>{t("Report")}</th>
-              <th>{t("Prescription")}</th>
-            </tr>
+          <tr>
+            <th>{t("Name")}</th>
+            <th>{t("Date")}</th>
+            <th>{t("Time")}</th>
+            <th>{t("Reason")}</th>
+            <th>{t("Status")}</th>
+            <th>{t("Actions")}</th>
+            <th>{t("Report")}</th>
+            <th>{t("Prescription")}</th>
+          </tr>
           </thead>
           <tbody>
-            {appointments.map((appointment) => (
-              <tr key={appointment.id}>
-                <td>{appointment.name}</td>
-                <td>{appointment.date}</td>
-                <td>{appointment.time}</td>
-                <td>{appointment.reason}</td>
-                <td>{appointment.status}</td>
-                <td>
-                  {appointment.status === "Pending" && (
-                    <>
-                      <button
-                        className="status-btn approve"
-                        onClick={() => handleApprove(appointment.id)}
-                      >
-                        {t("Approve")}
-                      </button>
-                      <button
-                        className="status-btn decline"
-                        onClick={() => handleReject(appointment.id)}
-                      >
-                        {t("Reject")}
-                      </button>
-                    </>
-                  )}
-                  {appointment.status !== "Pending" && (
-                    <span
-                      className={`action-status ${appointment.actionStatus}`}
-                    >
-                      {appointment.actionStatus}
-                    </span>
-                  )}
-                </td>
-                <td>
-                  <input
-                    type="file"
-                    style={{ display: "none" }}
-                    ref={fileInputRef}
-                    onChange={(e) => console.log(e.target.files[0])} // Handle file selection
-                  />
-                  {/* Custom styled button to trigger file input */}
+          {appointments.map((appointment) => (
+            <tr key={appointment.id}>
+              <td>{appointment.patientName}</td>
+              <td>{appointment.appointmentDate}</td>
+              <td>{appointment.appointmentTiming}</td>
+              <td>{appointment.reason}</td>
+              <td>{appointment.status}</td>
+              <td>
+                <>
                   <button
-                    className="doc-add-prescription-button"
-                    onClick={handleFileInputClick}
+                    className="status-btn approve"
+                    onClick={() => handleApprove(appointment.id, "ACCEPTED")}
                   >
-                    Upload Report
+                    {t("Approve")}
                   </button>
-                </td>
-                <td>
-                  {/* Button to redirect to prescription form */}
                   <button
-                    className="doc-add-prescription-button"
-                    onClick={navigateToPrescriptionForm}
+                    className="status-btn decline"
+                    onClick={() => handleApprove(appointment.id, "REJECTED")}
                   >
-                    {t("Add Prescription")}
+                    {t("Reject")}
                   </button>
-                </td>
-              </tr>
-            ))}
+                </>
+              </td>
+              <td>
+                <input
+                  type="file"
+                  style={{ display: "none" }}
+                  ref={fileInputRef}
+                  onChange={(e) => console.log(e.target.files[0])} // Handle file selection
+                />
+                {/* Custom styled button to trigger file input */}
+                <button
+                  className="doc-add-prescription-button"
+                  onClick={handleFileInputClick}
+                >
+                  Upload Report
+                </button>
+              </td>
+              <td>
+                {/* Button to redirect to prescription form */}
+                <button
+                  className="doc-add-prescription-button"
+                  onClick={() => navigateToPrescriptionForm(appointment.patientId)}
+                >
+                  {t("Add Prescription")}
+                </button>
+              </td>
+            </tr>
+          ))}
           </tbody>
         </table>
       </div>

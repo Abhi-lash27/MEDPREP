@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DoctorNav from "../../components/Navbar/Doctor-Nav";
 import Footer from "../../components/Footer/Footer";
 import "./Prescription.css";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import logger from "../../../logger";
 
 const PrescriptionForm = () => {
   const [medicine, setMedicine] = useState("");
@@ -10,30 +14,88 @@ const PrescriptionForm = () => {
   const [todoList, setTodoList] = useState([]);
   const [isUploaded, setIsUploaded] = useState(false); // State to track if items are uploaded
 
-  const handleAddTodo = () => {
-    if (
-      medicine.trim() !== "" &&
-      dosage.trim() !== "" &&
-      description.trim() !== ""
-    ) {
-      setTodoList([...todoList, { medicine, dosage, description }]);
-      setMedicine("");
-      setDosage("");
-      setDescription("");
+  const [prevPrescriptions, setPrevPrescriptions] = useState([]);
+
+  const [token, setToken] = useState(null);
+
+  const { patientId } = useParams()
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('doctor-token')
+    setToken(storedToken)
+
+    if(!storedToken) {
+      return window.location.href = '/'
     }
-  };
 
-  const handleDeleteTodo = (index) => {
-    const updatedTodoList = [...todoList];
-    updatedTodoList.splice(index, 1);
-    setTodoList(updatedTodoList);
-  };
+    const fetchPreviousPrescription = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/patients/${patientId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`
+          }
+        })
+        setPrevPrescriptions(res.data.prescriptions)
 
-  const handleUpload = () => {
-    // Add functionality to upload todoList items
-    console.log("Uploading items:", todoList);
-    setIsUploaded(true);
-  };
+      } catch (err) {
+        logger.error(err)
+      }
+    }
+    fetchPreviousPrescription()
+  }, []);
+
+
+  const addMedicine = async () => {
+    if (!medicine || !dosage || !description) {
+      return toast.error("All fields are required")
+    }
+    try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/prescriptions`, {
+        patientId,
+        medication: medicine,
+        dosage,
+        description
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      if(res.status >= 200 && res.status < 300) {
+        toast.success("Medicine added successfully")
+        setMedicine('')
+        setDosage('')
+        setDescription('')
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
+      }
+    } catch (err) {
+      logger.error(err)
+    }
+  }
+
+  const handleDelete = async (prescriptionId) => {
+    try {
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/prescriptions/${prescriptionId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      if(res.status >= 200 && res.status < 300) {
+        toast.success('Medicine deleted successfully')
+        setTimeout(() =>{
+          window.location.reload()
+        }, 1000)
+      }
+    } catch (err) {
+        logger.error(err)
+    }
+  }
 
   return (
     <div>
@@ -69,20 +131,21 @@ const PrescriptionForm = () => {
           ></textarea>
         </div>
 
-        <button onClick={handleAddTodo} className="doc-btn-add">
+        <button onClick={addMedicine} className="doc-btn-add">
           Add Medicine
         </button>
-
+        <br/>
+        <br/>
         <ul className="doc-todo-list">
-          {todoList.map((todo, index) => (
-            <li key={index} className="doc-todo-item">
+          {prevPrescriptions.map((prescription) => (
+            <li key={prescription.id} className="doc-todo-item">
               <div>
-                <strong>Medicine:</strong> {todo.medicine},{" "}
-                <strong>Dosage:</strong> {todo.dosage},{" "}
-                <strong>Description:</strong> {todo.description}
+                <strong>Medicine:</strong> {prescription.medication},{" "}
+                <strong>Dosage:</strong> {prescription.dosage},{" "}
+                <strong>Description:</strong> {prescription.description}
               </div>
               <button
-                onClick={() => handleDeleteTodo(index)}
+                onClick={() => handleDelete(prescription.id)}
                 className="doc-btn-delete"
               >
                 Delete
@@ -90,14 +153,6 @@ const PrescriptionForm = () => {
             </li>
           ))}
         </ul>
-
-        {todoList.length > 0 && !isUploaded && (
-          <button onClick={handleUpload} className="doc-btn-upload">
-            Upload Prescription
-          </button>
-        )}
-
-        {isUploaded && <p>Prescription Uploaded Successfully!</p>}
       </div>
       <Footer />
     </div>

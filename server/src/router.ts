@@ -10,7 +10,6 @@ import {
   createAppointments,
   getAllAppointments,
   getSingleAppointment,
-  getAppointmentForDoctor,
   updateAppointment,
   deleteAppointment
 } from "./handlers/appointments";
@@ -48,7 +47,6 @@ router.delete("/nurses/:id", deleteNurse);
 // TODO: DOCTOR HANDLERS
 router.get("/doctors", getAllDoctor);
 router.get("/doctors/:id", getSingleDoctor);
-router.get("/doctors/:id/appointments", getAppointmentForDoctor);
 router.post("/doctors", createDoctor);
 router.put("/doctors/:id", updateDoctor);
 router.delete("/doctors/:id", deleteDoctor);
