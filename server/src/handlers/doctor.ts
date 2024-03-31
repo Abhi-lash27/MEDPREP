@@ -118,7 +118,13 @@ export const updateDoctor = async (req: Request, res: Response) => {
       where: {
         id: req.params.id
       },
-      data: req.body
+      data: {
+        fullName: req.body.fullName,
+        phone: req.body.phone,
+        email: req.body.email,
+        specializations: req.body.specializations,
+        experience: req.body.experience
+      }
     });
 
     if (!doctor) {
@@ -131,6 +137,26 @@ export const updateDoctor = async (req: Request, res: Response) => {
     res.status(400).json({ error: "BAD REQUEST" });
   }
 };
+
+export const updateDoctorPassword = async (req: Request, res: Response) => {
+  try {
+    const doctor = await  prisma.doctor.update({
+      where: {
+        id: req.params.id,
+      },
+      data: {
+        password: await hashPassword(req.body.password)
+      }
+    })
+    if (!doctor) {
+      return res.status(404).json({ error: "doctor not found" });
+    }
+    return res.status(200).json({ doctor })
+  } catch (err) {
+    logger.error(err);
+    res.status(400).json({ error: "BAD REQUEST" });
+  }
+}
 
 export const deleteDoctor = async (req: Request, res: Response) => {
   try {

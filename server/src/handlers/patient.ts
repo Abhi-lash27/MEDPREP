@@ -129,7 +129,15 @@ export const updatePatient = async (req: Request, res: Response) => {
       where: {
         id: req.params.id
       },
-      data: req.body
+      data: {
+        fullName: req.body.fullName,
+        phone: req.body.phone,
+        email: req.body.email,
+        dob: req.body.dob,
+        bloodGroup: req.body.bloodGroup,
+        gender: req.body.gender,
+        age: req.body.age
+      }
     })
 
     if (!patient) {
@@ -141,6 +149,26 @@ export const updatePatient = async (req: Request, res: Response) => {
     res.status(400).json({ error: "BAD REQUEST" });
   }
 };
+
+export const updatePatientPassword = async (req: Request, res: Response) => {
+  try {
+    const patient = await  prisma.patient.update({
+      where: {
+        id: req.params.id,
+      },
+      data: {
+        password: await hashPassword(req.body.password)
+      }
+    })
+    if (!patient) {
+      return res.status(404).json({ error: "Patient not found" });
+    }
+    return res.status(200).json({ patient })
+  } catch (err) {
+    logger.error(err);
+    res.status(400).json({ error: "BAD REQUEST" });
+  }
+}
 
 export const deletePatient = async (req: Request, res: Response) => {
   try {

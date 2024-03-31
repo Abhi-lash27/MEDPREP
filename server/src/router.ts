@@ -3,9 +3,29 @@ import { Router } from "express";
 import { upload } from "./modules/multer";
 
 import { getAllAdmin, getSingleAdmin, updateAdmin, deleteAdmin } from "./handlers/admin";
-import { createDoctor, getAllDoctor, getSingleDoctor, updateDoctor, deleteDoctor } from "./handlers/doctor";
-import { createNurse, getAllNurse, getSingleNurse, updateNurse, deleteNurse } from "./handlers/nurse";
-import { getAllPatients, getSinglePatient, updatePatient, deletePatient } from "./handlers/patient";
+import {
+  createDoctor,
+  getAllDoctor,
+  getSingleDoctor,
+  updateDoctor,
+  deleteDoctor,
+  updateDoctorPassword
+} from "./handlers/doctor";
+import {
+  createNurse,
+  getAllNurse,
+  getSingleNurse,
+  updateNurse,
+  deleteNurse,
+  updateNursePassword
+} from "./handlers/nurse";
+import {
+  getAllPatients,
+  getSinglePatient,
+  updatePatient,
+  deletePatient,
+  updatePatientPassword
+} from "./handlers/patient";
 import {
   createAppointments,
   getAllAppointments,
@@ -35,6 +55,7 @@ router.delete("/admins/:id", deleteAdmin);
 router.get("/patients", getAllPatients);
 router.get("/patients/:id", getSinglePatient);
 router.put("/patients/:id", updatePatient);
+router.put('/patients/password/:id', updatePatientPassword)
 router.delete("/patients/:id", deletePatient);
 
 // TODO: NURSE HANDLERS
@@ -42,6 +63,7 @@ router.get("/nurses", getAllNurse);
 router.get("/nurses/:id", getSingleNurse);
 router.post("/nurses", createNurse);
 router.put("/nurses/:id", updateNurse);
+router.put("/nurses/password/:id", updateNursePassword);
 router.delete("/nurses/:id", deleteNurse);
 
 // TODO: DOCTOR HANDLERS
@@ -49,6 +71,7 @@ router.get("/doctors", getAllDoctor);
 router.get("/doctors/:id", getSingleDoctor);
 router.post("/doctors", createDoctor);
 router.put("/doctors/:id", updateDoctor);
+router.put("/doctors/password/:id", updateDoctorPassword);
 router.delete("/doctors/:id", deleteDoctor);
 
 
