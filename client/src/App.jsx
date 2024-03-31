@@ -24,13 +24,12 @@ import ListNurse from "./pages/Admin/ListNurse";
 import AppointmentDoc from "./pages/Doctor/AppointmentDoc";
 import PatientlistDoc from "./pages/Doctor/PatientlistDoc";
 import NChangePassword from "./components/UserProfile/Nurse/NChangePassword";
-import DoctorDetails from "./pages/Patient/Dashboard/DoctorDetails";
 import ViewDetails from "./pages/Patient/Dashboard/view more/ViewDetails";
-import Front from "./pages/Patient/Dashboard/PatientDetails";
 import PatientDetails from "./pages/Patient/Dashboard/PatientDetails";
-import Left from "./pages/Patient/Dashboard/Left";
 import PrescriptionForm from "./pages/Doctor/PrescriptionForm";
 import ReportUpload from "./pages/Doctor/ReportUpload";
+import IndividualPatient from "./pages/Doctor/IndividualPatient";
+import IndividualPatientNurse from "./pages/Nurse/IndividualPatientNurse";
 
 const App = () => {
   return (
@@ -46,6 +45,7 @@ const App = () => {
 
           {/* <Route path='/nurse/profile' exact element={<NurseProfile />} /> */}
           <Route path="/nurse/patientlist" exact element={<PatientList />} />
+          <Route path="/nurse/patients/:patientId" exact element={<IndividualPatientNurse />} />
 
           <Route path="/patient/book/:id" exact element={<Book />} />
           <Route path="/patient/bookApp" exact element={<PatientDashboard />} />
@@ -91,8 +91,9 @@ const App = () => {
             exact
             element={<AppointmentDoc />}
           />
-          
+
           <Route path="/doctor/patients" exact element={<PatientlistDoc />} />
+          <Route path="/doctor/patients/:patientId" exact element={<IndividualPatient />} />
           <Route path="/nurse/:activepage" exact element={<NurseProfile />} />
           <Route
             path="/nurse/:activepage"

@@ -37,7 +37,7 @@ const PatientlistDoc = () => {
   }, []);
 
   const navigateToIndividualPatient = (patientId) => {
-      window.location.href = `/doctors/patients/${patientId}`
+      window.location.href = `/doctor/patients/${patientId}`
   }
 
 
@@ -53,16 +53,30 @@ const PatientlistDoc = () => {
           <div className="returnCart">
             <h1>Patient Details</h1>
             {data.map((patient) => (
-              <div key={patient.id} className="card-d" onClick={() => navigateToIndividualPatient(patient.id)}>
-                <div className="background">
-                  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" style={{objectFit: "contain"}} className="ic" />
-                </div>
-                <div className="content">
-                  <h2>Name: {patient.fullName}</h2>
-                  <p className="exp">Email: {patient.email}</p>
-                  <p className="exp">Mobile: {patient.phone}</p>
-                  <p className="exp">Blood Group: {patient.bloodGroup}</p>
-                  <p className="exp">Date of Birth: {patient.dob}</p>
+              <div className="list" onClick={() => navigateToIndividualPatient(patient.id)}>
+                <div className="item">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    alt={patient.fullName}
+                    style={{
+                      height: '150px',
+                      width: '150px',
+                    }}
+                  />
+                  <div className="info">
+                    <div className="name">{patient.fullName.toUpperCase()}</div>
+                    <div className="description">
+                      Phone: {patient.phone}
+                      <br />
+                      Age: {patient.age}
+                      <br />
+                      Gender: {patient.gender}
+                      <br />
+                      Blood Group: {patient.bloodGroup}
+                      <br />
+                      DOB:{patient.dob}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

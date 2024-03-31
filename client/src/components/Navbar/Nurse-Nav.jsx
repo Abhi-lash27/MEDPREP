@@ -38,22 +38,22 @@ function NurseNav() {
             {t("Patients")}
           </Link>
         </li>
-        <li>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/nurse/reports"
-          >
-            {t("Reports")}
-          </Link>
-        </li>
-        <li>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/nurse/records"
-          >
-            {t("Records")}
-          </Link>
-        </li>
+        {/*<li>*/}
+        {/*  <Link*/}
+        {/*    style={{ textDecoration: "none", color: "black" }}*/}
+        {/*    to="/nurse/reports"*/}
+        {/*  >*/}
+        {/*    {t("Reports")}*/}
+        {/*  </Link>*/}
+        {/*</li>*/}
+        {/*<li>*/}
+        {/*  <Link*/}
+        {/*    style={{ textDecoration: "none", color: "black" }}*/}
+        {/*    to="/nurse/records"*/}
+        {/*  >*/}
+        {/*    {t("Records")}*/}
+        {/*  </Link>*/}
+        {/*</li>*/}
         <li>
           <Link
             style={{ textDecoration: "none", color: "black" }}

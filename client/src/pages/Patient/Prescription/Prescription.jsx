@@ -1,13 +1,9 @@
-import SearchBar from "../SearchBar";
 import { useEffect, useState } from "react";
-import IconButton from "@mui/material/IconButton";
-import DownloadIcon from "@mui/icons-material/Download";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import PatientNav from "../../../components/Navbar/Patient-Nav";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next"; // Added import
+import i18next from "i18next";
 import Footer from "../../../components/Footer/Footer";
-import { jwtDecode } from "jwt-decode"; // Corrected import statement
+import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import logger from "../../../../logger";
 
@@ -38,7 +34,7 @@ const Prescription = () => {
         });
 
         if (res.status >= 200 && res.status < 300) {
-          setPrescriptions(res.data.prescriptions);
+          setPrescriptions(res.data.prescriptions.reverse());
         }
 
       } catch (err) {
@@ -50,23 +46,21 @@ const Prescription = () => {
 
   }, []);
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredPrescriptions, setFilteredPrescriptions] = useState([]);
-
-  const handleSearch = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
-    const filtered = prescriptions.filter((prescription) =>
-      prescription.medication.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredPrescriptions(filtered);
-  };
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    };
+    return date.toLocaleDateString('en-US', options);
+  }
 
   return (
     <div>
       <PatientNav />
       <br />
-      <div className="container-p">
+      <div>
         <h1 className="heading">{t("Prescriptions")}</h1>
         <br />
         <div className="one">
@@ -76,14 +70,16 @@ const Prescription = () => {
               <th className="head">{t("Medication")}</th>
               <th className="head">{t("Dosage")}</th>
               <th className="head">{t("Description")}</th>
+              <th className="head">{t("Date")}</th>
             </tr>
             </thead>
             <tbody>
-            {prescriptions.map((prescription, index) => (
-              <tr key={index} className="row">
+            {prescriptions.map((prescription) => (
+              <tr key={prescription.id} className="row">
                 <td className="data">{prescription.medication}</td>
                 <td className="data">{prescription.dosage}</td>
                 <td className="data">{prescription.description}</td>
+                <td className="data">{formatDate(prescription.createdAt)}</td>
               </tr>
             ))}
             </tbody>

@@ -1,53 +1,45 @@
-import React, { useState, useReducer, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Patient.css";
 import HeadBanner from "../../components/Banner/HeadBanner";
 import NurseNav from "../../components/Navbar/Nurse-Nav";
 import Footer from "../../components/Footer/Footer";
-import img1 from "./img.jpg";
-// import Profile from './Profile'
+import axios from "axios";
+import logger from "../../../logger";
+
 const PatientList = () => {
-  const Data = [
-    {
-      Name: "Adbul",
-      Age: 19,
-      Gender: "Male",
-      Blood_group: "o+ve",
-      Siblings: 3,
-      Email: "abdulkalam123aasath@gmail.com",
-      ph: "111111111",
-    },
-    {
-      Name: "Arun",
-      Age: 20,
-      Gender: "Male",
-      Blood_group: "A-ve",
-      Siblings: 0,
-      Email: "arun@gmail.com",
-      ph: "111111111",
-    },
-    {
-      Name: "Abilash",
-      Age: 20,
-      Gender: "Male",
-      Blood_group: "B+ve",
-      Siblings: 2,
-      Email: "abilash@gmail.com",
-      ph: "111111111",
-    },
-    {
-      Name: "Athyul",
-      Age: 19,
-      Gender: "Male",
-      Blood_group: "o+ve",
-      Siblings: 2,
-      Email: "Athyul@gmail.com",
-      ph: "111111111",
-    },
-  ];
-  const [Info, setInfo] = useState(null);
-  const handelclick = (value) => {
-    setInfo(value);
-  };
+  const [data, setData] = useState([]);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("nurse-token")
+    setToken(storedToken)
+
+    if(!storedToken) {
+      return window.location.href = '/'
+    }
+
+    const fetchAllPatients = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/patients`, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`
+          }
+        })
+
+        setData(res.data.patient)
+
+      } catch (err) {
+        logger.error(err)
+      }
+    }
+
+    fetchAllPatients()
+  }, []);
+
+  const navigateToIndividualPatient = (patientId) => {
+    window.location.href = `/nurse/patients/${patientId}`
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,45 +63,45 @@ const PatientList = () => {
   return (
     <div>
       <NurseNav></NurseNav>
-      <br></br>
-      {!Info && (
-        <HeadBanner
-          bannerimage="https://source.unsplash.com/random?wallpapers"
-          heading="Paitent Page"
-        />
-      )}
-      {!Info && (
-        <div className="container">
-          <div className="PatientLayout">
-            <div className="returnCart">
-              <h1>Patient Details</h1>
-              {Data.map((value) => (
-                <div className="list" onClick={() => handelclick(value)}>
-                  <div className="item">
-                    <img src={img1} alt="Patient" />
-                    <div className="info">
-                      <div className="name">{value.fullName}</div>
-                      <div className="description">
-                        Name: {value.fullName}
-                        <br />
-                        Age: {value.email}
-                        <br />
-                        Gender: {value.phone}
-                        <br />
-                        Blood Group: {value.bloodGroup}
-                        <br />
-                        DOB:{value.dob}
-                        ....
-                      </div>
+      <HeadBanner
+        bannerimage="https://source.unsplash.com/random?wallpapers"
+        heading="Patient List"
+      />
+      <div className="container">
+        <div className="PatientLayout">
+          <div className="returnCart">
+            <h1>Patient Details</h1>
+            {data.map((patient) => (
+              <div className="list" onClick={() => navigateToIndividualPatient(patient.id)}>
+                <div className="item">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    alt={patient.fullName}
+                    style={{
+                      height: '150px',
+                      width: '150px',
+                    }}
+                  />
+                  <div className="info">
+                    <div className="name">{patient.fullName.toUpperCase()}</div>
+                    <div className="description">
+                      Phone: {patient.phone}
+                      <br />
+                      Age: {patient.age}
+                      <br />
+                      Gender: {patient.gender}
+                      <br />
+                      Blood Group: {patient.bloodGroup}
+                      <br />
+                      DOB:{patient.dob}
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
-      {Info && <Profile Info={Info} />}
+      </div>
       <Footer />
     </div>
   );
