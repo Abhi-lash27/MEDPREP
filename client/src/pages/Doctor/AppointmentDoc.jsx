@@ -15,6 +15,8 @@ const AppointmentDoc = () => {
 
   const [token, setToken] = useState(null);
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     const storedToken = localStorage.getItem('doctor-token')
 
@@ -70,20 +72,6 @@ const AppointmentDoc = () => {
     }
   }
 
-  const handlePrescriptionUpload = (id, medicine, dosage, description) => {
-    setAppointments((prevAppointments) =>
-      prevAppointments.map((appointment) =>
-        appointment.id === id
-          ? {
-            ...appointment,
-            prescription: { medicine, dosage, description },
-          }
-          : appointment,
-      ),
-    );
-  };
-
-  const { t } = useTranslation();
   const navigateToPrescriptionForm = (patientId) => {
     window.location.href = `/doctor/prescription-form-doctor/${patientId}`; // Redirect to prescription form page with patient ID
   };
@@ -91,11 +79,6 @@ const AppointmentDoc = () => {
   const navigateToUploadForm = (patientId) => {
     window.location.href = `/doctor/upload-form-doctor/${patientId}`;
   };
-
-  const handleFileInputClick = () => {
-    fileInputRef.current.click(); // Trigger click event on file input
-  };
-  const fileInputRef = useRef(null);
 
   return (
     <div>
@@ -143,13 +126,6 @@ const AppointmentDoc = () => {
                 </>
               </td>
               <td>
-                <input
-                  type="file"
-                  style={{ display: "none" }}
-                  ref={fileInputRef}
-                  onChange={(e) => console.log(e.target.files[0])} // Handle file selection
-                />
-                {/* Custom styled button to trigger file input */}
                 <button
                   className="doc-add-prescription-button"
                   onClick={() => navigateToUploadForm(appointment.patientId)}

@@ -105,7 +105,8 @@ model Reports {
   patientId   String   @db.Uuid
   patient     Patient  @relation(fields: [patientId], references: [id])
   title       String
-  file        File[]
+  fileId      String
+  // file        File[]
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -115,8 +116,8 @@ model File {
   id        String   @unique @default(uuid()) @db.Uuid
   type      FileType @default(pdf)
   data      Bytes
-  reportId  String?  @unique @db.Uuid
-  reports   Reports? @relation(fields: [reportId], references: [id])
+  // reportId  String?  @unique @db.Uuid
+  // reports   Reports? @relation(fields: [reportId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

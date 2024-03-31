@@ -8,12 +8,12 @@ import { Reports } from "@prisma/client";
 export const createReport = async (req: Request, res: Response) => {
   logger.info(req.body);
   try {
-    const { patientId, title, file, description } = req.body;
+    const { patientId, title, fileId, description } = req.body;
     const report: Reports = await prisma.reports.create({
       data: {
         patientId,
         title,
-        file: { create: file },
+        fileId,
         description
       }
     });
@@ -30,9 +30,6 @@ export const getReportsByPatientId = async (req: Request, res: Response) => {
     const reports = await prisma.reports.findMany({
       where: {
         patientId: req.params.patientId
-      },
-      include: {
-        file: true
       },
       orderBy: {
         createdAt: "desc"

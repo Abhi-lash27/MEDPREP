@@ -68,6 +68,7 @@ export const getAllPatients = async (_req: Request, res: Response) => {
   try {
     const patient = await prisma.patient.findMany({
       select: {
+        id: true,
         fullName: true,
         email: true,
         dob: true,
@@ -98,6 +99,7 @@ export const getSinglePatient = async (req: Request, res: Response) => {
         id: req.params.id
       },
       select: {
+        id: true,
         fullName: true,
         email: true,
         dob: true,

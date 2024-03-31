@@ -11,8 +11,6 @@ const PrescriptionForm = () => {
   const [medicine, setMedicine] = useState("");
   const [dosage, setDosage] = useState("");
   const [description, setDescription] = useState("");
-  const [todoList, setTodoList] = useState([]);
-  const [isUploaded, setIsUploaded] = useState(false); // State to track if items are uploaded
 
   const [prevPrescriptions, setPrevPrescriptions] = useState([]);
 
@@ -97,6 +95,16 @@ const PrescriptionForm = () => {
     }
   }
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    };
+    return date.toLocaleDateString('en-US', options);
+  }
+
   return (
     <div>
       <DoctorNav />
@@ -136,13 +144,16 @@ const PrescriptionForm = () => {
         </button>
         <br/>
         <br/>
+        <h2>Previous Medications</h2>
+        <br />
         <ul className="doc-todo-list">
           {prevPrescriptions.map((prescription) => (
             <li key={prescription.id} className="doc-todo-item">
               <div>
                 <strong>Medicine:</strong> {prescription.medication},{" "}
                 <strong>Dosage:</strong> {prescription.dosage},{" "}
-                <strong>Description:</strong> {prescription.description}
+                <strong>Description:</strong> {prescription.description}, {" "}
+                <strong>Date:</strong> {formatDate(prescription.createdAt)}
               </div>
               <button
                 onClick={() => handleDelete(prescription.id)}

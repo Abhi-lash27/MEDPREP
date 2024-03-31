@@ -92,6 +92,7 @@ export const getSingleDoctor = async (req: Request, res: Response) => {
         id: req.params.id
       },
       select: {
+        id: true,
         fullName: true,
         phone: true,
         email: true,

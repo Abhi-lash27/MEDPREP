@@ -1,6 +1,5 @@
-import React from "react";
 import SearchBar from "../SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import DownloadIcon from "@mui/icons-material/Download";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -8,90 +7,90 @@ import PatientNav from "../../../components/Navbar/Patient-Nav";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next"; // Added import
 import Footer from "../../../components/Footer/Footer";
+import { jwtDecode } from "jwt-decode"; // Corrected import statement
+import axios from "axios";
+import logger from "../../../../logger";
 
 const Prescription = () => {
   const { t } = useTranslation();
+
+  const [prescriptions, setPrescriptions] = useState([]);
+  const [token, setToken] = useState(null);
 
   const handleChange = (e) => {
     i18next.changeLanguage(e.target.value);
   };
 
-  const Data = [
-    {
-      Name: "A Samples",
-    },
-    {
-      Name: "B Samples",
-    },
-    {
-      Name: "D Samples",
-    },
-    {
-      Name: "F Samples",
-    },
-  ];
+  useEffect(() => {
+    const storedToken = localStorage.getItem("patient-token");
+    setToken(storedToken);
+
+    const decodeToken = jwtDecode(storedToken);
+    const { id } = decodeToken;
+
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/patients/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${storedToken}`
+          }
+        });
+
+        if (res.status >= 200 && res.status < 300) {
+          setPrescriptions(res.data.prescriptions);
+        }
+
+      } catch (err) {
+        logger.error(err);
+      }
+    };
+
+    fetchData();
+
+  }, []);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredItems, setFilteredItems] = useState([...Data]);
-
-  const toggleDownload = () => {
-    alert("Akalya warning");
-  };
+  const [filteredPrescriptions, setFilteredPrescriptions] = useState([]);
 
   const handleSearch = (event) => {
     const searchTerm = event.target.value;
     setSearchTerm(searchTerm);
-    const filtered = Data.filter((item) =>
-      item.Name.toLowerCase().includes(searchTerm.toLowerCase()),
+    const filtered = prescriptions.filter((prescription) =>
+      prescription.medication.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredItems(filtered);
+    setFilteredPrescriptions(filtered);
   };
 
   return (
     <div>
       <PatientNav />
-      <h1 className="heading">{"Prescription"}</h1>
-      <SearchBar handleSearch={handleSearch}></SearchBar>
-      {Data && (
-        <div className="container">
-          <div className="PatientLayout">
-            <div className="PatientLayout">
-              <div className="returnCart">
-                <br></br>
-                {filteredItems.map((value) => (
-                  <div className="list">
-                    <div className="item">
-                      <img
-                        src="https://tse1.mm.bing.net/th?id=OIP.DESibMnCsqIPZhsedjkAAwHaHa&pid=Api&P=0&h=180"
-                        alt="Patient"
-                      />
-                      <div className="info">
-                        <div className="name">{value.Name}</div>
-                        <div className="description">....</div>
-                        <div className="options">
-                          <IconButton onClick={toggleDownload}>
-                            <RemoveRedEyeIcon></RemoveRedEyeIcon>
-                          </IconButton>
-                          <IconButton onClick={toggleDownload}>
-                            <DownloadIcon></DownloadIcon>
-                          </IconButton>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {filteredItems.length === 0 && (
-            <div>
-              <h1>{t("No prescription found")}</h1>
-            </div>
-          )}
-          <Footer />
+      <br />
+      <div className="container-p">
+        <h1 className="heading">{t("Prescriptions")}</h1>
+        <br />
+        <div className="one">
+          <table className="tb">
+            <thead>
+            <tr className="row">
+              <th className="head">{t("Medication")}</th>
+              <th className="head">{t("Dosage")}</th>
+              <th className="head">{t("Description")}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {prescriptions.map((prescription, index) => (
+              <tr key={index} className="row">
+                <td className="data">{prescription.medication}</td>
+                <td className="data">{prescription.dosage}</td>
+                <td className="data">{prescription.description}</td>
+              </tr>
+            ))}
+            </tbody>
+          </table>
         </div>
-      )}
+      </div>
+      <Footer />
     </div>
   );
 };
