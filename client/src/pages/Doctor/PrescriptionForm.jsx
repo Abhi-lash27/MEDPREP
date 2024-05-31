@@ -6,6 +6,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import logger from "../../../logger";
+import { useTranslation } from "react-i18next";
 
 const PrescriptionForm = () => {
   const [medicine, setMedicine] = useState("");
@@ -15,7 +16,7 @@ const PrescriptionForm = () => {
   const [prevPrescriptions, setPrevPrescriptions] = useState([]);
 
   const [token, setToken] = useState(null);
-
+  const {t} = useTranslation();
   const { patientId } = useParams()
 
   useEffect(() => {
@@ -109,9 +110,9 @@ const PrescriptionForm = () => {
     <div>
       <DoctorNav />
       <div className="doc-form-container">
-        <h2 className="doc-title">Prescription Form</h2>
+        <h2 className="doc-title">{t("PrescriptionForm")}</h2>
         <div className="doc-form-group">
-          <label className="doc-label">Medicine:</label>
+          <label className="doc-label">{t("Medication")}:</label>
           <input
             type="text"
             value={medicine}
@@ -121,7 +122,7 @@ const PrescriptionForm = () => {
         </div>
 
         <div className="doc-form-group">
-          <label className="doc-label">Dosage:</label>
+          <label className="doc-label">{t("Dosage")}:</label>
           <input
             type="text"
             value={dosage}
@@ -131,7 +132,7 @@ const PrescriptionForm = () => {
         </div>
 
         <div className="doc-form-group">
-          <label className="doc-label">Description:</label>
+          <label className="doc-label">{t("Description")}:</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -140,26 +141,27 @@ const PrescriptionForm = () => {
         </div>
 
         <button onClick={addMedicine} className="doc-btn-add">
-          Add Medicine
+          {t("AddMedicine")}
         </button>
         <br/>
         <br/>
-        <h2>Previous Medications</h2>
+        <h2>{t("PreviousMedications")}</h2>
         <br />
         <ul className="doc-todo-list">
           {prevPrescriptions.map((prescription) => (
             <li key={prescription.id} className="doc-todo-item">
               <div>
-                <strong>Medicine:</strong> {prescription.medication},{" "}
-                <strong>Dosage:</strong> {prescription.dosage},{" "}
-                <strong>Description:</strong> {prescription.description}, {" "}
-                <strong>Date:</strong> {formatDate(prescription.createdAt)}
+                <strong>{t("Medication")}:</strong> {prescription.medication},{" "}<br></br>
+                <strong>{t("Dosage")}:</strong> {prescription.dosage},{" "}<br></br>
+                <strong>{t("Description")}:</strong> {prescription.description}, {" "}<br></br>
+                <strong>{t("Date")}:</strong> {formatDate(prescription.createdAt)}
               </div>
+              <br></br>
               <button
                 onClick={() => handleDelete(prescription.id)}
                 className="doc-btn-delete"
               >
-                Delete
+                {t("Delete")}
               </button>
             </li>
           ))}

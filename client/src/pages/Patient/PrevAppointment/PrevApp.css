@@ -1,116 +1,59 @@
-.heading{
-  text-align: center;
-  color:black;
-  font-size: 40px;
-  background-color: white;
-  padding: 10px;
-  padding-bottom: 5px;
-  
-  /* font-family: 'Lucida Sans'; */
+.patient-one {
+  width: 90%;
+  margin: auto;
+  overflow: auto; /* Enable overflow for both X and Y axes */
 }
 
-/* .one{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  min-height:30vh;
-  margin-left: 80px;
-  margin-right: 80px;
-} */
-
-.one{
-  position: relative;
-  /* width: fit-content;
-  height:fit-content; */
-  background: transparent;
-  border:2px solid rgba(225,225,225,.5);
-  backdrop-filter: blur(200px);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  min-height:30vh;
-  margin-left: 80px;
-  margin-right: 80px;
-}
-
-
-.container-p{
-  background-image:url('https://www.smallbiztechnology.com/wp-content/uploads/2015/12/scheduling-appointments.jpg');
-  background-repeat:no-repeat;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  padding: 0;
-  margin: 0;
-
-}
-
-.tb {
+.patient-tb {
+  width: 90%;
+  margin: auto;
   border-collapse: collapse;
-  width: 100%;
-  
-  /* backdrop-filter: blur(5px); */
-
-}
-.head{
-  vertical-align: middle;
-  justify-content: space-around;
-  
-}
-.head ,.data {
-  height: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  padding:10px;
-
+  margin-top: 20px;
 }
 
-.row:nth-child(even){
-  background-color: #f2f2f2}
-
- .tb tbody .row:hover .data {
-      background-color: rgb(110, 235, 194);
-  }
-
-  .head {
-background-color: #363435f9;
-color: white;
+.patient-heading {
+  text-align: center;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-.one {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: fit-content;
-    height:fit-content;
-}
-body {
-    background-size:cover;
-}
-.tb{
-   border-collapse: collapse;
-  width: 100%;
-  min-height: 30px;
-  width: fit-content;
-  height:fit-content;
-  
-}
+
+.patient-row {
+  border-bottom: 1px solid #ddd; /* Add border-bottom to each row */
 }
 
-@media screen and (max-width: 480px) {
-.one {
-  width: fit-content;
-  height:fit-content;
+.patient-head,
+.patient-data {
+  border-right: 1px solid #ddd; /* Add border-right to each cell */
+  padding: 10px;
 }
-body{
-  background-position: center;
-  background-size:cover;
 
+.patient-head:last-child,
+.patient-data:last-child {
+  border-right: none; /* Remove border-right for the last cell in each row */
 }
-table{
-  width: fit-content;
-  height:fit-content;
+
+.patient-head {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: gray;
 }
+
+.patient-data {
+  padding: 10px;
+  text-align: center;
+}
+
+
+.patient-action-btn {
+  background-color: red;
+  color: white;
+  height: 30px;
+  width: 80px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.patient-action-btn:hover {
+  background-color: darkred;
 }

@@ -17,6 +17,22 @@ i18next
                 If the patient receives a new diagnosis, medication or treatment plan during their visit, a nurse may be responsible for updating their medical record with this information. Maintaining detailed and accurate medical records is critical for ensuring patients receive the best possible care`,
           nurse: "Nurse Home Page",
 
+          //navbar
+          Home: "Home",
+          //home
+          ViewAppointments:"View Appointments",
+          PatientList: "Patients List",
+          MyProfile: "My Profile",
+          Resp: "Responsibilites of Doctor",
+          WelcomeDoctor: "Welcome Doctor",
+
+          //docdash
+          number1doc: "Medical Advice and Prescriptions",
+          number2doc: "Medical Records Management",
+          number3doc: "Preserving Patient Privacy",
+          number4doc: "Feedback and Improvement",
+          number1docdes: `Maintain accurate and up-to-date electronic medical records for each patient. Document medical histories, diagnoses, treatments, and prescriptions.`,
+
           //  patient
           //info
           Name: "Name",
@@ -26,6 +42,8 @@ i18next
           BloodGroup: "Blood Group",
 
           RecentlyAccessedFiles: "Recently Accessed Files",
+
+          
 
           //book
           book: "Book Appointment",
@@ -64,6 +82,13 @@ i18next
           //report
 
           //pres
+          Dosage: "Dosage",
+          UploadReport: "Upload Report",
+          AddPrescription: "Add Prescription",
+          SelectReport: "Select Report",
+          PrescriptionForm: "Prescription Form",
+          AddMedicine: "Add Medicine",
+          PreviousMedications: "Previous Medication",
 
           //doc-appointment
           Status: "Status",
@@ -76,6 +101,8 @@ i18next
           Prescriptions: "Prescriptions",
           //doc-accountsettings
           Phone: "Phone",
+          Settings: "Account Settings",
+          ChangePassword: "Change Password",
 
           //change Password
           change: "Change Password",
@@ -93,6 +120,32 @@ i18next
           res1: `மருத்துவர்கள் தங்கள் உறவினர்களின் ஆரோக்கியத்தை சரியாக பதிவு செய்ய மற்றும் பராமரிக்க வேண்டும். பல மருத்துவர்கள் இந்த செயல்பாட்டை தொடங்கும் போது உறவினர்களுக்கு முன்னர் வரையறுக்கப்பட்ட அடிகளையும் அறிகுறிகளையும், தற்காலிகமாக பயன்பாடுகளையும், அல்லது தொடர்ந்த குடும்ப மருத்துவ தகவல்களை அறிய விரும்புகின்றனர். அவர்கள் தானாக்கிய வலிமையான மருத்துவ பதிவுகளை பரப்பவும் சரியான மருத்துவ 
                பராமரிப்புகளுக்கு மிகவும் முக்கியமாகும். உறவினர் தங்கள் வருகையில் புதிய அடிகள், மருந்து அல்லது சிகிச்சை திட்டத்தைப் பெறுவதன் மூலம் உறவினருக்கு புதிய அறிகுறிகளை பதிவு செய்ய முடியும். விரிவான மற்றும் சரியான மருத்துவ பதிவுகளை பரப்புவது உறவினர்களுக்கு சிறந்த முக்கியமானது.`,
           nurse: "செவிலியர்  முகப்பு",
+
+          //doctor
+          //dash
+          number1doc: "மருத்துவ ஆலோசனை மற்றும் பரிந்துரைகள்",
+          number2doc: "மருத்துவ பதிவுகள் மேலாண்மை",
+          number3doc: "நோயாளியின் தனியுரிமையைப் பாதுகாத்தல்",
+          number4doc: "கருத்து மற்றும் மேம்பாடு",
+          number1docdes: "நோயாளிகளுக்கு மருத்துவ ஆலோசனை வழங்கவும் மற்றும் அவர்களின் கவலைகளை நிவர்த்தி செய்யவும். மருந்துகளை பரிந்துரைக்கவும் மற்றும் மின்னணு மருந்துகளை வழங்கவும்",
+
+          //navbar
+          Home: "ஹோம்",
+          Appointments: "சந்திப்புகள்",
+          Patients: "நோயாளிகள்",
+          Profile: "சுயவிவரம்",
+          Logout:"வெளியேறு",
+
+          //home
+          ViewAppointments:"சந்திப்புகளைப் பார்க்க",
+          PatientList: "நோயாளிகளின் பட்டியல்",
+          MyProfile: "என் சுயவிவரம்",
+          Settings: "அமைப்புகள்",
+          ChangePassword: "கடவுச்சொல்லை மாற்று",
+          Medication: "மருந்து",
+          Description: "விளக்கம்",
+          WelcomeDoctor: "வருக டாக்டர்",
+          Resp: "மருத்துவரின் பொறுப்புகள்",
 
           //  patient
           //info
@@ -141,6 +194,21 @@ i18next
           //report
 
           //pres
+          Dosage: "மருந்தளவு",
+          Action: "நடவடிக்கை",
+          UploadReport:"அறிக்கையை பதிவேற்ற",
+          AddPrescription:"மருந்துச் சீட்டைப் பதிவேற்ற",
+          AddMedicine: "பதிவேற்றவும்",
+          PreviousMedications: "முந்தைய மருந்துகள்",
+          Delete: "அழி",
+          PrescriptionForm: "மருந்துப் படிவம்",
+          Upload: "பதிவேற்றவும்",
+          Submit: "சமர்ப்பிக்கவும்",
+          SelectReport: "அறிக்கையைத் தேர்ந்தெடுக்கவும்",
+
+          //patientdetails
+          PatientDetails: "நோயாளி விவரங்கள்",
+
 
           //doc-appointment
           Status: "நிலை",
@@ -247,6 +315,15 @@ i18next
             chirurgicales, les médicaments actuels, les allergies et les informations médicales familiales pertinentes. Elles peuvent également interroger le patient sur les symptômes qu'il ressent actuellement et enregistrer leurs signes vitaux.
             Si le patient reçoit un nouveau diagnostic, un nouveau médicament ou un plan de traitement lors de sa visite, une infirmière peut être responsable de mettre à jour son dossier médical avec ces informations. Maintenir des dossiers médicaux détaillés et précis est essentiel pour garantir que les patients reçoivent les meilleurs soins possibles.`,
           nurse: `Page d'accueil des infirmières`,
+
+
+          Description:"विवरण",
+          Medication:"दवाई",
+          Dosage: "दवा की खुराक",
+          Action:"कार्रवाई",
+          Delete: "मिटाना",
+          UploadReport:"रिपोर्ट अपलोड करें",
+          AddPrescription:"प्रिस्क्रिप्शन जोड़ें",
 
           //  patient
           //info

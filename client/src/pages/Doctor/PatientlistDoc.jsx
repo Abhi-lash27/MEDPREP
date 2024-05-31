@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import DoctorNav from "../../components/Navbar/Doctor-Nav";
 import HeadBanner from "../../components/Banner/HeadBanner";
 import Footer from "../../components/Footer/Footer";
+import { useTranslation, Trans } from "react-i18next";
 import axios from "axios";
 import logger from "../../../logger";
 
 const PatientlistDoc = () => {
   const [data, setData] = useState([]);
   const [token, setToken] = useState(null);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("doctor-token")
@@ -46,12 +49,12 @@ const PatientlistDoc = () => {
       <DoctorNav />
       <HeadBanner
         bannerimage="https://source.unsplash.com/random?wallpapers"
-        heading="Patient List"
+        heading={t("PatientList")}
       />
       <div className="container">
         <div className="PatientLayout">
           <div className="returnCart">
-            <h1>Patient Details</h1>
+            <h1>{t("PatientDetails")}</h1>
             {data.map((patient) => (
               <div className="list" onClick={() => navigateToIndividualPatient(patient.id)}>
                 <div className="item">

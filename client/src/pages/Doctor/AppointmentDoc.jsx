@@ -85,7 +85,7 @@ const AppointmentDoc = () => {
       <DoctorNav />
       <HeadBanner
         bannerimage="https://source.unsplash.com/random?wallpapers"
-        heading="Appointments"
+        heading={t("Appointments")}
       />
       <div className="appointment-table mt-4">
         <table>
@@ -130,7 +130,7 @@ const AppointmentDoc = () => {
                   className="doc-add-prescription-button"
                   onClick={() => navigateToUploadForm(appointment.patientId)}
                 >
-                  Upload Report
+                  {t("UploadReport")}
                 </button>
               </td>
               <td>
@@ -139,7 +139,7 @@ const AppointmentDoc = () => {
                   className="doc-add-prescription-button"
                   onClick={() => navigateToPrescriptionForm(appointment.patientId)}
                 >
-                  {t("Add Prescription")}
+                  {t("AddPrescription")}
                 </button>
               </td>
             </tr>

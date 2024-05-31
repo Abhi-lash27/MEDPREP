@@ -6,6 +6,7 @@ import Footer from "../../../components/Footer/Footer";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import logger from "../../../../logger";
+import './PrescriptionPatient.css'
 
 const Prescription = () => {
   const { t } = useTranslation();
@@ -60,26 +61,26 @@ const Prescription = () => {
     <div>
       <PatientNav />
       <br />
-      <div>
-        <h1 className="heading">{t("Prescriptions")}</h1>
+      <div >
+        <h1 className="patient-pres-heading">{t("Prescriptions")}</h1>
         <br />
-        <div className="one">
-          <table className="tb">
+        <div className="patient-pres-one">
+          <table className="patient-pres-tb">
             <thead>
-            <tr className="row">
-              <th className="head">{t("Medication")}</th>
-              <th className="head">{t("Dosage")}</th>
-              <th className="head">{t("Description")}</th>
-              <th className="head">{t("Date")}</th>
+            <tr className="patient-pres-row">
+              <th className="patient-pres-head">{t("Medication")}</th>
+              <th className="patient-pres-head">{t("Dosage")}</th>
+              <th className="patient-pres-head">{t("Description")}</th>
+              <th className="patient-pres-head">{t("Date")}</th>
             </tr>
             </thead>
             <tbody>
             {prescriptions.map((prescription) => (
-              <tr key={prescription.id} className="row">
-                <td className="data">{prescription.medication}</td>
-                <td className="data">{prescription.dosage}</td>
-                <td className="data">{prescription.description}</td>
-                <td className="data">{formatDate(prescription.createdAt)}</td>
+              <tr key={prescription.id} className="patient-pres-row">
+                <td className="patient-pres-data">{prescription.medication}</td>
+                <td className="patient-pres-data">{prescription.dosage}</td>
+                <td className="patient-pres-data">{prescription.description}</td>
+                <td className="patient-pres-data">{formatDate(prescription.createdAt)}</td>
               </tr>
             ))}
             </tbody>

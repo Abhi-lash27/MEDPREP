@@ -51,7 +51,7 @@ export default function SignInSide() {
         switch (role) {
           case "Admin":
             storageKey = "admin-token";
-            redirectPath = "/admin";
+            redirectPath = "/Admin/AddDoctor";
             break;
           case "Doctor":
             storageKey = "doctor-token";

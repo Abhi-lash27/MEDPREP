@@ -75,13 +75,13 @@ const ChangePassword = () => {
   return (
     <div className="accountsettings">
       <h1 className="acnt-head">
-        <Trans i18nKey="change">Change Password </Trans>
+        <Trans i18nKey="change">{t("ChangePassword")} </Trans>
       </h1>
 
       <div className="form">
         <div className="form-group">
           <label>
-            <Trans i18nKey="newpass">New Password </Trans>
+            <Trans i18nKey="newpass">{t("NewPassword")} </Trans>
             <span>*</span>
           </label>
           <input
@@ -98,7 +98,7 @@ const ChangePassword = () => {
         {passwordError && <div style={{color: 'red'}} className="error">{passwordError}</div>}
         <div className="form-group">
           <label>
-            <Trans i18nKey="confirm">Confirm Password</Trans>
+            <Trans i18nKey="confirm">{t("ConfirmPassword")}</Trans>
             <span>*</span>
           </label>
           <input
@@ -111,7 +111,7 @@ const ChangePassword = () => {
         </div>
       </div>
       <button className="save-btn" onClick={updatePassword}>
-        <Trans i18nKey="save">Save Changes</Trans>
+        <Trans i18nKey="save">{t("SaveChanges")}</Trans>
       </button>
     </div>
   );

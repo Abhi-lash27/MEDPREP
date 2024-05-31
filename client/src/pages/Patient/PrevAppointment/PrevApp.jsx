@@ -75,45 +75,41 @@ const PrevApp = () => {
     <div>
       <PatientNav />
       <br />
-      <div className="container-p">
-        <h1 className="heading">{t("Previous Appointment")}</h1>
+      <div className="patient-container">
+        <h1 className="patient-heading">{t("Previous Appointment")}</h1>
         <br />
-        <div className="one">
-          <table className="tb">
+        <div className="patient-one">
+          <table className="patient-tb">
             <thead>
-            <tr className="row">
-              <th className="head">{t("Name")}</th>
-              <th className="head">{t("Date")}</th>
-              <th className="head">{t("Time")}</th>
-              <th className="head">{t("Doctor")}</th>
-              <th className="head">{t("Reason")}</th>
-              <th className="head">{t("Status")}</th>
-              <th className="head">{t("Action")}</th>
-            </tr>
+              <tr className="patient-row">
+                <th className="patient-head">{t("Name")}</th>
+                <th className="patient-head">{t("Date")}</th>
+                <th className="patient-head">{t("Time")}</th>
+                <th className="patient-head">{t("Doctor")}</th>
+                <th className="patient-head">{t("Reason")}</th>
+                <th className="patient-head">{t("Status")}</th>
+                <th className="patient-head">{t("Action")}</th>
+              </tr>
             </thead>
             <tbody>
-            {data.map((appointment) => (
-              <tr key={appointment.id} className="row">
-                <td className="data">{appointment.patientName}</td>
-                <td className="data">{appointment.appointmentDate}</td>
-                <td className="data">{appointment.appointmentTiming}</td>
-                <td className="data">{appointment.doctorName}</td>
-                <td className="data">{appointment.reason}</td>
-                <td className="data">{appointment.status}</td>
-                <td className="data">
-                  <button style={{
-                    backgroundColor: "red",
-                    color: "white",
-                    height: "20px",
-                    width: "70px",
-                    border: "none",
-                    borderRadius: "5px"
-                  }}
-                  onClick={() => handleDelete(appointment.id)}
-                  >Delete</button>
-                </td>
-              </tr>
-            ))}
+              {data.map((appointment) => (
+                <tr key={appointment.id} className="patient-row">
+                  <td className="patient-data">{appointment.patientName}</td>
+                  <td className="patient-data">{appointment.appointmentDate}</td>
+                  <td className="patient-data">{appointment.appointmentTiming}</td>
+                  <td className="patient-data">{appointment.doctorName}</td>
+                  <td className="patient-data">{appointment.reason}</td>
+                  <td className="patient-data">{appointment.status}</td>
+                  <td className="patient-data">
+                    <button
+                      className="patient-action-btn"
+                      onClick={() => handleDelete(appointment.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

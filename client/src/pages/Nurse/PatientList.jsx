@@ -5,10 +5,12 @@ import NurseNav from "../../components/Navbar/Nurse-Nav";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
 import logger from "../../../logger";
+import { useTranslation } from "react-i18next";
 
 const PatientList = () => {
   const [data, setData] = useState([]);
   const [token, setToken] = useState(null);
+  const {t} = useTranslation();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("nurse-token")
@@ -70,7 +72,7 @@ const PatientList = () => {
       <div className="container">
         <div className="PatientLayout">
           <div className="returnCart">
-            <h1>Patient Details</h1>
+            <h1>{t("PatientDetails")}</h1>
             {data.map((patient) => (
               <div className="list" onClick={() => navigateToIndividualPatient(patient.id)}>
                 <div className="item">

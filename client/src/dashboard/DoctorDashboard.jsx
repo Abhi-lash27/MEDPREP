@@ -3,10 +3,12 @@ import DoctorNav from "../components/Navbar/Doctor-Nav";
 import HeadBanner from "../components/Banner/HeadBanner";
 import Footer from "../components/Footer/Footer";
 import Hero from "../components/Hero/DocHero";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import "./DoctorDashboard.css";
 
 const DoctorDashboard = () => {
+
+  const {t} = useTranslation();
   return (
     <div className="doctor-dashboard">
       <DoctorNav />
@@ -17,18 +19,16 @@ const DoctorDashboard = () => {
       <Hero />
       <div className="dashboard-content">
         <section className="responsibilities-section">
-          <h2 className="responsibility-heading">RESPONSIBILITES OF DOCTOR</h2>
+          <h2 className="responsibility-heading">{t("Resp")}</h2>
           <div className="responsibility-container">
             <div className="responsibility-item">
-              <h2>1. Medical Advice and Prescriptions:</h2>
+              <h2>1. {t("number1doc")}:</h2>
               <p>
-                Provide medical advice to patients and address their concerns.
-                <br />
-                Prescribe medications and issue electronic prescriptions.
+                {t("number1docdes")}
               </p>
             </div>
             <div className="responsibility-item">
-              <h2>2. Medical Records Management:</h2>
+              <h2>2. {t("number2doc")}:</h2>
               <p>
                 Maintain accurate and up-to-date electronic medical records for
                 each patient.
@@ -38,7 +38,7 @@ const DoctorDashboard = () => {
               </p>
             </div>
             <div className="responsibility-item">
-              <h2>3. Preserving Patient Privacy:</h2>
+              <h2>3. {t("number3doc")}:</h2>
               <p>
                 Adhere to strict privacy and security protocols to protect
                 patient information.
@@ -47,7 +47,7 @@ const DoctorDashboard = () => {
               </p>
             </div>
             <div className="responsibility-item">
-              <h2>4. Feedback and Improvement:</h2>
+              <h2>4. {t("number4doc")}:</h2>
               <p>
                 Seek feedback from patients regarding their online healthcare
                 experience.

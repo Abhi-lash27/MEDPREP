@@ -1,0 +1,34 @@
+.patient-pres-tb {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.patient-pres-row {
+  border-bottom: 1px solid #ddd;
+}
+.patient-pres-one {
+  width: 90%;
+  margin: auto;
+  overflow: auto;
+}
+
+.patient-pres-head,
+.patient-pres-data {
+  border-right: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.patient-pres-head:last-child,
+.patient-pres-data:last-child {
+  border-right: none;
+}
+
+.patient-pres-heading {
+  text-align: center;
+}
+.patient-pres-head {
+  background-color: gray;
+}

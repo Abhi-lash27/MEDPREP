@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
-import IconButton from "@mui/material/IconButton";
-import DownloadIcon from "@mui/icons-material/Download";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import PatientNav from "../../../components/Navbar/Patient-Nav";
 import Footer from "../../../components/Footer/Footer";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { toast } from "react-toastify";
+import './Reports.css'
+import { useTranslation } from "react-i18next";
 
 const Reports = () => {
   const [reports, setReports] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
   const [token, setToken] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const {t} = useTranslation()
 
   useEffect(() => {
     const storedToken = localStorage.getItem("patient-token");
@@ -104,6 +104,7 @@ const Reports = () => {
                     <img
                       src="https://tse1.mm.bing.net/th?id=OIP.DESibMnCsqIPZhsedjkAAwHaHa&pid=Api&P=0&h=180"
                       alt="Patient"
+                      className="patient-img"
                     />
                     <div className="info">
                       <div>
@@ -112,18 +113,13 @@ const Reports = () => {
                       <div className="description">
                         <h3>{report.description}</h3>
                       </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "flex-end",
-                        }}
-                      >
-                        <IconButton
+                      <div className="icon-container">
+                        <button
+                          className="icon-btn"
                           onClick={() => handleDownload(report.fileId)}
                         >
-                          <DownloadIcon />
-                        </IconButton>
+                          <span className="icon">&#x21E9;</span>
+                        </button>
                       </div>
                     </div>
                   </div>

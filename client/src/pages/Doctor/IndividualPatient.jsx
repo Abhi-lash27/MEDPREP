@@ -118,42 +118,71 @@ const IndividualPatient = () => {
   return (
     <div>
       <DoctorNav />
-      <div>
+      <div  style={{alignItems:"center", textAlign: 'center'}}>
         <h1 className="heading">{t("Prescriptions")}</h1>
         <br />
         <div className="one">
           {prescriptions.length === 0 ? (
             <p>No prescriptions found</p>
           ) : (
-            <table className="tb">
-              <thead>
-              <tr className="row">
-                <th className="head">{t("Medication")}</th>
-                <th className="head">{t("Dosage")}</th>
-                <th className="head">{t("Description")}</th>
-                <th className="head">{t("Date")}</th>
-                <th className="head">Actions</th>
-              </tr>
-              </thead>
-              <tbody>
-              {prescriptions.map((prescription) => (
-                <tr key={prescription.id} className="row">
-                  <td className="data">{prescription.medication}</td>
-                  <td className="data">{prescription.dosage}</td>
-                  <td className="data">{prescription.description}</td>
-                  <td className="data">{formatDate(prescription.createdAt)}</td>
-                  <td className="data">
-                    <button
-                      onClick={() => deletePrescription(prescription.id)}
-                      className="doc-btn-delete"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-              </tbody>
-            </table>
+            // <table className="tb">
+            //   <thead>
+            //   <tr className="row">
+            //     <th className="head">{t("Medication")}</th>
+            //     <th className="head">{t("Dosage")}</th>
+            //     <th className="head">{t("Description")}</th>
+            //     <th className="head">{t("Date")}</th>
+            //     <th className="head">Actions</th>
+            //   </tr>
+            //   </thead>
+            //   <tbody >
+            //   {prescriptions.map((prescription) => (
+            //     <tr key={prescription.id} className="row">
+            //       <td className="data">{prescription.medication}</td>
+            //       <td className="data">{prescription.dosage}</td>
+            //       <td className="data">{prescription.description}</td>
+            //       <td className="data">{formatDate(prescription.createdAt)}</td>
+            //       <td className="data">
+            //         <button
+            //           onClick={() => deletePrescription(prescription.id)}
+            //           className="doc-btn-delete"
+            //         >
+            //           Delete
+            //         </button>
+            //       </td>
+            //     </tr>
+            //   ))}
+            //   </tbody>
+            // </table>
+            <table className="tb" style={{ margin: "0 auto", borderCollapse: "collapse", width: "80%", }}>
+  <thead>
+    <tr className="row" style={{ backgroundColor: "#f2f2f2" }}>
+      <th className="head" style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>{t("Medication")}</th>
+      <th className="head" style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>{t("Dosage")}</th>
+      <th className="head" style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>{t("Description")}</th>
+      <th className="head" style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>{t("Date")}</th>
+      <th className="head" style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>{t("Action")}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {prescriptions.map((prescription) => (
+      <tr key={prescription.id} className="row" style={{ borderBottom: "1px solid #ddd" }}>
+        <td className="data" style={{ padding: "10px" }}>{prescription.medication}</td>
+        <td className="data" style={{ padding: "10px" }}>{prescription.dosage}</td>
+        <td className="data" style={{ padding: "10px" }}>{prescription.description}</td>
+        <td className="data" style={{ padding: "10px" }}>{formatDate(prescription.createdAt)}</td>
+        <td className="data">
+                  <button
+                       onClick={() => deletePrescription(prescription.id)}
+                       className="doc-btn-delete"
+                     >
+                       {t("Delete")}
+                     </button>
+             </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
           )}
         </div>
       </div>
@@ -201,7 +230,7 @@ const IndividualPatient = () => {
                               onClick={() => deleteReport(report.id)}
                               className="doc-btn-delete"
                             >
-                              Delete
+                              {t("Delete")}
                             </button>
                           </div>
 

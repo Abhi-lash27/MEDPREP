@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import logger from "../../../logger";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ReportUpload = () => {
 
@@ -15,7 +16,7 @@ const ReportUpload = () => {
   const [fileId, setFileId] = useState(null);
 
   const [token, setToken] = useState(null);
-
+  const {t} = useTranslation();
   const { patientId } = useParams()
 
   useEffect(() => {
@@ -83,10 +84,10 @@ const ReportUpload = () => {
       <DoctorNav />
       <div className="report-upload-container">
         <div className="upload-form">
-          <h2 className="doc-title">Upload Report</h2>
+          <h2 className="doc-title">{t("UploadReport")}</h2>
           <form>
             <div className="form-group">
-              <label htmlFor="name" className="form-label">Name:</label>
+              <label htmlFor="name" className="form-label">{t("Name")}:</label>
               <input
                 type="text"
                 id="name"
@@ -98,7 +99,7 @@ const ReportUpload = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="file" className="form-label">Select Report:</label>
+              <label htmlFor="file" className="form-label">{t("SelectReport")}:</label>
               <input
                 type="file"
                 id="file"
@@ -110,10 +111,10 @@ const ReportUpload = () => {
               />
             </div>
             <div>
-              <button type="button" onClick={fileUpload} className="upload-button">Upload</button>
+              <button type="button" onClick={fileUpload} className="upload-button">{t("Upload")}</button>
             </div>
             <div className="doc-form-group">
-              <label className="doc-label">Description:</label>
+              <label className="doc-label">{t("Description")}:</label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -122,7 +123,7 @@ const ReportUpload = () => {
             </div>
             <br />
             <div>
-              <button type="submit" onClick={handleSubmit} className="submit-button">Submit</button>
+              <button type="submit" onClick={handleSubmit} className="submit-button">{t("Submit")}</button>
             </div>
           </form>
         </div>
